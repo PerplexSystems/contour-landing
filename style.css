@@ -104,10 +104,19 @@ section + section{margin-top:26px}
 .steps span{border:1px solid var(--rule);padding:8px 12px}
 
 .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:26px}
-.card{background:var(--panel);border:1px solid var(--rule);padding:18px 16px}
+.card{position:relative;background:var(--panel);border:1px solid var(--rule);padding:18px 16px;transition:border-color .15s,background-color .15s}
 .card p{font-size:13.5px;line-height:1.5}
+.card h3{display:flex;align-items:baseline;gap:8px}
 .card h3 a{border:0;color:var(--ink);text-decoration:none}
-.card h3 a:hover{color:var(--accent)}
+/* the title link covers the whole card, so anywhere on it is clickable */
+.card h3 a::after{content:"";position:absolute;inset:0}
+.card h3::after{content:"→";margin-left:auto;color:var(--accent);opacity:.5;transition:transform .15s,opacity .15s}
+.card:hover{border-color:var(--accent)}
+.card:hover h3 a{color:var(--accent)}
+.card:hover h3::after{opacity:1;transform:translateX(3px)}
+.card:has(a:focus-visible){border-color:var(--accent);outline:2px solid var(--accent);outline-offset:2px}
+.card h3 a:focus-visible{outline:0}
+@media (prefers-reduced-motion:reduce){.card,.card h3::after{transition:none}}
 
 .cases{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:24px}
 .cases p{font-size:14.5px}
