@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sensor Intelligence — Contour</title>
+<meta name="description" content="Contour ingests instrumentation data continuously and resolves drift and anomaly detection against the asset tree, so an alarm arrives attached to a probable cause rather than a tag number.">
+<link rel="canonical" href="https://contour.co/product/sensor-intelligence/">
+<link rel="stylesheet" href="/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23B33F1C' stroke-width='2'><circle cx='12' cy='12' r='9.5'/><circle cx='12' cy='12' r='5'/></svg>">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Contour">
+<meta property="og:title" content="Sensor Intelligence">
+<meta property="og:description" content="Drift and anomaly detection resolved against the asset tree, so alarms arrive attached to a cause.">
+<meta property="og:url" content="https://contour.co/product/sensor-intelligence/">
+<meta name="twitter:card" content="summary">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+{"@type":"BreadcrumbList","itemListElement":[
+{"@type":"ListItem","position":1,"name":"Home","item":"https://contour.co/"},
+{"@type":"ListItem","position":2,"name":"Product","item":"https://contour.co/product/"},
+{"@type":"ListItem","position":3,"name":"Sensor Intelligence","item":"https://contour.co/product/sensor-intelligence/"}]},
+{"@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"What is sensor drift?","acceptedAnswer":{"@type":"Answer","text":"Sensor drift is the gradual divergence of an instrument's readings from the true value of what it measures. It matters because a drifting sensor produces data that looks valid and is not, which contaminates every model and decision downstream of it before anyone notices."}},
+{"@type":"Question","name":"Why do most plants suffer from alarm flooding?","acceptedAnswer":{"@type":"Answer","text":"Alarm flooding happens when thresholds are set per tag, in isolation from the equipment the tags belong to. A single physical event trips dozens of related tags at once, producing many alarms that describe one problem. Resolving alarms against an asset dependency graph collapses them back into the underlying event."}},
+{"@type":"Question","name":"Does Contour replace a process historian?","acceptedAnswer":{"@type":"Answer","text":"No. Contour reads from the historian and the control system you already run. It adds structure and interpretation on top of that record rather than replacing the system of capture."}}]}
+]}
+</script>
+</head>
+<body class="doc">
+<div class="wrap">
+
+  <header>
+    <a class="mark" href="/">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+        <circle cx="12" cy="12" r="9.5"/><circle cx="12" cy="12" r="5"/>
+        <circle cx="12" cy="12" r="1.3" fill="currentColor" stroke="none"/>
+      </svg>
+      Contour
+    </a>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/about/">About</a>
+      <a href="/product/" aria-current="page">Product</a>
+      <a href="/use-cases/">Use cases</a>
+      <a href="/contact/">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <article>
+      <p class="crumb"><a href="/">Home</a> / <a href="/product/">Product</a> / Sensor intelligence</p>
+      <p class="eyebrow">Module</p>
+      <h1>Sensor Intelligence</h1>
+      <p class="lede"><strong>Contour ingests instrumentation data continuously and resolves it against the asset tree</strong>, so drift and anomalies arrive attached to a probable cause rather than to a tag number.</p>
+
+      <section>
+        <h2>A tag is not an asset</h2>
+        <p>Instrumentation is addressed by tag, but failures happen to equipment. That gap is why alarm handling degrades: thresholds are configured per tag, in isolation, so one physical event trips a dozen related tags and produces a dozen alarms describing a single problem. Operators learn to discount them, which is a rational response to a system that cries wolf and a dangerous one when the wolf arrives.</p>
+        <p>Contour maps tags onto the equipment they measure. Correlated deviations across tags belonging to the same subsystem collapse into one event, described in terms of the asset rather than the instrument.</p>
+      </section>
+
+      <section>
+        <h2>Drift is the failure nobody sees</h2>
+        <p>A dead sensor is obvious. A drifting one is not: it keeps producing plausible numbers that are quietly wrong, and every model, report and decision downstream inherits the error without any signal that something has gone bad. Contour monitors instruments against their own history and against physically related instruments, so divergence surfaces as a data quality event before it propagates into conclusions.</p>
+      </section>
+
+      <section>
+        <h2>Feeding the reliability estimates</h2>
+        <p>Condition data earns most of its value when it sharpens something. Readings resolved to assets feed directly into <a href="/product/reliability-engineering/">reliability models</a>, moving remaining-useful-life estimates from history alone toward history conditioned on current observed state. They feed the <a href="/product/failure-propagation/">asset tree</a> in the same way, so a degrading component can be evaluated for what it threatens downstream.</p>
+      </section>
+
+      <div class="faq">
+        <h2>Common questions</h2>
+        <div><h3>What is sensor drift?</h3>
+        <p>The gradual divergence of an instrument's readings from the true value it measures, dangerous because the output continues to look valid.</p></div>
+        <div><h3>Does this replace our historian or SCADA?</h3>
+        <p>No. Contour reads from the systems you already run and adds structure on top of them.</p></div>
+        <div><h3>What sampling rates are supported?</h3>
+        <p>From sub-second process instrumentation to daily manual readings. Rates are reconciled against the asset model rather than requiring a common frequency.</p></div>
+      </div>
+
+      <p style="margin-top:26px;font-size:14px">Related: <a href="/product/model-context-layer/">Model context layer</a> · <a href="/product/failure-propagation/">Failure propagation</a> · <a href="/product/reliability-engineering/">Reliability engineering</a> · <a href="/use-cases/">Use cases</a></p>
+    </article>
+  </main>
+
+  <footer>
+    <span>© 2026 Contour</span>
+  </footer>
+
+</div>
+</body>
+</html>

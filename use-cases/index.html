@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Use cases — Investment firms and process manufacturing | Contour</title>
+<meta name="description" content="Two situations and what we do about them: a fund whose AI assistant returns confident, wrong answers from the warehouse, and a plant whose preventive maintenance window takes thirty days to produce when it should take fifteen.">
+<link rel="canonical" href="https://contour.co/use-cases/">
+<link rel="stylesheet" href="/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23B33F1C' stroke-width='2'><circle cx='12' cy='12' r='9.5'/><circle cx='12' cy='12' r='5'/></svg>">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Contour">
+<meta property="og:title" content="Use cases — Contour">
+<meta property="og:description" content="A fund whose AI cannot be trusted with a number, and a plant whose maintenance window is set by the analysis backlog. What we do in both cases.">
+<meta property="og:url" content="https://contour.co/use-cases/">
+<meta name="twitter:card" content="summary">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+{"@type":"BreadcrumbList","itemListElement":[
+{"@type":"ListItem","position":1,"name":"Home","item":"https://contour.co/"},
+{"@type":"ListItem","position":2,"name":"Use cases","item":"https://contour.co/use-cases/"}]},
+{"@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"What kinds of organisations use Contour?","acceptedAnswer":{"@type":"Answer","text":"Two profiles predominantly. First, investment firms that hold a data lake or warehouse and a capable DBA team, and still cannot get a trustworthy answer out of it, particularly after an AI assistant pointed at the warehouse returned confident and incorrect figures. Second, process and discrete manufacturers whose preventive maintenance window is set by how long reliability analysis takes rather than by the condition of the equipment."}},
+{"@type":"Question","name":"Why does an AI assistant give wrong answers about our own data?","acceptedAnswer":{"@type":"Answer","text":"Because it is writing queries against a schema it does not understand. A model composing SQL across thousands of unfamiliar tables is correct most of the time, and the incorrect results look exactly like the correct ones. Contour removes that step. The assistant calls verified operations over a governed model of your business instead of generating queries, so a wrong answer becomes a refusal rather than a plausible number."}},
+{"@type":"Question","name":"What does a client send Contour?","acceptedAnswer":{"@type":"Answer","text":"A fund sends its source systems. A plant sends sensor history, its asset tree and its record of past failures. Contour replicates the data, resolves it into one structured model, and returns an interface the client's own AI assistant connects to."}},
+{"@type":"Question","name":"How long does a Contour deployment take?","acceptedAnswer":{"@type":"Answer","text":"Engagements begin with the client's source systems rather than with a demonstration. The structured model is built first and validated against records the client already trusts, before any reasoning layer is placed on top of it."}}]}
+]}
+</script>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <a class="mark" href="/">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+        <circle cx="12" cy="12" r="9.5"/><circle cx="12" cy="12" r="5"/>
+        <circle cx="12" cy="12" r="1.3" fill="currentColor" stroke="none"/>
+      </svg>
+      Contour
+    </a>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/about/">About</a>
+      <a href="/product/">Product</a>
+      <a href="/use-cases/" aria-current="page">Use cases</a>
+      <a href="/contact/">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <article>
+      <p class="eyebrow">Use cases</p>
+      <h1>Two situations, and what we do about them.</h1>
+      <div class="cases">
+        <section>
+          <span class="tag">Investment firms</span>
+          <h2>You hold the data and still cannot get an answer.</h2>
+          <p>You run a fund with a data lake, a warehouse and a team of DBAs who can query every table in it. The question you actually want answered still takes three days and two people, if they are answered at all. You have tried pointing an AI assistant at the warehouse, and it came back fluent, confident and wrong often enough that nobody trusts it with a position.</p>
+          <p class="fix"><strong>What we do </strong>Contour ingests your sources, resolves them into our structured model with specialized context of your business, and gives you an endpoint your assistant connects to through the <a href="/product/model-context-layer/">model context layer</a>. Your analysts ask in plain language, the assistant answers from verified operations rather than invented queries, and every figure carries proveance and lineage back to the record it came from.</p>
+        </section>
+        <section>
+          <span class="tag">Manufacturing &amp; process industry</span>
+          <h2>Your maintenance window is set by the backlog, not the equipment.</h2>
+          <p>You direct a plant where <a href="/product/reliability-engineering/">reliability engineering</a> is done manually. Your engineers need thirty days to produce a preventive repair window that should take fifteen, so the schedule is built around how long the analysis takes rather than around the condition of the line. Long-lead spares arrive late and planned work keeps arriving as breakdown.</p>
+          <p class="fix"><strong>What we do </strong>Contour ingests your sensor history, your <a href="/product/failure-propagation/">asset tree</a> and your record of past failures. Contour returns the assets ranked by probability of failing inside the window you plan against, using proven reliability statistics rather than a guess, through an interface your AI assistant queries directly. Your engineers stop assembling the analysis and start deciding on it.</p>
+        </section>
+      </div>
+    </article>
+  </main>
+
+  <footer>
+    <span>© 2026 Contour</span>
+  </footer>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reliability Engineering — Contour</title>
+<meta name="description" content="Contour turns failure and maintenance history into hazard and remaining-useful-life estimates per asset, so the maintenance planning horizon is set by the equipment rather than by the reporting cycle.">
+<link rel="canonical" href="https://contour.co/product/reliability-engineering/">
+<link rel="stylesheet" href="/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23B33F1C' stroke-width='2'><circle cx='12' cy='12' r='9.5'/><circle cx='12' cy='12' r='5'/></svg>">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Contour">
+<meta property="og:title" content="Reliability Engineering">
+<meta property="og:description" content="Hazard and remaining-useful-life estimates per asset, so maintenance is planned on a horizon set by the equipment.">
+<meta property="og:url" content="https://contour.co/product/reliability-engineering/">
+<meta name="twitter:card" content="summary">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+{"@type":"BreadcrumbList","itemListElement":[
+{"@type":"ListItem","position":1,"name":"Home","item":"https://contour.co/"},
+{"@type":"ListItem","position":2,"name":"Product","item":"https://contour.co/product/"},
+{"@type":"ListItem","position":3,"name":"Reliability Engineering","item":"https://contour.co/product/reliability-engineering/"}]},
+{"@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"What is remaining useful life (RUL)?","acceptedAnswer":{"@type":"Answer","text":"Remaining useful life is an estimate of how much service an asset has left before it is likely to fail or fall below an acceptable condition. It is expressed as a distribution rather than a single date, because the useful output is the probability of failure within a planning window, not a prediction of the exact day."}},
+{"@type":"Question","name":"Why is a fifteen-day maintenance planning window a problem?","acceptedAnswer":{"@type":"Answer","text":"A short planning window forces maintenance to be scheduled around the reporting cycle rather than around the condition of the equipment. Long-lead spares cannot be ordered in time, outages cannot be consolidated into a single shutdown, and work that could have been planned becomes reactive. Extending the horizon requires per-asset failure estimates that hold beyond the current cycle."}},
+{"@type":"Question","name":"How does Contour extend the maintenance planning horizon?","acceptedAnswer":{"@type":"Answer","text":"Contour fits hazard models to each asset's own failure and maintenance history, then ranks assets by probability of failure within a chosen window. Because the estimates are per-asset and probabilistic, planners can extend the horizon and consolidate work into fewer outages rather than reacting inside a fixed fortnight."}}]}
+]}
+</script>
+</head>
+<body class="doc">
+<div class="wrap">
+
+  <header>
+    <a class="mark" href="/">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+        <circle cx="12" cy="12" r="9.5"/><circle cx="12" cy="12" r="5"/>
+        <circle cx="12" cy="12" r="1.3" fill="currentColor" stroke="none"/>
+      </svg>
+      Contour
+    </a>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/about/">About</a>
+      <a href="/product/" aria-current="page">Product</a>
+      <a href="/use-cases/">Use cases</a>
+      <a href="/contact/">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <article>
+      <p class="crumb"><a href="/">Home</a> / <a href="/product/">Product</a> / Reliability engineering</p>
+      <p class="eyebrow">Module</p>
+      <h1>Reliability Engineering</h1>
+      <p class="lede"><strong>Contour turns failure and maintenance history into hazard and remaining-useful-life estimates for each asset</strong>, so the planning horizon is set by the condition of the equipment rather than by the reporting cycle.</p>
+
+      <section>
+        <h2>The bottleneck is analysis capacity, not data</h2>
+        <p>Most plants already hold everything required to estimate when equipment will fail: work orders, failure codes, run hours, replacement records, condition readings. What they lack is the capacity to convert that history into per-asset estimates faster than the plant generates new equipment to analyse. Reliability engineering becomes a queue, and the queue sets the planning horizon.</p>
+        <p>When that horizon collapses to two weeks, the consequences are structural rather than cosmetic. Long-lead spares cannot be ordered in time. Outages cannot be consolidated, so the same line is stopped three times where once would have done. Work that could have been planned arrives as breakdown.</p>
+      </section>
+
+      <section>
+        <h2>Estimates per asset, expressed as probability</h2>
+        <p>Contour fits hazard models to each asset's own history rather than applying a class-wide average, and reports remaining useful life as a distribution rather than a date. This matters because the question a planner actually asks is not <em>when will this fail</em> but <em>what is the chance this fails before the next scheduled outage</em>. The second question has a defensible answer where the first does not.</p>
+        <p>Assets are then ranked by probability of failure within whatever window you choose to plan against, which is what turns a horizon from an assumption into a setting.</p>
+      </section>
+
+      <section>
+        <h2>Ranked by consequence, not just likelihood</h2>
+        <p>Likelihood alone produces a work list dominated by cheap components that fail often. Because this module reads the same structure as the <a href="/product/failure-propagation/">asset tree</a>, it ranks by expected consequence: the probability of failure multiplied by what that failure takes down with it. The result is a maintenance schedule ordered by what it protects.</p>
+      </section>
+
+      <div class="faq">
+        <h2>Common questions</h2>
+        <div><h3>What is remaining useful life?</h3>
+        <p>An estimate of how much service an asset has left before it is likely to fail or fall below acceptable condition, expressed as a distribution rather than a single date.</p></div>
+        <div><h3>Does this require condition monitoring sensors?</h3>
+        <p>No. Failure and maintenance history alone supports the models. Where instrumentation exists, <a href="/product/sensor-intelligence/">sensor intelligence</a> sharpens the estimates.</p></div>
+        <div><h3>How much history is needed?</h3>
+        <p>Enough failure events to fit a distribution per asset class, with per-asset adjustment. In practice most plants with several years of maintenance records have more than they expect, once the records are structured.</p></div>
+      </div>
+
+      <p style="margin-top:26px;font-size:14px">Related: <a href="/product/model-context-layer/">Model context layer</a> · <a href="/product/failure-propagation/">Failure propagation</a> · <a href="/product/sensor-intelligence/">Sensor intelligence</a> · <a href="/use-cases/">Use cases</a></p>
+    </article>
+  </main>
+
+  <footer>
+    <span>© 2026 Contour</span>
+  </footer>
+
+</div>
+</body>
+</html>

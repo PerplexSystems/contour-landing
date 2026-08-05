@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Model Context Layer — Connect an AI to your data via MCP | Contour</title>
+<meta name="description" content="Contour exposes your structured model to AI assistants over the Model Context Protocol (MCP). Answers are composed from verified, typed operations rather than generated SQL, with lineage on every figure.">
+<link rel="canonical" href="https://contour.co/product/model-context-layer/">
+<link rel="stylesheet" href="/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23B33F1C' stroke-width='2'><circle cx='12' cy='12' r='9.5'/><circle cx='12' cy='12' r='5'/></svg>">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Contour">
+<meta property="og:title" content="Model Context Layer — Connect an AI to your data via MCP">
+<meta property="og:description" content="Verified, typed operations over your structured model, exposed through MCP. Not text-to-SQL against a raw warehouse.">
+<meta property="og:url" content="https://contour.co/product/model-context-layer/">
+<meta name="twitter:card" content="summary">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+{"@type":"BreadcrumbList","itemListElement":[
+{"@type":"ListItem","position":1,"name":"Home","item":"https://contour.co/"},
+{"@type":"ListItem","position":2,"name":"Product","item":"https://contour.co/product/"},
+{"@type":"ListItem","position":3,"name":"Model Context Layer","item":"https://contour.co/product/model-context-layer/"}]},
+{"@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"What is the Model Context Protocol (MCP)?","acceptedAnswer":{"@type":"Answer","text":"The Model Context Protocol is an open standard for connecting AI assistants to external systems and data sources. An MCP server exposes a defined set of operations that an assistant can call. Contour ships an MCP server over your structured model, so assistants such as Claude, or an internal agent your team builds, can query the business directly."}},
+{"@type":"Question","name":"Does Contour generate SQL with a language model?","acceptedAnswer":{"@type":"Answer","text":"No. Contour exposes a constrained set of typed, tested operations over a governed semantic model, and the assistant composes those operations. It does not write joins against a raw schema. This moves correctness out of the model's guess and into platform code that is versioned and tested, which is the difference between an answer you can put in front of an investment committee and one you cannot."}},
+{"@type":"Question","name":"Why is text-to-SQL over a raw warehouse a problem?","acceptedAnswer":{"@type":"Answer","text":"A model writing SQL against thousands of unfamiliar tables is right most of the time, and that is precisely the failure mode. A result that is wrong one time in ten is indistinguishable from the nine that are right, so the error is not caught at the point of use. It is caught downstream, after it has already reached a decision, if it is caught at all."}},
+{"@type":"Question","name":"Can we use our own AI assistant or model?","acceptedAnswer":{"@type":"Answer","text":"Yes. Because the interface is MCP, any client that speaks the protocol can connect, including Claude, an internal agent, or a desktop assistant your analysts already use. Contour does not require you to adopt a particular model vendor."}},
+{"@type":"Question","name":"How are permissions and entitlements handled?","acceptedAnswer":{"@type":"Answer","text":"Access is read-only and governed. Row and column entitlements defined in the model are enforced at the interface, so an assistant acting for a user can only reach what that user could reach directly. Every call is logged with the operations invoked and the records touched."}}]}
+]}
+</script>
+</head>
+<body class="doc">
+<div class="wrap">
+
+  <header>
+    <a class="mark" href="/">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+        <circle cx="12" cy="12" r="9.5"/><circle cx="12" cy="12" r="5"/>
+        <circle cx="12" cy="12" r="1.3" fill="currentColor" stroke="none"/>
+      </svg>
+      Contour
+    </a>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/about/">About</a>
+      <a href="/product/" aria-current="page">Product</a>
+      <a href="/use-cases/">Use cases</a>
+      <a href="/contact/">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <article>
+      <p class="crumb"><a href="/">Home</a> / <a href="/product/">Product</a> / Model context layer</p>
+      <p class="eyebrow">Module</p>
+      <h1>Model Context Layer</h1>
+      <p class="lede"><strong>Contour connects the AI assistant your team already uses to your business, over the Model Context Protocol (MCP).</strong> Your analysts ask questions in the tools they already work in, and every answer is built from verified operations rather than from SQL a model invented.</p>
+
+      <section>
+        <h2>Pointing a model at your database does not work</h2>
+        <p>The obvious version of this idea is to give a language model credentials and a schema and let it write queries. It demonstrates well and fails in production, because a model writing SQL against thousands of unfamiliar tables is right <em>most</em> of the time. That is the failure mode, not the success case. A figure that is wrong one time in ten looks exactly like the nine that are right, so nobody catches it at the point of use. It surfaces later, after it has already reached a position, a valuation or an investment committee.</p>
+        <p>Firms that hold a great deal of data and a capable DBA team usually understand this instinctively, which is why the enthusiasm for these tools rarely survives contact with the people accountable for the numbers.</p>
+      </section>
+
+      <section>
+        <h2>Verified operations, not generated queries</h2>
+        <p>Contour takes the other route. Your data is resolved into a governed semantic model first, and the MCP layer exposes a constrained set of typed, tested operations over that model: defined metrics, entities and relationships, each with known semantics. The assistant composes those operations. It does not improvise joins across a raw warehouse.</p>
+        <p>This moves correctness out of the model's guess and into platform code that is versioned, reviewed and tested in CI. It is the difference between a number you can defend and a number you have to check.</p>
+      </section>
+
+      <section>
+        <h2>Lineage on every figure</h2>
+        <p>Every result returns with the operations that produced it and the records underneath them. An analyst can follow any number back to source without leaving the conversation, and a reviewer can reconstruct how a figure was derived weeks later. Answers that cannot be traced are answers that cannot be used.</p>
+      </section>
+
+      <section>
+        <h2>What your DBAs keep</h2>
+        <p>Access is read-only and enforced at the interface. Row and column entitlements defined in the model are respected, so an assistant acting on behalf of a user reaches exactly what that user could reach directly and nothing further. Every call is logged with the operations invoked and the records touched. Your production systems are never queried by a model, and your DBA team retains the control surface it already has.</p>
+      </section>
+
+      <div class="faq">
+        <h2>Common questions</h2>
+        <div><h3>What is MCP?</h3>
+        <p>The Model Context Protocol is an open standard for connecting AI assistants to external systems. Contour ships an MCP server over your structured model, so any client that speaks the protocol can query the business.</p></div>
+        <div><h3>Can we bring our own assistant?</h3>
+        <p>Yes. Claude, an internal agent, or whatever your analysts already run. Contour does not tie you to a model vendor.</p></div>
+        <div><h3>Does the data leave our environment?</h3>
+        <p>Deployment follows your requirements, you can opt to share only what you want, and we will replicate. This is usually the first question a fund asks and the answer is designed to be boring.</p></div>
+        <div><h3>What if a question cannot be answered correctly?</h3>
+        <p>The layer returns that it simply cannot answer, rather than composing something plausible out of a guess. Refusing is a feature; the alternative is the one-in-ten problem above.</p></div>
+      </div>
+
+      <p style="margin-top:26px;font-size:14px">Related: <a href="/use-cases/">Use cases</a> · <a href="/product/reliability-engineering/">Reliability engineering</a> · <a href="/product/failure-propagation/">Failure propagation</a></p>
+    </article>
+  </main>
+
+  <footer>
+    <span>© 2026 Contour</span>
+  </footer>
+
+</div>
+</body>
+</html>
