@@ -1,0 +1,70 @@
+<!--
+  Home, "Where we work" / reliability case. Hand-authored, not PlantUML: the top
+  half is a process line and the bottom half is a time axis, and PlantUML draws
+  neither.
+
+  The figure has one job, which is to be concrete. An earlier draft argued the
+  abstract case, that a historian and a maintenance system cannot be joined, and
+  it was true but it described a category rather than a plant. This one names the
+  equipment: a vessel carrying pressure and oxidation measurement, an exhauster
+  downstream carrying temperature, the train continuing past the frame. A reader
+  who runs a line recognises their own in it within a second, which is the whole
+  point of the picture.
+
+  System rule from mark.py: ink draws the thing, accent annotates it. The line and
+  its instruments are the thing and are drawn in ink and muted; the accent appears
+  exactly once, on the window, because the window is the only mark on this figure
+  that Contour contributes. Emphasis on the vessel is carried by the ink stroke
+  and the ink label against muted for the rest, and the vessel is also named again
+  in full beside the axis, so the tie between the box and the window survives
+  being read without colour and needs no crossing leader line.
+
+  Sized for a .cases grid cell at roughly 414px, not the full 860px column.
+
+  Note for editors: no double hyphen may appear in this comment. It is illegal in
+  XML and the token names would otherwise be the obvious way to write the above.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 200" style="max-width:420px" role="img" aria-labelledby="relcase-t relcase-d">
+  <title id="relcase-t">A process line modelled from the equipment master, and a preventive maintenance window derived for one asset on it</title>
+  <desc id="relcase-d">Three assets in sequence: an ammonia vessel instrumented for pressure and oxidation, an exhauster downstream instrumented for temperature, and a scrubber instrumented for flow, with the train continuing beyond the frame. Below, a time axis running from September to November carries a window of twelve to twenty six October, derived for the ammonia vessel specifically from its own failure and maintenance history.</desc>
+
+  <text x="6" y="18" font-size="9.5" letter-spacing="1.15" fill="var(--muted)">THE LINE, FROM YOUR EQUIPMENT MASTER</text>
+
+  <!-- the asset the window is for: ink stroke and ink label -->
+  <rect x="6" y="30" width="124" height="34" fill="var(--panel)" stroke="var(--ink)" stroke-width="1.6"/>
+  <text x="68" y="52" font-size="11.5" text-anchor="middle" fill="var(--ink)">Ammonia vessel</text>
+  <text x="68" y="80" font-size="9.5" text-anchor="middle" fill="var(--muted)">PT-201 pressure</text>
+  <text x="68" y="93" font-size="9.5" text-anchor="middle" fill="var(--muted)">AT-205 oxidation</text>
+
+  <path d="M134,47 H144" stroke="var(--muted)" stroke-width="1.3"/>
+  <path d="M148,47 L141,43.5 L141,50.5 Z" fill="var(--muted)"/>
+
+  <!-- the rest of the train -->
+  <rect x="150" y="30" width="104" height="34" fill="var(--panel)" stroke="var(--muted)" stroke-width="1.3"/>
+  <text x="202" y="52" font-size="11.5" text-anchor="middle" fill="var(--muted)">Exhauster</text>
+  <text x="202" y="80" font-size="9.5" text-anchor="middle" fill="var(--muted)">TT-340 temp</text>
+
+  <path d="M258,47 H268" stroke="var(--muted)" stroke-width="1.3"/>
+  <path d="M272,47 L265,43.5 L265,50.5 Z" fill="var(--muted)"/>
+
+  <rect x="274" y="30" width="104" height="34" fill="var(--panel)" stroke="var(--muted)" stroke-width="1.3"/>
+  <text x="326" y="52" font-size="11.5" text-anchor="middle" fill="var(--muted)">Scrubber</text>
+  <text x="326" y="80" font-size="9.5" text-anchor="middle" fill="var(--muted)">FT-410 flow</text>
+
+  <text x="386" y="52" font-size="13" fill="var(--muted)">…</text>
+
+  <!-- the one mark Contour contributes -->
+  <text x="6" y="128" style="font:500 9.5px ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.1em" fill="var(--accent)">PREVENTIVE WINDOW</text>
+
+  <text x="242" y="145" text-anchor="middle" style="font:500 9.5px ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.1em" fill="var(--accent)">12–26 OCT</text>
+
+  <text x="6" y="162" font-size="11.5" fill="var(--ink)">Ammonia vessel</text>
+  <line x1="116" y1="157" x2="404" y2="157" stroke="var(--rule)" stroke-width="1"/>
+  <rect x="212" y="151" width="60" height="12" fill="var(--accent)"><title>Ammonia vessel: preventive window 12 to 26 October</title></rect>
+
+  <g font-size="9.5" text-anchor="middle" fill="var(--muted)">
+    <text x="146" y="177">Sep</text>
+    <text x="242" y="177">Oct</text>
+    <text x="338" y="177">Nov</text>
+  </g>
+</svg>

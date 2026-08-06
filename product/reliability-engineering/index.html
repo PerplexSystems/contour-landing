@@ -60,14 +60,16 @@
       <p class="lede"><strong>Contour turns failure and maintenance history into hazard and remaining-useful-life estimates for each asset</strong>, so the planning horizon is set by the condition of the equipment rather than by the reporting cycle.</p>
 
       <section>
-        <h2>The bottleneck is analysis capacity, not data</h2>
-        <p>Most plants already hold everything required to estimate when equipment will fail: work orders, failure codes, run hours, replacement records, condition readings. What they lack is the capacity to convert that history into per-asset estimates faster than the plant generates new equipment to analyse. Reliability engineering becomes a queue, and the queue sets the planning horizon.</p>
+        <h2>The history exists; nothing has joined it</h2>
+        <p>Most plants hold the raw material for an estimate and very few hold it in a usable state. The work orders are there, but the failure codes are populated on a minority of notifications, the free text was typed at the end of a shift and no two fitters describe the same fault the same way, and run hours are recorded against the line rather than against the pump that was changed out twice during it. The history is genuinely present. It is simply not joined to the instrumentation or to itself, and performing that join is the work <a href="/product/sensor-intelligence/">sensor intelligence</a> does before any estimate is fitted.</p>
+        <p>That is why reliability engineering becomes a queue. Converting the history into per-asset estimates by hand is slower than the rate at which the plant generates new equipment to analyse, so the queue sets the planning horizon rather than the condition of the line.</p>
         <p>When that horizon collapses to two weeks, the consequences are structural rather than cosmetic. Long-lead spares cannot be ordered in time. Outages cannot be consolidated, so the same line is stopped three times where once would have done. Work that could have been planned arrives as breakdown.</p>
       </section>
 
       <section>
         <h2>Estimates per asset, expressed as probability</h2>
-        <p>Contour fits hazard models to each asset's own history rather than applying a class-wide average, and reports remaining useful life as a distribution rather than a date. This matters because the question a planner actually asks is not <em>when will this fail</em> but <em>what is the chance this fails before the next scheduled outage</em>. The second question has a defensible answer where the first does not.</p>
+        <p>Contour fits a hazard model at the level of the asset class and then conditions it on each individual asset's own history, so a unit with a long record is judged mostly on itself and a unit with a short one borrows strength from its class rather than being reported with false precision. Remaining useful life comes back as a distribution rather than a date, because the question a planner actually asks is not <em>when will this fail</em> but <em>what is the chance this fails before the next scheduled outage</em>. The second question has a defensible answer where the first does not.</p>
+        <p>The statistics are the established ones rather than anything proprietary. Lifetimes are fitted with the standard families, the Weibull above all, whose shape parameter separates infant mortality from random failure from wear-out — a distinction that decides whether a preventive replacement interval would help at all or would merely reset the clock on a component that is failing at random. Units still in service, and units replaced on condition before they failed, are treated as censored observations and contribute to the fit rather than being discarded; in most plants they are the majority of the record, and dropping them biases every estimate toward pessimism. An engineer can therefore check the method against a textbook, which is the point: the work being removed is the assembly, not the judgement.</p>
         <p>Assets are then ranked by probability of failure within whatever window you choose to plan against, which is what turns a horizon from an assumption into a setting.</p>
         <figure>
           <!-- @diagram reliability -->
@@ -87,12 +89,12 @@
 
   <!-- bars: 16px, square at the baseline, 4px rounded data-end. Domain 0–40%. -->
   <g fill="var(--muted)">
-    <path d="M186,64 H522 A4,4 0 0 1 526,68 V76 A4,4 0 0 1 522,80 H186 Z"><title>Feed pump P-207 — 34% within 15 days, 40 t/day at risk</title></path>
-    <path d="M186,132 H402 A4,4 0 0 1 406,136 V144 A4,4 0 0 1 402,148 H186 Z"><title>Agitator M-318 — 22% within 15 days, 95 t/day at risk</title></path>
-    <path d="M186,166 H332 A4,4 0 0 1 336,170 V178 A4,4 0 0 1 332,182 H186 Z"><title>Compressor K-201 — 15% within 15 days, 210 t/day at risk</title></path>
-    <path d="M186,200 H292 A4,4 0 0 1 296,204 V212 A4,4 0 0 1 292,216 H186 Z"><title>Conveyor C-04 — 11% within 15 days, 60 t/day at risk</title></path>
+    <path d="M186,64 H522 A4,4 0 0 1 526,68 V76 A4,4 0 0 1 522,80 H186 Z"><title>Feed pump P-207: 34% within 15 days, 40 t/day at risk</title></path>
+    <path d="M186,132 H402 A4,4 0 0 1 406,136 V144 A4,4 0 0 1 402,148 H186 Z"><title>Agitator M-318: 22% within 15 days, 95 t/day at risk</title></path>
+    <path d="M186,166 H332 A4,4 0 0 1 336,170 V178 A4,4 0 0 1 332,182 H186 Z"><title>Compressor K-201: 15% within 15 days, 210 t/day at risk</title></path>
+    <path d="M186,200 H292 A4,4 0 0 1 296,204 V212 A4,4 0 0 1 292,216 H186 Z"><title>Conveyor C-04: 11% within 15 days, 60 t/day at risk</title></path>
   </g>
-  <path d="M186,98 H462 A4,4 0 0 1 466,102 V110 A4,4 0 0 1 462,114 H186 Z" fill="var(--accent)"><title>Lube oil pump P-101 — 28% within 15 days, 420 t/day at risk, highest expected loss</title></path>
+  <path d="M186,98 H462 A4,4 0 0 1 466,102 V110 A4,4 0 0 1 462,114 H186 Z" fill="var(--accent)"><title>Lube oil pump P-101: 28% within 15 days, 420 t/day at risk, highest expected loss</title></path>
 
   <!-- asset names: ink on the emphasised row, muted elsewhere -->
   <g font-size="12.5" text-anchor="end">
@@ -138,7 +140,9 @@
         <div><h3>Does this require condition monitoring sensors?</h3>
         <p>No. Failure and maintenance history alone supports the models. Where instrumentation exists, <a href="/product/sensor-intelligence/">sensor intelligence</a> sharpens the estimates.</p></div>
         <div><h3>How much history is needed?</h3>
-        <p>Enough failure events to fit a distribution per asset class, with per-asset adjustment. In practice most plants with several years of maintenance records have more than they expect, once the records are structured.</p></div>
+        <p>Fewer events than people assume, because the units that have not failed carry information too. An asset class with a handful of documented failures and several dozen suspensions, meaning units still running or replaced on condition before failure, will usually support an estimate, though the interval will be wide and we report the width rather than hiding it. Where the evidence will not support a useful estimate we say so, and the asset is reported as one we cannot yet speak about rather than being given a number.</p></div>
+        <div><h3>What about an asset that has never failed?</h3>
+        <p>It is estimated from its class, its duty and its condition data rather than from a history it does not have, with the uncertainty that implies reported alongside it. This case matters more than it appears, because the assets with no failure history are frequently the ones whose failure would cost the most, and a method that can only speak about equipment that has already broken is silent exactly where it is needed.</p></div>
       </div>
 
       <p style="margin-top:26px;font-size:14px">Related: <a href="/product/model-context-layer/">Model context layer</a> · <a href="/product/failure-propagation/">Failure propagation</a> · <a href="/product/sensor-intelligence/">Sensor intelligence</a> · <a href="/use-cases/">Use cases</a></p>

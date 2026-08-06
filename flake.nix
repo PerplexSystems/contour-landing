@@ -71,7 +71,7 @@
                 echo "run this from the repo root (no ./diagrams/render.sh here)" >&2
                 exit 1
               fi
-              exec ./diagrams/render.sh
+              exec ./diagrams/render.sh "$@"
             '';
           };
         in

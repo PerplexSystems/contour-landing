@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Symbolic Engineering — The Contour reasoning platform</title>
-<meta name="description" content="Symbolic Engineering builds Contour, a reasoning platform that turns your operational data into a structured model your AI can question, plan against and act on.">
+<title>Symbolic Engineering: the Contour reasoning platform</title>
+<meta name="description" content="Tried pointing AI at your databases and got nowhere? Contour ingests your sources and builds the model your warehouse and lake never had. Point Claude, or whatever assistant you already run, at it over MCP and ask in plain language.">
 <link rel="canonical" href="https://symbolic.engineering/">
 <link rel="stylesheet" href="/style.css">
 <!-- @favicon -->
@@ -12,22 +12,22 @@
 <!-- /@favicon -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Symbolic Engineering">
-<meta property="og:title" content="Symbolic Engineering — The Contour reasoning platform">
-<meta property="og:description" content="Contour turns your business into a structured model your AI can question, plan against and act on. Every step traces back to source.">
+<meta property="og:title" content="Symbolic Engineering: the Contour reasoning platform">
+<meta property="og:description" content="Tried pointing AI at your databases and got nowhere? Contour builds the model your warehouse and lake never had, so you can point your assistant at it over MCP and ask in plain language.">
 <meta property="og:url" content="https://symbolic.engineering/">
 <meta name="twitter:card" content="summary">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[
 {"@type":"Organization","@id":"https://symbolic.engineering/#org","name":"Symbolic Engineering",
 "url":"https://symbolic.engineering/",
-"description":"Symbolic Engineering builds Contour, a reasoning platform for operational data. It ingests a company's source systems and turns the business into a structured model that an AI assistant can question, plan against and act on, with every result traceable back to source.",
+"description":"Symbolic Engineering builds Contour, a reasoning platform for the databases a company already has. Databases and data warehouses record what happened but not what it means, so an AI pointed at them has to infer the meaning and gets it quietly wrong. Contour builds that missing description over a company's source systems and serves it to their team and their AI agents over the Model Context Protocol, with every result traceable back to source.",
 "areaServed":[{"@type":"Place","name":"Europe"},{"@type":"Place","name":"North America"},{"@type":"Place","name":"Brazil"}],
 "knowsAbout":["Operational data","Reliability engineering","Asset failure propagation","Sensor data analysis","Data modelling","Maintenance planning"],
 "email":"contact@symbolic.engineering"},
 {"@type":"WebSite","@id":"https://symbolic.engineering/#site","url":"https://symbolic.engineering/","name":"Symbolic Engineering","publisher":{"@id":"https://symbolic.engineering/#org"}},
 {"@type":"SoftwareApplication","@id":"https://symbolic.engineering/#contour","name":"Contour","applicationCategory":"BusinessApplication",
 "operatingSystem":"Web","url":"https://symbolic.engineering/product/",
-"description":"A reasoning platform that turns a company's operational data into a structured model an AI assistant can question, plan against and act on, with lineage on every figure.",
+"description":"A reasoning platform that builds the description a company's databases never contained: the entities, relationships and metrics specific to that business. It serves that description to their team and their AI agents over MCP, with lineage and provenance on every figure.",
 "publisher":{"@id":"https://symbolic.engineering/#org"}}
 ]}
 </script>
@@ -58,9 +58,37 @@
   <main>
     <article>
       <p class="eyebrow">Contour</p>
-      <h1>A reasoning platform for the data you already have.</h1>
-      <p class="lede"><strong>Contour turns your business into a structured model.</strong> You question it, plan against it and act on it directly. Every step traces back to the records it came from.</p>
-      <p>Connect the AI your team already uses. It reaches your business through Contour rather than through your databases, so every answer is built from verified operations instead of a query the model guessed at. The number still holds when someone asks where it came from.</p>
+      <h1>A reasoning platform for the databases you already have.</h1>
+      <p class="lede"><strong>Tried pointing AI at your databases and got nowhere?</strong> Contour ingests your sources and builds the model they never had. You point an agent at it over MCP and ask in plain language.</p>
+      <p>You have a data warehouse, probably a data lake, and fresh data landing every minute. None of it records what any of it <em>means</em>. Which of the four revenue figures do people actually use? What counts as a segment here? Which table is the authoritative one? Your team knows. Nothing you own writes it down. So an assistant pointed at that data has to guess, and a good guess is indistinguishable from a right answer. We write it down once, in your vocabulary, and every number that comes back is one you can defend when someone asks where it came from.</p>
+      <div class="steps">
+        <span>Ingest</span><span>Resolve</span><span>Model</span><span>Answer</span><span class="t">≈ 3 months</span>
+      </div>
+      <p style="margin-top:16px;font-size:14px">Roughly three months from first access to answers you can put in front of somebody. This estimation takes a specialist modelling of your own domain and the integration of your source systems. We read from those systems; we do not write to them.</p>
+    </article>
+    <article>
+      <p class="eyebrow">Where we work</p>
+      <h2>Examples of what we can solve.</h2>
+      <p class="lede">The platform is domain-neutral. These are examples rather than a catalogue, and the same structure applies wherever the records exist and nothing in them records what they mean.</p>
+      <div class="cases brief">
+        <section>
+          <span class="tag">Reliability &amp; maintenance</span>
+          <p>A line instrumented end to end, where the interval on which any given asset is serviced still comes from the calendar rather than from that asset's own failure history.</p>
+        </section>
+        <section>
+          <span class="tag">Revenue &amp; commercial data</span>
+          <p>Every transaction the business has processed, held and queryable, and four figures for the same quarter that never reconcile.</p>
+        </section>
+        <section>
+          <span class="tag">Hospitals &amp; clinical engineering</span>
+          <p>A planned maintenance schedule that says what is due this month and nothing about which failure would close a theatre.</p>
+        </section>
+      </div>
+      <p style="margin-top:22px;font-size:14px"><a href="/use-cases/">Concrete cases where we can help, worked through in full &#8594;</a></p>
+    </article>
+    <article>
+      <p class="eyebrow">Product</p>
+      <h2>The platform is general, but we have the depth.</h2>
       <figure>
         <!-- @diagram hero -->
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 350" fill="none" style="max-width:860px" role="img">
@@ -103,23 +131,70 @@
   <text x="118" y="326" style="font:500 10px ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.1em;text-transform:uppercase" fill="var(--accent)">Provenance</text>
 </svg>
       <!-- /@diagram -->
-        <figcaption><b>Figure 1</b>The same question, two routes. Writing SQL against unfamiliar tables is right most of the time, and that is the failure mode rather than the success case: the wrong answers look exactly like the right ones. Contour answers from typed operations over a governed model, and returns both the operations it applied and the records they read.</figcaption>
+        <figcaption><b>Figure 1</b>Four source systems, one model. The solid line is the answer; the dashed line is that answer traced back to the records it came from.</figcaption>
       </figure>
-      <div class="steps">
-        <span>Ingest</span><span>Resolve</span><span>Model</span><span>Question</span>
+      <p class="lede"><strong>Contour runs against whatever you already have.</strong> Modules go deeper where an answer has to understand a particular equipment or an internal process, not just tables.</p>
+      <p>Every module can provide customized scenarios for your business. We have here four examples that are commonly used expected:</p>
+      <div class="grid">
+        <div class="card">
+          <!-- @diagram icon-model-context-layer -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 68 68" fill="none" aria-hidden="true">
+  <path d="M63.08,34.00 C63.55,38.15 63.63,43.19 61.81,47.14 C59.99,51.08 56.24,55.79 52.16,57.68 C48.08,59.57 41.87,58.76 37.30,58.47 C32.74,58.17 28.72,57.28 24.77,55.91 C20.81,54.55 16.88,52.86 13.58,50.28 C10.28,47.70 6.78,44.30 4.99,40.44 C3.20,36.57 1.68,31.09 2.83,27.09 C3.99,23.08 8.43,19.27 11.93,16.40 C15.43,13.53 19.58,11.19 23.83,9.87 C28.09,8.56 33.19,7.82 37.44,8.51 C41.69,9.20 45.75,11.72 49.34,14.00 C52.92,16.29 56.66,18.88 58.95,22.21" fill="none" stroke="var(--ink)" stroke-width="1.90" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M55.38,33.23 C55.74,36.38 55.80,40.20 54.42,43.19 C53.04,46.19 50.20,49.76 47.10,51.19 C44.00,52.62 39.29,52.01 35.83,51.79 C32.36,51.56 29.32,50.89 26.32,49.85 C23.32,48.82 20.33,47.54 17.83,45.58 C15.33,43.62 12.67,41.04 11.31,38.11 C9.96,35.18 8.80,31.02 9.68,27.98 C10.56,24.94 13.92,22.05 16.58,19.88 C19.23,17.70 22.39,15.92 25.61,14.93 C28.84,13.93 32.71,13.37 35.93,13.89 C39.16,14.41 42.24,16.33 44.96,18.06 C47.68,19.79 50.52,21.76 52.25,24.29" fill="none" stroke="var(--ink)" stroke-width="1.63" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M47.69,32.46 C47.93,34.60 47.97,37.21 47.03,39.25 C46.09,41.29 44.15,43.73 42.04,44.70 C39.93,45.68 36.72,45.26 34.36,45.11 C31.99,44.96 29.92,44.50 27.87,43.79 C25.83,43.08 23.79,42.21 22.09,40.88 C20.38,39.54 18.57,37.78 17.64,35.78 C16.72,33.78 15.93,30.95 16.53,28.88 C17.13,26.81 19.42,24.84 21.23,23.35 C23.04,21.87 25.19,20.66 27.39,19.98 C29.59,19.30 32.23,18.92 34.43,19.27 C36.63,19.63 38.73,20.93 40.58,22.11 C42.44,23.29 44.37,24.64 45.55,26.36" fill="none" stroke="var(--ink)" stroke-width="2.01" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M40.54,31.74 C40.68,32.96 40.70,34.43 40.17,35.59 C39.64,36.74 38.54,38.12 37.34,38.68 C36.15,39.23 34.33,39.00 32.99,38.91 C31.65,38.82 30.47,38.56 29.31,38.16 C28.16,37.76 27.00,37.27 26.04,36.51 C25.07,35.75 24.04,34.76 23.52,33.62 C22.99,32.49 22.55,30.89 22.89,29.71 C23.22,28.54 24.52,27.42 25.55,26.58 C26.58,25.74 27.79,25.05 29.04,24.67 C30.29,24.28 31.78,24.07 33.03,24.27 C34.27,24.47 35.46,25.21 36.52,25.88 C37.57,26.55 38.66,27.31 39.33,28.28 C40.01,29.26 40.40,30.52 40.54,31.74 Z" fill="var(--ink)"/>
+  <path d="M64,58 L43,42" stroke="var(--accent)" stroke-width="2.4" stroke-linecap="round"/>
+</svg>
+      <!-- /@diagram -->
+          <h3><a href="/product/model-context-layer/">Model Context Layer</a></h3>
+          <p>Connect the assistants and agents your team already uses to your business, over MCP. They answer from verified operations rather than from a query they wrote themselves, and every figure carries lineage back to source.</p>
+        </div>
+        <div class="card">
+          <!-- @diagram icon-failure-propagation -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 68 68" fill="none" aria-hidden="true">
+  <path d="M63.08,34.00 C63.55,38.15 63.63,43.19 61.81,47.14 C59.99,51.08 56.24,55.79 52.16,57.68 C48.08,59.57 41.87,58.76 37.30,58.47 C32.74,58.17 28.72,57.28 24.77,55.91 C20.81,54.55 16.88,52.86 13.58,50.28 C10.28,47.70 6.78,44.30 4.99,40.44 C3.20,36.57 1.68,31.09 2.83,27.09 C3.99,23.08 8.43,19.27 11.93,16.40 C15.43,13.53 19.58,11.19 23.83,9.87 C28.09,8.56 33.19,7.82 37.44,8.51 C41.69,9.20 45.75,11.72 49.34,14.00 C52.92,16.29 56.66,18.88 58.95,22.21" fill="none" stroke="var(--ink)" stroke-width="1.90" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M55.38,33.23 C55.74,36.38 55.80,40.20 54.42,43.19 C53.04,46.19 50.20,49.76 47.10,51.19 C44.00,52.62 39.29,52.01 35.83,51.79 C32.36,51.56 29.32,50.89 26.32,49.85 C23.32,48.82 20.33,47.54 17.83,45.58 C15.33,43.62 12.67,41.04 11.31,38.11 C9.96,35.18 8.80,31.02 9.68,27.98 C10.56,24.94 13.92,22.05 16.58,19.88 C19.23,17.70 22.39,15.92 25.61,14.93 C28.84,13.93 32.71,13.37 35.93,13.89 C39.16,14.41 42.24,16.33 44.96,18.06 C47.68,19.79 50.52,21.76 52.25,24.29" fill="none" stroke="var(--ink)" stroke-width="1.63" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M47.69,32.46 C47.93,34.60 47.97,37.21 47.03,39.25 C46.09,41.29 44.15,43.73 42.04,44.70 C39.93,45.68 36.72,45.26 34.36,45.11 C31.99,44.96 29.92,44.50 27.87,43.79 C25.83,43.08 23.79,42.21 22.09,40.88 C20.38,39.54 18.57,37.78 17.64,35.78 C16.72,33.78 15.93,30.95 16.53,28.88 C17.13,26.81 19.42,24.84 21.23,23.35 C23.04,21.87 25.19,20.66 27.39,19.98 C29.59,19.30 32.23,18.92 34.43,19.27 C36.63,19.63 38.73,20.93 40.58,22.11 C42.44,23.29 44.37,24.64 45.55,26.36" fill="none" stroke="var(--ink)" stroke-width="2.01" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M40.54,31.74 C40.68,32.96 40.70,34.43 40.17,35.59 C39.64,36.74 38.54,38.12 37.34,38.68 C36.15,39.23 34.33,39.00 32.99,38.91 C31.65,38.82 30.47,38.56 29.31,38.16 C28.16,37.76 27.00,37.27 26.04,36.51 C25.07,35.75 24.04,34.76 23.52,33.62 C22.99,32.49 22.55,30.89 22.89,29.71 C23.22,28.54 24.52,27.42 25.55,26.58 C26.58,25.74 27.79,25.05 29.04,24.67 C30.29,24.28 31.78,24.07 33.03,24.27 C34.27,24.47 35.46,25.21 36.52,25.88 C37.57,26.55 38.66,27.31 39.33,28.28 C40.01,29.26 40.40,30.52 40.54,31.74 Z" fill="var(--ink)"/>
+  <path d="M21.23,23.35 C22.26,22.79 25.19,20.66 27.39,19.98 C29.59,19.30 32.23,18.92 34.43,19.27 C36.63,19.63 38.73,20.93 40.58,22.11 C42.44,23.29 44.37,24.64 45.55,26.36 C46.74,28.08 47.33,31.44 47.69,32.46" fill="none" stroke="var(--accent)" stroke-width="2.3" stroke-linecap="round"/>
+  <path d="M16.58,19.88 C18.08,19.05 22.39,15.92 25.61,14.93 C28.84,13.93 32.71,13.37 35.93,13.89 C39.16,14.41 42.24,16.33 44.96,18.06 C47.68,19.79 50.52,21.76 52.25,24.29 C53.99,26.81 55.02,30.08 55.38,33.23 C55.74,36.38 54.58,41.53 54.42,43.19" fill="none" stroke="var(--accent)" stroke-width="2.1" stroke-linecap="round"/>
+  <path d="M23.83,9.87 C26.10,9.65 33.19,7.82 37.44,8.51 C41.69,9.20 45.75,11.72 49.34,14.00 C52.92,16.29 56.66,18.88 58.95,22.21 C61.24,25.55 62.60,29.85 63.08,34.00 C63.55,38.15 62.02,44.95 61.81,47.14" fill="none" stroke="var(--accent)" stroke-width="1.9" stroke-linecap="round"/>
+</svg>
+      <!-- /@diagram -->
+          <h3><a href="/product/failure-propagation/">Asset Tree &amp; Failure Propagation</a></h3>
+          <p>See what a single failure takes down with it. Contour models the plant as a dependency graph rather than a list of tags, so consequence can be traced to the production it costs you.</p>
+        </div>
+        <div class="card">
+          <!-- @diagram icon-reliability-engineering -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 68 68" fill="none" aria-hidden="true">
+  <path d="M63.08,34.00 C63.55,38.15 63.63,43.19 61.81,47.14 C59.99,51.08 56.24,55.79 52.16,57.68 C48.08,59.57 41.87,58.76 37.30,58.47 C32.74,58.17 28.72,57.28 24.77,55.91 C20.81,54.55 16.88,52.86 13.58,50.28 C10.28,47.70 6.78,44.30 4.99,40.44 C3.20,36.57 1.68,31.09 2.83,27.09 C3.99,23.08 8.43,19.27 11.93,16.40 C15.43,13.53 19.58,11.19 23.83,9.87 C28.09,8.56 33.19,7.82 37.44,8.51 C41.69,9.20 45.75,11.72 49.34,14.00 C52.92,16.29 56.66,18.88 58.95,22.21" fill="none" stroke="var(--ink)" stroke-width="1.90" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M55.38,33.23 C55.74,36.38 55.80,40.20 54.42,43.19 C53.04,46.19 50.20,49.76 47.10,51.19 C44.00,52.62 39.29,52.01 35.83,51.79 C32.36,51.56 29.32,50.89 26.32,49.85 C23.32,48.82 20.33,47.54 17.83,45.58 C15.33,43.62 12.67,41.04 11.31,38.11 C9.96,35.18 8.80,31.02 9.68,27.98 C10.56,24.94 13.92,22.05 16.58,19.88 C19.23,17.70 22.39,15.92 25.61,14.93 C28.84,13.93 32.71,13.37 35.93,13.89 C39.16,14.41 42.24,16.33 44.96,18.06 C47.68,19.79 50.52,21.76 52.25,24.29" fill="none" stroke="var(--ink)" stroke-width="1.63" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M47.69,32.46 C47.93,34.60 47.97,37.21 47.03,39.25 C46.09,41.29 44.15,43.73 42.04,44.70 C39.93,45.68 36.72,45.26 34.36,45.11 C31.99,44.96 29.92,44.50 27.87,43.79 C25.83,43.08 23.79,42.21 22.09,40.88 C20.38,39.54 18.57,37.78 17.64,35.78 C16.72,33.78 15.93,30.95 16.53,28.88 C17.13,26.81 19.42,24.84 21.23,23.35 C23.04,21.87 25.19,20.66 27.39,19.98 C29.59,19.30 32.23,18.92 34.43,19.27 C36.63,19.63 38.73,20.93 40.58,22.11 C42.44,23.29 44.37,24.64 45.55,26.36" fill="none" stroke="var(--ink)" stroke-width="2.01" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M40.54,31.74 C40.68,32.96 40.70,34.43 40.17,35.59 C39.64,36.74 38.54,38.12 37.34,38.68 C36.15,39.23 34.33,39.00 32.99,38.91 C31.65,38.82 30.47,38.56 29.31,38.16 C28.16,37.76 27.00,37.27 26.04,36.51 C25.07,35.75 24.04,34.76 23.52,33.62 C22.99,32.49 22.55,30.89 22.89,29.71 C23.22,28.54 24.52,27.42 25.55,26.58 C26.58,25.74 27.79,25.05 29.04,24.67 C30.29,24.28 31.78,24.07 33.03,24.27 C34.27,24.47 35.46,25.21 36.52,25.88 C37.57,26.55 38.66,27.31 39.33,28.28 C40.01,29.26 40.40,30.52 40.54,31.74 Z" fill="var(--ink)"/>
+  <path d="M7,52 L61,20" stroke="var(--accent)" stroke-width="2.4" stroke-linecap="round"/><path d="M5,48 L10,55.5" stroke="var(--accent)" stroke-width="2.2" stroke-linecap="round"/><path d="M58,16.5 L63,24" stroke="var(--accent)" stroke-width="2.2" stroke-linecap="round"/>
+</svg>
+      <!-- /@diagram -->
+          <h3><a href="/product/reliability-engineering/">Reliability Engineering</a></h3>
+          <p>Plan against the outage you are actually scoping. Each asset's own failure history is fitted with established reliability statistics and becomes a probability of failing inside the window you set, ranked by what that failure would take with it.</p>
+        </div>
+        <div class="card">
+          <!-- @diagram icon-sensor-intelligence -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 68 68" fill="none" aria-hidden="true">
+  <path d="M63.08,34.00 C63.55,38.15 63.63,43.19 61.81,47.14 C59.99,51.08 56.24,55.79 52.16,57.68 C48.08,59.57 41.87,58.76 37.30,58.47 C32.74,58.17 28.72,57.28 24.77,55.91 C20.81,54.55 16.88,52.86 13.58,50.28 C10.28,47.70 6.78,44.30 4.99,40.44 C3.20,36.57 1.68,31.09 2.83,27.09 C3.99,23.08 8.43,19.27 11.93,16.40 C15.43,13.53 19.58,11.19 23.83,9.87 C28.09,8.56 33.19,7.82 37.44,8.51 C41.69,9.20 45.75,11.72 49.34,14.00 C52.92,16.29 56.66,18.88 58.95,22.21" fill="none" stroke="var(--ink)" stroke-width="1.90" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M55.38,33.23 C55.74,36.38 55.80,40.20 54.42,43.19 C53.04,46.19 50.20,49.76 47.10,51.19 C44.00,52.62 39.29,52.01 35.83,51.79 C32.36,51.56 29.32,50.89 26.32,49.85 C23.32,48.82 20.33,47.54 17.83,45.58 C15.33,43.62 12.67,41.04 11.31,38.11 C9.96,35.18 8.80,31.02 9.68,27.98 C10.56,24.94 13.92,22.05 16.58,19.88 C19.23,17.70 22.39,15.92 25.61,14.93 C28.84,13.93 32.71,13.37 35.93,13.89 C39.16,14.41 42.24,16.33 44.96,18.06 C47.68,19.79 50.52,21.76 52.25,24.29" fill="none" stroke="var(--ink)" stroke-width="1.63" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M47.69,32.46 C47.93,34.60 47.97,37.21 47.03,39.25 C46.09,41.29 44.15,43.73 42.04,44.70 C39.93,45.68 36.72,45.26 34.36,45.11 C31.99,44.96 29.92,44.50 27.87,43.79 C25.83,43.08 23.79,42.21 22.09,40.88 C20.38,39.54 18.57,37.78 17.64,35.78 C16.72,33.78 15.93,30.95 16.53,28.88 C17.13,26.81 19.42,24.84 21.23,23.35 C23.04,21.87 25.19,20.66 27.39,19.98 C29.59,19.30 32.23,18.92 34.43,19.27 C36.63,19.63 38.73,20.93 40.58,22.11 C42.44,23.29 44.37,24.64 45.55,26.36" fill="none" stroke="var(--ink)" stroke-width="2.01" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M40.54,31.74 C40.68,32.96 40.70,34.43 40.17,35.59 C39.64,36.74 38.54,38.12 37.34,38.68 C36.15,39.23 34.33,39.00 32.99,38.91 C31.65,38.82 30.47,38.56 29.31,38.16 C28.16,37.76 27.00,37.27 26.04,36.51 C25.07,35.75 24.04,34.76 23.52,33.62 C22.99,32.49 22.55,30.89 22.89,29.71 C23.22,28.54 24.52,27.42 25.55,26.58 C26.58,25.74 27.79,25.05 29.04,24.67 C30.29,24.28 31.78,24.07 33.03,24.27 C34.27,24.47 35.46,25.21 36.52,25.88 C37.57,26.55 38.66,27.31 39.33,28.28 C40.01,29.26 40.40,30.52 40.54,31.74 Z" fill="var(--ink)"/>
+  <circle cx="37.3" cy="58.5" r="2.6" fill="var(--muted)"/>
+  <circle cx="35.9" cy="13.9" r="2.6" fill="var(--muted)"/>
+  <circle cx="17.6" cy="35.8" r="2.6" fill="var(--muted)"/>
+  <circle cx="57" cy="13" r="5" fill="none" stroke="var(--accent)" stroke-width="2.2"/>
+  <circle cx="57" cy="13" r="1.9" fill="var(--accent)"/>
+</svg>
+      <!-- /@diagram -->
+          <h3><a href="/product/sensor-intelligence/">Sensor Intelligence</a></h3>
+          <p>The layer the other two stand on. Contour ingests instrumentation continuously and resolves every tag to the equipment it measures, which is what lets a decade of time series be read against a decade of failures at all.</p>
+        </div>
       </div>
-    </article>
-    <article>
-      <p class="eyebrow">Product</p>
-      <h2>We offer an AI-native semantic system.</h2>
-      <p class="lede"><strong>We already ship solutions for two industries: finance and manufacturing.</strong> Our modules handle the mapping between your data and the model, so most of that work is done before you begin.</p>
-      <p>Our platform ingests from multiple data sources and schematizes them into a semantic model tailored to the particulars of your business, then exposes a question endpoint so you can interact with it directly via an agentic. It runs under a closed world assumption: if something falls outside the model, it is not inferred. You get an assistant that tells you it does not know, rather than one that fills the gap with a plausible number.</p>
-      <p style="margin-top:26px;font-size:14px">Modules:
-        <a href="/product/model-context-layer/">Model context layer</a> ·
-        <a href="/product/failure-propagation/">Asset tree &amp; failure propagation</a> ·
-        <a href="/product/reliability-engineering/">Reliability engineering</a> ·
-        <a href="/product/sensor-intelligence/">Sensor intelligence</a>
-      </p>
     </article>
   </main>
 

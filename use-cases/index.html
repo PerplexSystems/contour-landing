@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Use cases: funds and manufacturing | Symbolic Engineering</title>
-<meta name="description" content="Two situations and what we do about them: a fund whose AI assistant returns confident, wrong answers from the warehouse, and a plant whose preventive maintenance window takes thirty days to produce when it should take fifteen.">
+<title>Use cases: funds, manufacturing and hospitals | Symbolic Engineering</title>
+<meta name="description" content="Situations Contour can address, and what we do in each: a fund whose AI assistant returns confident, wrong answers from the warehouse; a plant whose maintenance intervals still come from the calendar rather than from any asset's own failure history; and a hospital whose schedule says what is due but not which failure closes a theatre.">
 <link rel="canonical" href="https://symbolic.engineering/use-cases/">
 <link rel="stylesheet" href="/style.css">
 <!-- @favicon -->
@@ -12,8 +12,8 @@
 <!-- /@favicon -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Symbolic Engineering">
-<meta property="og:title" content="Use cases — Symbolic Engineering">
-<meta property="og:description" content="A fund whose AI cannot be trusted with a number, and a plant whose maintenance window is set by the analysis backlog. What we do in both cases.">
+<meta property="og:title" content="Use cases | Symbolic Engineering">
+<meta property="og:description" content="A fund whose AI cannot be trusted with a number, a plant whose maintenance intervals come from the calendar rather than from the equipment, and a hospital that finds out what mattered when it fails. What we do in each.">
 <meta property="og:url" content="https://symbolic.engineering/use-cases/">
 <meta name="twitter:card" content="summary">
 <script type="application/ld+json">
@@ -22,9 +22,9 @@
 {"@type":"ListItem","position":1,"name":"Home","item":"https://symbolic.engineering/"},
 {"@type":"ListItem","position":2,"name":"Use cases","item":"https://symbolic.engineering/use-cases/"}]},
 {"@type":"FAQPage","mainEntity":[
-{"@type":"Question","name":"What kinds of organisations use Contour?","acceptedAnswer":{"@type":"Answer","text":"Two profiles predominantly. First, investment firms that hold a data lake or warehouse and a capable DBA team, and still cannot get a trustworthy answer out of it, particularly after an AI assistant pointed at the warehouse returned confident and incorrect figures. Second, process and discrete manufacturers whose preventive maintenance window is set by how long reliability analysis takes rather than by the condition of the equipment."}},
-{"@type":"Question","name":"Why does an AI assistant give wrong answers about our own data?","acceptedAnswer":{"@type":"Answer","text":"Because it is writing queries against a schema it does not understand. A model composing SQL across thousands of unfamiliar tables is correct most of the time, and the incorrect results look exactly like the correct ones. Contour removes that step. The assistant calls verified operations over a governed model of your business instead of generating queries, so a wrong answer becomes a refusal rather than a plausible number."}},
-{"@type":"Question","name":"What does a client send us?","acceptedAnswer":{"@type":"Answer","text":"A fund sends its source systems. A plant sends sensor history, its asset tree and its record of past failures. We replicate the data, resolve it into one structured model, and return an interface the client's own AI assistant connects to."}},
+{"@type":"Question","name":"What kinds of organizations use Contour?","acceptedAnswer":{"@type":"Answer","text":"Contour itself is domain-neutral, and we have met the same problem in hedge funds, fintechs, healthcare and manufacturing. The profiles that recur include investment firms that hold a data lake or data warehouse and a capable team, and still cannot get a trustworthy answer out of either, particularly after an AI assistant pointed at the warehouse returned confident and incorrect figures; process and discrete manufacturers whose lines are instrumented end to end and whose maintenance intervals are still set by the calendar rather than by what any particular asset's own history says about it; and hospitals whose planned maintenance comes from manufacturers' intervals and whose criticality is discovered when something fails. These are examples of where the same structure applies rather than the limit of it."}},
+{"@type":"Question","name":"Why does an AI assistant give wrong answers about our own data?","acceptedAnswer":{"@type":"Answer","text":"Because your schema records what happened without recording what it means, so the assistant has to infer the meaning, and a plausible inference is indistinguishable from a correct one. Contour removes that step: the assistant calls verified operations over a described model of your business instead of composing its own query, so a wrong answer becomes a refusal rather than a number."}},
+{"@type":"Question","name":"What does a client send us?","acceptedAnswer":{"@type":"Answer","text":"A fund sends its source systems, typically the lake or data warehouse it already maintains. A plant sends sensor history, its asset tree and its record of past failures. We replicate the data, resolve it into one structured model, and return an interface the client's own AI assistant connects to over MCP. We read from your systems; we do not change them."}},
 {"@type":"Question","name":"Is Contour a rule engine?","acceptedAnswer":{"@type":"Answer","text":"No, and the difference is structural. A rule engine is reactive: it holds conditions and the actions that follow them, and it fires when incoming facts match. Contour is a semantic layer over your source systems that describes entities, relationships and metrics, and answers questions asked of it. Nothing in it fires. A rule engine accumulates logic; Contour maintains a description of your business that can be validated against records you already trust."}},
 {"@type":"Question","name":"How does an engagement start?","acceptedAnswer":{"@type":"Answer","text":"With your source systems rather than with a demonstration. The structured model is built first and validated against records you already trust, before any reasoning layer is placed on top of it."}}]}
 ]}
@@ -56,32 +56,175 @@
   <main>
     <article>
       <p class="eyebrow">Use cases</p>
-      <h1>Two situations, and what we do about them.</h1>
+      <h1>Situations we can address, and what we do in each.</h1>
+      <p class="lede">These are examples rather than a catalogue. The platform is domain-neutral, and the same structure applies wherever an organization holds the records and nothing in them records what they mean.</p>
       <div class="cases">
         <section>
           <span class="tag">Investment firms</span>
           <h2>You hold the data and still cannot get an answer.</h2>
-          <p>You run a fund with a data lake, a warehouse and a team of DBAs who can query every table in it. The question you actually want answered still takes three days and two people, if they are answered at all. You have tried pointing an AI assistant at the warehouse, and it came back fluent, confident and wrong often enough that nobody trusts it with a position.</p>
-          <p class="fix"><strong>What we do </strong>Contour ingests your sources, resolves them into our structured model with specialized context of your business, and gives you an endpoint your assistant connects to through the <a href="/product/model-context-layer/">model context layer</a>. Your analysts ask in plain language, the assistant answers from verified operations rather than invented queries, and every figure comes back with both its lineage — the operations that produced it — and its provenance, the records those operations read.</p>
+          <p>You run a fund with a data lake, a data warehouse and a team of DBAs who can query every table in either. The question you actually want answered still takes three days and two people, if it gets answered at all. You have tried pointing an AI assistant at the warehouse, and it came back fluent, confident and wrong often enough that nobody trusts it with a position.</p>
+          <figure>
+            <!-- @diagram case-revenue -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 200" style="max-width:420px" role="img" aria-labelledby="revcase-t revcase-d">
+  <title id="revcase-t">Four systems reporting revenue for the same quarter, seventeen per cent apart</title>
+  <desc id="revcase-d">For one quarter, the board pack reports 3.94 million euro, the general ledger 4.12 million, the take rate model 4.38 million and the growth dashboard 4.61 million. The four are seventeen per cent apart end to end. The ledger figure is marked as the one the business means by the word revenue.</desc>
+
+  <text x="8" y="20" font-size="9.5" letter-spacing="1.15" fill="var(--muted)">ONE QUARTER, FOUR SYSTEMS</text>
+
+  <!-- the definition, annotated onto the observation it belongs to -->
+  <text x="153" y="52" text-anchor="middle" style="font:500 9.5px ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.1em" fill="var(--accent)">DEFINED ONCE</text>
+  <path d="M153,60 V80" stroke="var(--accent)" stroke-width="1.6" stroke-linecap="round"/>
+
+  <!-- values -->
+  <g font-size="12" text-anchor="middle" style="font-variant-numeric:tabular-nums">
+    <text x="82" y="96" fill="var(--muted)">€3.94m</text>
+    <text x="153" y="96" fill="var(--ink)">€4.12m</text>
+    <text x="256" y="96" fill="var(--muted)">€4.38m</text>
+    <text x="346" y="96" fill="var(--muted)">€4.61m</text>
+  </g>
+
+  <!-- shared axis -->
+  <line x1="30" y1="112" x2="396" y2="112" stroke="var(--rule)" stroke-width="1"/>
+
+  <!-- observations -->
+  <circle cx="82" cy="112" r="4.5" fill="var(--muted)"><title>Board pack: €3.94m</title></circle>
+  <circle cx="256" cy="112" r="4.5" fill="var(--muted)"><title>Take rate model: €4.38m</title></circle>
+  <circle cx="346" cy="112" r="4.5" fill="var(--muted)"><title>Growth dashboard: €4.61m</title></circle>
+  <circle cx="153" cy="112" r="6.5" fill="var(--accent)"><title>General ledger: €4.12m, the figure the business means by revenue</title></circle>
+
+  <!-- sources -->
+  <g font-size="10.5" text-anchor="middle">
+    <text x="82" y="134" fill="var(--muted)">Board pack</text>
+    <text x="153" y="134" fill="var(--ink)">Ledger</text>
+    <text x="256" y="134" fill="var(--muted)">Take rate</text>
+    <text x="346" y="134" fill="var(--muted)">Dashboard</text>
+  </g>
+
+  <!-- the spread, which is the actual subject -->
+  <path d="M82,152 V160 H346 V152" fill="none" stroke="var(--muted)" stroke-width="1.2"/>
+  <text x="214" y="180" text-anchor="middle" font-size="11" fill="var(--muted)">the same quarter, 17% apart</text>
+</svg>
+      <!-- /@diagram -->
+            <figcaption>Four systems, one quarter, four answers. Contour records which of them the business means and reconciles the rest against it, rather than quietly picking one. Figures illustrative.</figcaption>
+          </figure>
+          <p class="fix"><strong>What we do </strong>Contour ingests your sources and resolves them into a structured model carrying the vocabulary of your own firm. What a position is here. What a segment is here. Which of the four revenue figures is the one people mean. Your assistant connects to it through the <a href="/product/model-context-layer/">model context layer</a>. Analysts ask in plain language, the assistant answers from verified operations rather than invented queries, and every figure comes back with both its lineage — the operations that produced it — and its provenance, the records those operations read.</p>
         </section>
         <section>
           <span class="tag">Manufacturing &amp; process industry</span>
-          <h2>Your maintenance window is set by the backlog, not the equipment.</h2>
-          <p>You direct a plant where <a href="/product/reliability-engineering/">reliability engineering</a> is done manually. Your engineers need thirty days to produce a preventive repair window that should take fifteen, so the schedule is built around how long the analysis takes rather than around the condition of the line. Long-lead spares arrive late and planned work keeps arriving as breakdown.</p>
-          <p class="fix"><strong>What we do </strong>Contour ingests your sensor history, your <a href="/product/failure-propagation/">asset tree</a> and your record of past failures. Contour returns the assets ranked by probability of failing inside the window you plan against, using proven reliability statistics rather than a guess, through an interface your AI assistant queries directly. Your engineers stop assembling the analysis and start deciding on it.</p>
+          <h2>Your maintenance intervals come from the calendar, not from the equipment.</h2>
+          <p>You direct a plant where the line is instrumented end to end. Every piece of equipment on it carries its own measurement: a vessel measured for pressure and oxidation, an exhauster downstream measured for temperature, and so on along the train. Those instruments report continuously and your maintenance system holds years of work orders written against the same equipment, and still the interval on which any given asset is serviced comes from the calendar, the manufacturer's manual or the last shutdown. <a href="/product/reliability-engineering/">Reliability engineering</a> is done by hand, so long-lead spares arrive late and planned work keeps arriving as breakdown.</p>
+          <figure>
+            <!-- @diagram case-reliability -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 200" style="max-width:420px" role="img" aria-labelledby="relcase-t relcase-d">
+  <title id="relcase-t">A process line modelled from the equipment master, and a preventive maintenance window derived for one asset on it</title>
+  <desc id="relcase-d">Three assets in sequence: an ammonia vessel instrumented for pressure and oxidation, an exhauster downstream instrumented for temperature, and a scrubber instrumented for flow, with the train continuing beyond the frame. Below, a time axis running from September to November carries a window of twelve to twenty six October, derived for the ammonia vessel specifically from its own failure and maintenance history.</desc>
+
+  <text x="6" y="18" font-size="9.5" letter-spacing="1.15" fill="var(--muted)">THE LINE, FROM YOUR EQUIPMENT MASTER</text>
+
+  <!-- the asset the window is for: ink stroke and ink label -->
+  <rect x="6" y="30" width="124" height="34" fill="var(--panel)" stroke="var(--ink)" stroke-width="1.6"/>
+  <text x="68" y="52" font-size="11.5" text-anchor="middle" fill="var(--ink)">Ammonia vessel</text>
+  <text x="68" y="80" font-size="9.5" text-anchor="middle" fill="var(--muted)">PT-201 pressure</text>
+  <text x="68" y="93" font-size="9.5" text-anchor="middle" fill="var(--muted)">AT-205 oxidation</text>
+
+  <path d="M134,47 H144" stroke="var(--muted)" stroke-width="1.3"/>
+  <path d="M148,47 L141,43.5 L141,50.5 Z" fill="var(--muted)"/>
+
+  <!-- the rest of the train -->
+  <rect x="150" y="30" width="104" height="34" fill="var(--panel)" stroke="var(--muted)" stroke-width="1.3"/>
+  <text x="202" y="52" font-size="11.5" text-anchor="middle" fill="var(--muted)">Exhauster</text>
+  <text x="202" y="80" font-size="9.5" text-anchor="middle" fill="var(--muted)">TT-340 temp</text>
+
+  <path d="M258,47 H268" stroke="var(--muted)" stroke-width="1.3"/>
+  <path d="M272,47 L265,43.5 L265,50.5 Z" fill="var(--muted)"/>
+
+  <rect x="274" y="30" width="104" height="34" fill="var(--panel)" stroke="var(--muted)" stroke-width="1.3"/>
+  <text x="326" y="52" font-size="11.5" text-anchor="middle" fill="var(--muted)">Scrubber</text>
+  <text x="326" y="80" font-size="9.5" text-anchor="middle" fill="var(--muted)">FT-410 flow</text>
+
+  <text x="386" y="52" font-size="13" fill="var(--muted)">…</text>
+
+  <!-- the one mark Contour contributes -->
+  <text x="6" y="128" style="font:500 9.5px ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.1em" fill="var(--accent)">PREVENTIVE WINDOW</text>
+
+  <text x="242" y="145" text-anchor="middle" style="font:500 9.5px ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.1em" fill="var(--accent)">12–26 OCT</text>
+
+  <text x="6" y="162" font-size="11.5" fill="var(--ink)">Ammonia vessel</text>
+  <line x1="116" y1="157" x2="404" y2="157" stroke="var(--rule)" stroke-width="1"/>
+  <rect x="212" y="151" width="60" height="12" fill="var(--accent)"><title>Ammonia vessel: preventive window 12 to 26 October</title></rect>
+
+  <g font-size="9.5" text-anchor="middle" fill="var(--muted)">
+    <text x="146" y="177">Sep</text>
+    <text x="242" y="177">Oct</text>
+    <text x="338" y="177">Nov</text>
+  </g>
+</svg>
+      <!-- /@diagram -->
+            <figcaption>The line as your equipment master already describes it, each asset with the instruments that measure it. The window is derived for one named asset from that asset's own history. Tags and dates illustrative.</figcaption>
+          </figure>
+          <p class="fix"><strong>What we do </strong>Contour builds the <a href="/product/failure-propagation/">asset tree</a> of the line from the equipment master you already maintain, in SAP or wherever it lives, and attaches each instrument to the equipment it measures. Each asset's own failure and maintenance history is then fitted with established reliability statistics, conditioned on what its <a href="/product/sensor-intelligence/">instruments</a> have been reporting, and comes back as a preventive maintenance window for that asset: when that vessel should be serviced, with the probability behind the date and the records the estimate was built from. Your engineers stop assembling the analysis and start deciding on it.</p>
+        </section>
+        <section>
+          <span class="tag">Hospitals &amp; clinical engineering</span>
+          <h2>You know which devices are due. You do not know which ones matter.</h2>
+          <p>You run clinical engineering for a hospital carrying several thousand devices, against a planned maintenance schedule that comes almost entirely from manufacturers' intervals. That schedule tells you what is due this month. It does not tell you what a failure would cost: that an air handling unit closes a theatre on ventilation grounds whatever else is working, that the chiller serving imaging takes two scanners with it, that one autoclave in sterile services stops every theatre it supplies. Consequence is discovered rather than anticipated, and next year's capital replacement case is argued from the age of the equipment and from whoever argues hardest.</p>
+          <figure>
+            <!-- @diagram case-healthcare -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 168" style="max-width:420px" role="img" aria-labelledby="hccase-t hccase-d">
+  <title id="hccase-t">One chiller and the clinical services that stop with it, each carrying the output it puts at risk</title>
+  <desc id="hccase-d">Chiller CH-02 has three downstream dependencies derived from the estate model: MRI 1, at eighteen scans a day; CT 2, at twenty six scans a day; and theatres 3 and 4, at sixteen sessions a day. None of that dependency is recorded in the equipment register; it is derived from the asset tree.</desc>
+
+  <g font-size="9.5" letter-spacing="1.15" fill="var(--muted)">
+    <text x="196" y="22">DOWNSTREAM</text>
+    <text x="414" y="22" text-anchor="end">OUTPUT AT RISK</text>
+  </g>
+
+  <!-- the dependency, which is what Contour derives -->
+  <path d="M118,84 C158,84 158,50 189,50" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round"/>
+  <path d="M118,94 H189" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round"/>
+  <path d="M118,104 C158,104 158,138 189,138" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round"/>
+  <g fill="var(--accent)">
+    <path d="M196,50 L188,46 L188,54 Z"/>
+    <path d="M196,94 L188,90 L188,98 Z"/>
+    <path d="M196,138 L188,134 L188,142 Z"/>
+  </g>
+
+  <!-- the asset in question -->
+  <rect x="6" y="76" width="112" height="36" fill="var(--panel)" stroke="var(--ink)" stroke-width="1.6"/>
+  <text x="62" y="99" font-size="11.5" text-anchor="middle" fill="var(--ink)">Chiller CH-02</text>
+
+  <!-- what stops with it -->
+  <rect x="196" y="36" width="108" height="28" fill="var(--panel)" stroke="var(--muted)" stroke-width="1.3"/>
+  <text x="250" y="55" font-size="11.5" text-anchor="middle" fill="var(--muted)">MRI 1</text>
+  <rect x="196" y="80" width="108" height="28" fill="var(--panel)" stroke="var(--muted)" stroke-width="1.3"/>
+  <text x="250" y="99" font-size="11.5" text-anchor="middle" fill="var(--muted)">CT 2</text>
+  <rect x="196" y="124" width="108" height="28" fill="var(--panel)" stroke="var(--muted)" stroke-width="1.3"/>
+  <text x="250" y="143" font-size="11.5" text-anchor="middle" fill="var(--muted)">Theatres 3–4</text>
+
+  <!-- the payload -->
+  <g font-size="11" text-anchor="end" fill="var(--ink)" style="font-variant-numeric:tabular-nums">
+    <text x="414" y="55">18 scans/day</text>
+    <text x="414" y="99">26 scans/day</text>
+    <text x="414" y="143">16 sessions/day</text>
+  </g>
+</svg>
+      <!-- /@diagram -->
+            <figcaption>Criticality derived from the estate rather than maintained by hand in a column. The dependency is the part no register holds. Assets and figures illustrative.</figcaption>
+          </figure>
+          <p class="fix"><strong>What we do </strong>Contour builds the dependency graph of the estate from the systems that already describe it: the equipment register in your maintenance system, the building management system, and the service history written against both. Criticality is then <a href="/product/failure-propagation/">derived from that graph</a> rather than maintained by hand, so each asset carries both its own probability of failure and the set of clinical services it would take with it, and planned work is ordered by what it protects. Where a vendor telemetry feed exists, it <a href="/product/sensor-intelligence/">sharpens the estimates</a>. Manufacturers' intervals and accreditation requirements remain the floor; what this changes is where attention and capital go above that floor, and because every figure carries the records it came from, the reasoning is still answerable when a review asks for it months later. None of it requires patient data.</p>
         </section>
       </div>
 
       <div class="faq">
         <h2>Common questions</h2>
-        <div><h3>What kinds of organisations use Contour?</h3>
-        <p>Two profiles predominantly. First, investment firms that hold a data lake or warehouse and a capable DBA team, and still cannot get a trustworthy answer out of it, particularly after an AI assistant pointed at the warehouse returned confident and incorrect figures. Second, process and discrete manufacturers whose preventive maintenance window is set by how long reliability analysis takes rather than by the condition of the equipment.</p></div>
+        <div><h3>What kinds of organizations use Contour?</h3>
+        <p>Contour itself is domain-neutral, and we have met the same problem in hedge funds, fintechs, healthcare and manufacturing. The profiles that recur include investment firms that hold a data lake or data warehouse and a capable team, and still cannot get a trustworthy answer out of either, particularly after an AI assistant pointed at the warehouse returned confident and incorrect figures; process and discrete manufacturers whose lines are instrumented end to end and whose maintenance intervals are still set by the calendar rather than by what any particular asset's own history says about it; and hospitals whose planned maintenance comes from manufacturers' intervals and whose criticality is discovered when something fails. These are examples of where the same structure applies rather than the limit of it.</p></div>
         <div><h3>Why does an AI assistant give wrong answers about our own data?</h3>
-        <p>Because it is writing queries against a schema it does not understand. A model composing SQL across thousands of unfamiliar tables is correct most of the time, and the incorrect results look exactly like the correct ones. Contour removes that step. The assistant calls verified operations over a governed model of your business instead of generating queries, so a wrong answer becomes a refusal rather than a plausible number.</p></div>
+        <p>Because your schema records what happened without recording what it means, so the assistant has to infer the meaning, and a plausible inference is indistinguishable from a correct one. Contour removes that step: the assistant calls verified operations over a described model of your business instead of composing its own query, so a wrong answer becomes a refusal rather than a number. There is <a href="/product/model-context-layer/">more on how this works</a> in the model context layer.</p></div>
         <div><h3>What does a client send us?</h3>
-        <p>A fund sends its source systems. A plant sends sensor history, its asset tree and its record of past failures. We replicate the data, resolve it into one structured model, and return an interface the client's own AI assistant connects to.</p></div>
+        <p>A fund sends its source systems, typically the lake or data warehouse it already maintains. A plant sends sensor history, its asset tree and its record of past failures. We replicate the data, resolve it into one structured model, and return an interface the client's own AI assistant connects to over MCP. We read from your systems; we do not change them.</p></div>
         <div><h3>Is Contour a rule engine?</h3>
-        <p>No, and the difference is structural. A rule engine is reactive: it holds conditions and the actions that follow them, and it fires when incoming facts match. Contour is a semantic layer over your source systems that describes entities, relationships and metrics, and answers questions asked of it. Nothing in it fires. A rule engine accumulates logic; Contour maintains a description of your business that can be validated against records you already trust. There is <a href="/product/">more on the distinction</a> on the product page.</p></div>
+        <p>No, and the difference is structural. A rule engine is reactive: it holds conditions and the actions that follow them, and it fires when incoming facts match. Contour is a semantic layer over your source systems that describes entities, relationships and metrics, and answers questions asked of it. Nothing in it fires. A rule engine accumulates logic; Contour maintains a description of your business that can be validated against records you already trust.</p></div>
         <div><h3>How does an engagement start?</h3>
         <p>With your source systems rather than with a demonstration. The structured model is built first and validated against records you already trust, before any reasoning layer is placed on top of it.</p></div>
       </div>

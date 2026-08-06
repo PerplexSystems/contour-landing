@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Contour: one platform, four modules | Symbolic Engineering</title>
-<meta name="description" content="Contour turns the systems you already run into one governed model your AI assistant can question directly. Four modules: MCP access, asset failure propagation, reliability engineering and sensor intelligence.">
+<title>Contour: one platform and the modules over it | Symbolic Engineering</title>
+<meta name="description" content="Contour resolves the systems you already run into one governed model your team and your agents can query over MCP. The platform is domain-neutral; modules take it deeper, into MCP access, asset failure propagation, reliability engineering and sensor intelligence.">
 <link rel="canonical" href="https://symbolic.engineering/product/">
 <link rel="stylesheet" href="/style.css">
 <!-- @favicon -->
@@ -13,7 +13,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Symbolic Engineering">
 <meta property="og:title" content="The Contour platform">
-<meta property="og:description" content="One platform, four modules: model context layer, failure propagation, reliability engineering, sensor intelligence.">
+<meta property="og:description" content="One platform and the modules over it: model context layer, failure propagation, reliability engineering, sensor intelligence.">
 <meta property="og:url" content="https://symbolic.engineering/product/">
 <meta name="twitter:card" content="summary">
 <script type="application/ld+json">
@@ -23,7 +23,7 @@
 {"@type":"ListItem","position":2,"name":"Product","item":"https://symbolic.engineering/product/"}]},
 {"@type":"SoftwareApplication","@id":"https://symbolic.engineering/#contour","name":"Contour","applicationCategory":"BusinessApplication","operatingSystem":"Web",
 "url":"https://symbolic.engineering/product/",
-"description":"Contour turns a company's source systems into one governed model and puts it in front of analysts and the AI assistants they already use, over the Model Context Protocol. Four modules extend it into asset failure propagation, reliability engineering and sensor intelligence.",
+"description":"Contour resolves a company's source systems into one governed model of the business and serves it to their team and their agents over the Model Context Protocol. The platform is domain-neutral; modules take it deeper into asset failure propagation, reliability engineering and sensor intelligence.",
 "featureList":["Declarative semantic layer over source systems, queried rather than reactive","Model Context Protocol (MCP) access for AI assistants","Verified typed operations instead of generated SQL","Asset tree and failure propagation","Reliability engineering and remaining useful life","Sensor intelligence and anomaly detection","Lineage and provenance on every result"],
 "publisher":{"@type":"Organization","@id":"https://symbolic.engineering/#org","name":"Symbolic Engineering"}}
 ]}
@@ -55,8 +55,8 @@
   <main>
     <article>
       <p class="eyebrow">Product</p>
-      <h1>One platform, four modules.</h1>
-      <p class="lede">Contour turns the systems you already run into one governed model of your business, then puts that model in front of your analysts and the AI assistants they already work in. Four modules extend it into the areas where an answer has to understand physical equipment and not just tables.</p>
+      <h1>One platform, and the modules over it.</h1>
+      <p class="lede">Contour resolves the systems you already run into one governed model of your business, then serves that model to your team and to the agents they work alongside, over MCP. The platform itself is domain-neutral. Modules take it deeper, into the areas where an answer has to understand equipment and instruments rather than only tables.</p>
       <div class="grid">
         <div class="card">
           <!-- @diagram icon-model-context-layer -->
@@ -69,7 +69,7 @@
 </svg>
       <!-- /@diagram -->
           <h3><a href="/product/model-context-layer/">Model Context Layer</a></h3>
-          <p>Plug the AI assistant your team already uses straight into your business. It answers from verified operations rather than from a query it wrote itself, and every figure carries lineage back to source.</p>
+          <p>Connect the assistants and agents your team already uses to your business, over MCP. They answer from verified operations rather than from a query they wrote themselves, and every figure carries lineage back to source.</p>
         </div>
         <div class="card">
           <!-- @diagram icon-failure-propagation -->
@@ -97,7 +97,7 @@
 </svg>
       <!-- /@diagram -->
           <h3><a href="/product/reliability-engineering/">Reliability Engineering</a></h3>
-          <p>Push your maintenance window past the fortnight. Each asset's own failure history becomes a probability of failing inside the period you actually plan against.</p>
+          <p>Plan against the outage you are actually scoping. Each asset's own failure history is fitted with established reliability statistics and becomes a probability of failing inside the window you set, ranked by what that failure would take with it.</p>
         </div>
         <div class="card">
           <!-- @diagram icon-sensor-intelligence -->
@@ -114,12 +114,13 @@
 </svg>
       <!-- /@diagram -->
           <h3><a href="/product/sensor-intelligence/">Sensor Intelligence</a></h3>
-          <p>Get an alarm that names a cause instead of a tag number. Contour ingests instrumentation continuously, collapses correlated alarms into one event and catches drift before it reaches your models.</p>
+          <p>The layer the other two stand on. Contour ingests instrumentation continuously and resolves every tag to the equipment it measures, which is what lets a decade of time series be read against a decade of failures at all.</p>
         </div>
       </div>
       <section>
-        <h2>The motto</h2>
-        <p><strong>Contour is not a rule engine</strong>, as that would imply a reactive system. Instead of conditions and the actions that should follow them, Contour offers modules for use cases that share the same infrastructure of knowledge representation under a closed world assumption. While a rule engine fails on a rule, Contour fails on a question that falls outside the model, guaranteeing unapproachability of answer. One accumulates logic; the other maintains a description of your business that can be validated against records you own.</p>
+        <h2>What the modules have in common</h2>
+        <p>Every module reads the same model and answers through the same interface. There is no separate integration per module and no second copy of your data: the asset tree, the reliability estimates and the sensor history are all descriptions laid over sources you already run, so a question can cross between them without leaving the model.</p>
+        <p>They share the same limit too. Contour answers only what the model describes, and a question falling outside it comes back as a refusal rather than an inference. That constraint is what makes the rest usable, because an answer you do receive is one the model could account for.</p>
       </section>
     </article>
   </main>

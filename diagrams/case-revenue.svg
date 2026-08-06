@@ -1,0 +1,63 @@
+<!--
+  Home, "Where we work" / revenue case. Hand-authored: this is a chart, and the
+  point it has to make is a spread rather than a ranking.
+
+  Four figures for one quarter, placed on a shared axis. Bars were the first
+  draft and were wrong: growing four bars from zero to values within seventeen
+  per cent of each other renders them nearly identical, which buries the whole
+  argument. A strip plot puts the differences where the eye already is. The axis
+  is deliberately narrow rather than zero based, because the quantity being
+  encoded here is the disagreement, not the revenue, and the endpoints are
+  labelled so the narrowing is stated rather than smuggled.
+
+  System rule from mark.py: ink draws the thing, accent annotates it. The four
+  observations and the axis are ink and rule; the accent marks the one the
+  business actually means, which is the only thing Contour contributes to this
+  picture. Emphasis is triple encoded, as in the reliability chart: the accent
+  dot is also larger, and its value and label are the only ones set in ink, so
+  the figure survives being read without colour.
+
+  Sized for a .cases grid cell at roughly 414px, not the full 860px column.
+
+  Note for editors: no double hyphen may appear in this comment. It is illegal in
+  XML and the token names would otherwise be the obvious way to write the above.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 200" style="max-width:420px" role="img" aria-labelledby="revcase-t revcase-d">
+  <title id="revcase-t">Four systems reporting revenue for the same quarter, seventeen per cent apart</title>
+  <desc id="revcase-d">For one quarter, the board pack reports 3.94 million euro, the general ledger 4.12 million, the take rate model 4.38 million and the growth dashboard 4.61 million. The four are seventeen per cent apart end to end. The ledger figure is marked as the one the business means by the word revenue.</desc>
+
+  <text x="8" y="20" font-size="9.5" letter-spacing="1.15" fill="var(--muted)">ONE QUARTER, FOUR SYSTEMS</text>
+
+  <!-- the definition, annotated onto the observation it belongs to -->
+  <text x="153" y="52" text-anchor="middle" style="font:500 9.5px ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.1em" fill="var(--accent)">DEFINED ONCE</text>
+  <path d="M153,60 V80" stroke="var(--accent)" stroke-width="1.6" stroke-linecap="round"/>
+
+  <!-- values -->
+  <g font-size="12" text-anchor="middle" style="font-variant-numeric:tabular-nums">
+    <text x="82" y="96" fill="var(--muted)">€3.94m</text>
+    <text x="153" y="96" fill="var(--ink)">€4.12m</text>
+    <text x="256" y="96" fill="var(--muted)">€4.38m</text>
+    <text x="346" y="96" fill="var(--muted)">€4.61m</text>
+  </g>
+
+  <!-- shared axis -->
+  <line x1="30" y1="112" x2="396" y2="112" stroke="var(--rule)" stroke-width="1"/>
+
+  <!-- observations -->
+  <circle cx="82" cy="112" r="4.5" fill="var(--muted)"><title>Board pack: €3.94m</title></circle>
+  <circle cx="256" cy="112" r="4.5" fill="var(--muted)"><title>Take rate model: €4.38m</title></circle>
+  <circle cx="346" cy="112" r="4.5" fill="var(--muted)"><title>Growth dashboard: €4.61m</title></circle>
+  <circle cx="153" cy="112" r="6.5" fill="var(--accent)"><title>General ledger: €4.12m, the figure the business means by revenue</title></circle>
+
+  <!-- sources -->
+  <g font-size="10.5" text-anchor="middle">
+    <text x="82" y="134" fill="var(--muted)">Board pack</text>
+    <text x="153" y="134" fill="var(--ink)">Ledger</text>
+    <text x="256" y="134" fill="var(--muted)">Take rate</text>
+    <text x="346" y="134" fill="var(--muted)">Dashboard</text>
+  </g>
+
+  <!-- the spread, which is the actual subject -->
+  <path d="M82,152 V160 H346 V152" fill="none" stroke="var(--muted)" stroke-width="1.2"/>
+  <text x="214" y="180" text-anchor="middle" font-size="11" fill="var(--muted)">the same quarter, 17% apart</text>
+</svg>

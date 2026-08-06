@@ -20,8 +20,31 @@
 #
 # The generated SVGs are committed, so the site stays a pile of static files with
 # no build step in the deploy path.
+#
+#   --skip-puml   do everything except re-render the .puml diagrams
+#
+# PlantUML sizes its boxes from the JVM's font metrics, and the JVM resolves
+# fonts differently per platform: macOS has Helvetica, a Linux CI runner does
+# not and silently substitutes something wider. The same source therefore gives
+# a 858px sequence diagram here and a 963px one on ubuntu-latest. So the .puml
+# render is reproducible per machine but not across machines, and CI must not
+# re-run it — it would rewrite every diagram and call the committed ones stale.
+#
+# Everything else is deterministic and worth verifying: mark.py is pure geometry
+# with no font involved, the hand-authored SVGs are copied byte for byte, and
+# injection is text substitution. --skip-puml runs exactly that set, so CI can
+# require a clean tree afterwards and still catch the realistic mistake — an
+# asset regenerated but never inlined, or generated HTML edited by hand.
 set -euo pipefail
 cd "$(dirname "$0")"
+
+render_puml=1
+for arg in "$@"; do
+  case "$arg" in
+    --skip-puml) render_puml=0 ;;
+    *) echo "unknown argument: $arg" >&2; exit 2 ;;
+  esac
+done
 
 root="$(cd .. && pwd)"
 out="$root/img"
@@ -30,8 +53,9 @@ mkdir -p "$out"
 echo "generating:"
 python3 mark.py
 
-echo "rendering:"
+[ "$render_puml" = 1 ] && echo "rendering:" || echo "rendering: skipped (--skip-puml)"
 for src in *.puml; do
+  [ "$render_puml" = 1 ] || break
   [ "$src" = theme.puml ] && continue
   name="${src%.puml}"
   svg="$out/$name.svg"

@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Model Context Layer — AI access via MCP | Symbolic Engineering</title>
+<title>Model Context Layer: AI access via MCP | Symbolic Engineering</title>
 <meta name="description" content="Contour exposes your structured model to AI assistants over the Model Context Protocol (MCP). Answers are composed from verified, typed operations rather than generated SQL, and every figure returns with both its lineage and its provenance.">
 <link rel="canonical" href="https://symbolic.engineering/product/model-context-layer/">
 <link rel="stylesheet" href="/style.css">
@@ -12,7 +12,7 @@
 <!-- /@favicon -->
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="Symbolic Engineering">
-<meta property="og:title" content="Model Context Layer — Connect an AI to your data via MCP">
+<meta property="og:title" content="Model Context Layer: connect an AI to your data via MCP">
 <meta property="og:description" content="Verified, typed operations over your structured model, exposed through MCP. Not text-to-SQL against a raw warehouse.">
 <meta property="og:url" content="https://symbolic.engineering/product/model-context-layer/">
 <meta name="twitter:card" content="summary">
@@ -62,13 +62,13 @@
 
       <section>
         <h2>Pointing a model at your database does not work</h2>
-        <p>The obvious version of this idea is to give a language model credentials and a schema and let it write queries. It demonstrates well and fails in production, because a model writing SQL against thousands of unfamiliar tables is right <em>most</em> of the time. That is the failure mode, not the success case. A figure that is wrong one time in ten looks exactly like the nine that are right, so nobody catches it at the point of use. It surfaces later, after it has already reached a position, a valuation or an investment committee.</p>
-        <p>Firms that hold a great deal of data and a capable DBA team usually understand this instinctively, which is why the enthusiasm for these tools rarely survives contact with the people accountable for the numbers.</p>
+        <p>The obvious version of this idea is to give a language model credentials and a schema and let it query away. It demonstrates well and fails in production, and the reason is not the query language. Your DBAs write excellent SQL. The reason is that a schema records what happened without recording what it means, so the model has to infer the rest. Which table is authoritative. Which of four revenue columns anyone actually uses. What a join across these two quietly implies. It infers well <em>most</em> of the time. That is the failure mode, not the success case: a figure that is wrong one time in ten looks exactly like the nine that are right, so nobody catches it at the point of use. It surfaces later, after it has already reached a position, a valuation or an investment committee.</p>
+        <p>Firms that hold a great deal of data and a capable DBA team usually understand this instinctively, which is why enthusiasm for these tools rarely survives contact with the people accountable for the numbers.</p>
       </section>
 
       <section>
         <h2>Verified operations, not generated queries</h2>
-        <p>Contour takes the other route. Your data is resolved into a governed semantic model first, and the MCP layer exposes a constrained set of typed, tested operations over that model: defined metrics, entities and relationships, each with known semantics. The assistant composes those operations. It does not improvise joins across a raw warehouse.</p>
+        <p>Contour takes the other route. Your data is resolved into a governed semantic model first, so the meaning is written down rather than inferred, and the MCP layer exposes a constrained set of typed, tested operations over that model: defined metrics, entities and relationships, each with known semantics. The assistant composes those operations. It does not improvise joins across a raw warehouse.</p>
         <p>This moves correctness out of the model's guess and into platform code that is versioned, reviewed and tested in CI. It is the difference between a number you can defend and a number you have to check.</p>
         <figure>
           <!-- @diagram mcp-sequence -->

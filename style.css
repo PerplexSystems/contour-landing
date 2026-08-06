@@ -89,8 +89,10 @@ h1{
   max-width:20ch;
 }
 h2{font-size:19px;letter-spacing:-0.015em;font-weight:600;margin-bottom:11px}
-/* home's second article is a peer heading, kept at h1 scale but below the page's single h1 */
-body.home article h2{font-size:clamp(27px,4.2vw,38px);line-height:1.15;letter-spacing:-0.025em;max-width:20ch;margin-bottom:0}
+/* home's later articles open with a peer heading, kept at h1 scale but below the
+   page's single h1. Direct child only: the home also carries .cases and .grid,
+   whose headings are sub-items and must keep their own smaller scale. */
+body.home article > h2{font-size:clamp(27px,4.2vw,38px);line-height:1.15;letter-spacing:-0.025em;max-width:20ch;margin-bottom:0}
 h3{font-size:14px;font-weight:600;margin-bottom:7px}
 /* Body copy fills the column. It was capped at 66ch, which is ~590px against an
    860px .wrap, so text stopped short of the header, footer and figures. */
@@ -111,6 +113,8 @@ section + section{margin-top:26px}
   letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);
 }
 .steps span{border:1px solid var(--rule);padding:8px 12px}
+/* the elapsed time the four steps add up to, carried as the last step */
+.steps .t{border-color:var(--accent);color:var(--accent)}
 
 .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:26px}
 .card{position:relative;background:var(--panel);border:1px solid var(--rule);padding:18px 16px;transition:border-color .15s,background-color .15s}
@@ -129,9 +133,21 @@ section + section{margin-top:26px}
 .card h3 a:focus-visible{outline:0}
 @media (prefers-reduced-motion:reduce){.card,.card h3::after{transition:none}}
 
-.cases{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:24px}
-.cases p{font-size:14.5px}
-.cases h2{font-size:16px;margin-bottom:9px}
+/* Worked cases stack in series, each taking the full column like any other
+   section on the site. Side by side they were a two column grid whose cells
+   were wildly different heights, so a short case left dead space beside a long
+   one and a third landed as a widow on its own row. */
+.cases{display:grid;grid-template-columns:1fr;gap:40px;margin-top:24px}
+/* the home lists these as one-line examples rather than worked cases, so they
+   sit three across, and take a smaller size to suit the narrower cell */
+.cases.brief{grid-template-columns:repeat(3,1fr);gap:22px}
+.cases.brief p{font-size:14px}
+/* the grid gap does the separating here, so the stacked-section rhythm rule above
+   must not also apply — inside a grid it just pushes the second cell's content down */
+.cases > section + section{margin-top:0}
+/* a case heading is a full-width section heading and takes the site's h2 scale;
+   the rule remains only to hold the line-height, which the global h2 lacks */
+.cases h2{line-height:1.3}
 .fix{margin-top:14px;padding-left:13px;border-left:2px solid var(--accent)}
 .fix strong{display:block;font:500 11px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);margin-bottom:7px}
 .tag{
@@ -186,8 +202,16 @@ footer a:hover{color:var(--accent)}
   main{padding:32px 0;align-items:flex-start}
   body.home main{justify-content:flex-start}
   .grid,.cases{grid-template-columns:1fr;gap:14px}
+  /* stacked, a worked case needs more air around it than the card grid does */
+  .cases{gap:34px}
+  /* .cases.brief outranks the rule above on specificity, so it collapses explicitly */
+  .cases.brief{grid-template-columns:1fr;gap:18px}
   nav{gap:16px}
   /* diagrams scroll rather than shrink to unreadable */
   figure{overflow-x:auto;-webkit-overflow-scrolling:touch}
   figure svg{min-width:500px}
+  /* the case figures are drawn at 420px and stay legible at phone width, so they
+     scale down rather than forcing the case to scroll sideways */
+  .cases figure{overflow-x:visible}
+  .cases figure svg{min-width:0}
 }

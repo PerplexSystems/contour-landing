@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 168" style="max-width:420px" role="img" aria-labelledby="hccase-t hccase-d">
+  <title id="hccase-t">One chiller and the clinical services that stop with it, each carrying the output it puts at risk</title>
+  <desc id="hccase-d">Chiller CH-02 has three downstream dependencies derived from the estate model: MRI 1, at eighteen scans a day; CT 2, at twenty six scans a day; and theatres 3 and 4, at sixteen sessions a day. None of that dependency is recorded in the equipment register; it is derived from the asset tree.</desc>
+
+  <g font-size="9.5" letter-spacing="1.15" fill="var(--muted)">
+    <text x="196" y="22">DOWNSTREAM</text>
+    <text x="414" y="22" text-anchor="end">OUTPUT AT RISK</text>
+  </g>
+
+  <!-- the dependency, which is what Contour derives -->
+  <path d="M118,84 C158,84 158,50 189,50" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round"/>
+  <path d="M118,94 H189" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round"/>
+  <path d="M118,104 C158,104 158,138 189,138" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round"/>
+  <g fill="var(--accent)">
+    <path d="M196,50 L188,46 L188,54 Z"/>
+    <path d="M196,94 L188,90 L188,98 Z"/>
+    <path d="M196,138 L188,134 L188,142 Z"/>
+  </g>
+
+  <!-- the asset in question -->
+  <rect x="6" y="76" width="112" height="36" fill="var(--panel)" stroke="var(--ink)" stroke-width="1.6"/>
+  <text x="62" y="99" font-size="11.5" text-anchor="middle" fill="var(--ink)">Chiller CH-02</text>
+
+  <!-- what stops with it -->
+  <rect x="196" y="36" width="108" height="28" fill="var(--panel)" stroke="var(--muted)" stroke-width="1.3"/>
+  <text x="250" y="55" font-size="11.5" text-anchor="middle" fill="var(--muted)">MRI 1</text>
+  <rect x="196" y="80" width="108" height="28" fill="var(--panel)" stroke="var(--muted)" stroke-width="1.3"/>
+  <text x="250" y="99" font-size="11.5" text-anchor="middle" fill="var(--muted)">CT 2</text>
+  <rect x="196" y="124" width="108" height="28" fill="var(--panel)" stroke="var(--muted)" stroke-width="1.3"/>
+  <text x="250" y="143" font-size="11.5" text-anchor="middle" fill="var(--muted)">Theatres 3–4</text>
+
+  <!-- the payload -->
+  <g font-size="11" text-anchor="end" fill="var(--ink)" style="font-variant-numeric:tabular-nums">
+    <text x="414" y="55">18 scans/day</text>
+    <text x="414" y="99">26 scans/day</text>
+    <text x="414" y="143">16 sessions/day</text>
+  </g>
+</svg>
