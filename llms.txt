@@ -6,7 +6,7 @@ We serve two profiles: investment firms holding decades of positions, filings, c
 
 Company: Symbolic Engineering. Product: Contour.
 Operating regions: Europe, North America, Brazil.
-Contact: hello@symbolic.engineering
+Contact: contact@symbolic.engineering
 
 ## Method
 
