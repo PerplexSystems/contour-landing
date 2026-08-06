@@ -1,0 +1,22 @@
+' /product/sensor-intelligence/ — four correlated tag alarms are one physical
+' event. The fan-in is the whole idea: the operator should be handed the cause,
+' not the tag numbers.
+@startuml
+!include theme.puml
+left to right direction
+
+rectangle "<size:11>TI-4021\nbearing temp high" as a1
+rectangle "<size:11>PI-4030\noil pressure low" as a2
+rectangle "<size:11>VI-4101\nvibration high" as a3
+rectangle "<size:11>FI-4044\noil flow low" as a4
+
+rectangle "One event\n<size:11>lube oil starvation, P-101" as ev <<emph>>
+
+rectangle "Named cause,\nranked by consequence" as out
+
+a1 -[#1E40AF]-> ev
+a2 -[#1E40AF]-> ev
+a3 -[#1E40AF]-> ev
+a4 -[#1E40AF]-> ev
+ev -[#1E40AF]-> out
+@enduml

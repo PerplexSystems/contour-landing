@@ -1,0 +1,36 @@
+' /product/failure-propagation/ — a list of assets against a model of a plant.
+' One pump fails; accent traces what goes with it. The unaffected branch stays
+' muted on purpose: the graph is worth having because it tells you what is *not*
+' affected as much as what is.
+'
+' Deliberately no standby pump on the lubrication circuit. Drawing one would
+' imply the failure should not propagate at all, which is the first thing a
+' reliability engineer would object to.
+@startuml
+!include theme.puml
+left to right direction
+' wider ranks so a horizontal chain fills the 860px measure rather than
+' stopping two-thirds across it
+skinparam ranksep 74
+
+rectangle "Lube oil pump\nP-101" as p101 <<emph>>
+rectangle "Bearing lubrication\ncircuit" as circ <<trace>>
+rectangle "Compressor\nK-201" as k201 <<trace>>
+rectangle "Train 2" as train2 <<trace>>
+rectangle "Line A output\n<size:11>420 t/day at risk" as lineA <<emph>>
+
+rectangle "Instrument air\ncompressor" as air
+rectangle "Train 1" as train1
+rectangle "Line B output\n<size:11>unaffected" as lineB
+
+p101 -[#1E40AF]-> circ
+circ -[#1E40AF]-> k201
+k201 -[#1E40AF]-> train2
+train2 -[#1E40AF]-> lineA
+
+' Dashed, not just muted. The traced path is accent and solid, this one is grey
+' and dashed, so the distinction survives without relying on hue — which matters
+' for the blue-yellow deficiency the chromatic accent is weakest against.
+air -[dashed]-> train1
+train1 -[dashed]-> lineB
+@enduml

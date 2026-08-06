@@ -3,27 +3,29 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Product — The Contour platform and its four modules</title>
-<meta name="description" content="The Contour platform turns the systems you already run into one governed model your AI assistant can question directly. Four modules cover MCP access for AI assistants, asset failure propagation, reliability engineering and sensor intelligence.">
-<link rel="canonical" href="https://contour.co/product/">
+<title>Contour: one platform, four modules | Symbolic Engineering</title>
+<meta name="description" content="Contour turns the systems you already run into one governed model your AI assistant can question directly. Four modules: MCP access, asset failure propagation, reliability engineering and sensor intelligence.">
+<link rel="canonical" href="https://symbolic.engineering/product/">
 <link rel="stylesheet" href="/style.css">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23B33F1C' stroke-width='2'><circle cx='12' cy='12' r='9.5'/><circle cx='12' cy='12' r='5'/></svg>">
+<!-- @favicon -->
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><style>@media(prefers-color-scheme:dark){.s{stroke:%23EDEAE4}.k{fill:%23EDEAE4}}</style><path d='M22.43,12.00 C22.60,13.49 22.63,15.30 21.97,16.71 C21.32,18.13 19.98,19.81 18.51,20.49 C17.05,21.17 14.82,20.88 13.18,20.77 C11.55,20.67 10.11,20.35 8.69,19.86 C7.27,19.37 5.86,18.76 4.68,17.84 C3.50,16.91 2.24,15.69 1.60,14.31 C0.95,12.92 0.41,10.96 0.82,9.52 C1.24,8.08 2.83,6.72 4.08,5.69 C5.34,4.66 6.83,3.82 8.35,3.35 C9.88,2.88 11.71,2.61 13.23,2.86 C14.76,3.11 16.21,4.01 17.50,4.83 C18.79,5.65 20.13,6.58 20.95,7.77' class='s' fill='none' stroke='%2314110F' stroke-width='1.70' stroke-linecap='round' stroke-linejoin='round'/><path d='M18.66,11.61 C18.77,12.61 18.79,13.83 18.35,14.78 C17.91,15.73 17.01,16.87 16.02,17.32 C15.04,17.78 13.54,17.58 12.44,17.51 C11.34,17.44 10.37,17.23 9.41,16.90 C8.46,16.57 7.51,16.16 6.71,15.54 C5.92,14.91 5.07,14.09 4.64,13.16 C4.20,12.23 3.84,10.91 4.12,9.94 C4.40,8.97 5.47,8.05 6.31,7.36 C7.16,6.67 8.16,6.10 9.19,5.78 C10.21,5.47 11.44,5.29 12.47,5.46 C13.50,5.62 14.48,6.23 15.34,6.78 C16.21,7.33 17.11,7.96 17.66,8.76' class='s' fill='none' stroke='%2314110F' stroke-width='1.46' stroke-linecap='round' stroke-linejoin='round'/><path d='M15.11,11.24 C15.17,11.78 15.18,12.44 14.95,12.96 C14.71,13.48 14.22,14.09 13.68,14.34 C13.15,14.59 12.33,14.48 11.73,14.44 C11.14,14.41 10.61,14.29 10.09,14.11 C9.57,13.93 9.06,13.71 8.63,13.37 C8.19,13.03 7.73,12.59 7.50,12.08 C7.27,11.58 7.07,10.86 7.22,10.33 C7.37,9.81 7.95,9.31 8.41,8.93 C8.87,8.56 9.41,8.25 9.97,8.08 C10.53,7.90 11.20,7.81 11.75,7.90 C12.31,7.99 12.84,8.32 13.31,8.62 C13.78,8.92 14.27,9.26 14.57,9.69 C14.87,10.13 15.05,10.69 15.11,11.24 Z' class='k' fill='%2314110F'/></svg>">
+<!-- /@favicon -->
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="Contour">
+<meta property="og:site_name" content="Symbolic Engineering">
 <meta property="og:title" content="The Contour platform">
 <meta property="og:description" content="One platform, four modules: model context layer, failure propagation, reliability engineering, sensor intelligence.">
-<meta property="og:url" content="https://contour.co/product/">
+<meta property="og:url" content="https://symbolic.engineering/product/">
 <meta name="twitter:card" content="summary">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[
 {"@type":"BreadcrumbList","itemListElement":[
-{"@type":"ListItem","position":1,"name":"Home","item":"https://contour.co/"},
-{"@type":"ListItem","position":2,"name":"Product","item":"https://contour.co/product/"}]},
-{"@type":"SoftwareApplication","name":"Contour","applicationCategory":"BusinessApplication","operatingSystem":"Web",
-"url":"https://contour.co/product/",
+{"@type":"ListItem","position":1,"name":"Home","item":"https://symbolic.engineering/"},
+{"@type":"ListItem","position":2,"name":"Product","item":"https://symbolic.engineering/product/"}]},
+{"@type":"SoftwareApplication","@id":"https://symbolic.engineering/#contour","name":"Contour","applicationCategory":"BusinessApplication","operatingSystem":"Web",
+"url":"https://symbolic.engineering/product/",
 "description":"Contour turns a company's source systems into one governed model and puts it in front of analysts and the AI assistants they already use, over the Model Context Protocol. Four modules extend it into asset failure propagation, reliability engineering and sensor intelligence.",
-"featureList":["Model Context Protocol (MCP) access for AI assistants","Verified typed operations instead of generated SQL","Asset tree and failure propagation","Reliability engineering and remaining useful life","Sensor intelligence and anomaly detection","Lineage on every result"],
-"publisher":{"@type":"Organization","@id":"https://contour.co/#org","name":"Contour"}}
+"featureList":["Declarative semantic layer over source systems, queried rather than reactive","Model Context Protocol (MCP) access for AI assistants","Verified typed operations instead of generated SQL","Asset tree and failure propagation","Reliability engineering and remaining useful life","Sensor intelligence and anomaly detection","Lineage and provenance on every result"],
+"publisher":{"@type":"Organization","@id":"https://symbolic.engineering/#org","name":"Symbolic Engineering"}}
 ]}
 </script>
 </head>
@@ -32,11 +34,14 @@
 
   <header>
     <a class="mark" href="/">
-      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
-        <circle cx="12" cy="12" r="9.5"/><circle cx="12" cy="12" r="5"/>
-        <circle cx="12" cy="12" r="1.3" fill="currentColor" stroke="none"/>
-      </svg>
-      Contour
+      <!-- @diagram mark-sm -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" width="17" height="17" aria-hidden="true">
+  <path d="M22.43,12.00 C22.60,13.49 22.63,15.30 21.97,16.71 C21.32,18.13 19.98,19.81 18.51,20.49 C17.05,21.17 14.82,20.88 13.18,20.77 C11.55,20.67 10.11,20.35 8.69,19.86 C7.27,19.37 5.86,18.76 4.68,17.84 C3.50,16.91 2.24,15.69 1.60,14.31 C0.95,12.92 0.41,10.96 0.82,9.52 C1.24,8.08 2.83,6.72 4.08,5.69 C5.34,4.66 6.83,3.82 8.35,3.35 C9.88,2.88 11.71,2.61 13.23,2.86 C14.76,3.11 16.21,4.01 17.50,4.83 C18.79,5.65 20.13,6.58 20.95,7.77" fill="none" stroke="var(--ink)" stroke-width="1.70" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M18.66,11.61 C18.77,12.61 18.79,13.83 18.35,14.78 C17.91,15.73 17.01,16.87 16.02,17.32 C15.04,17.78 13.54,17.58 12.44,17.51 C11.34,17.44 10.37,17.23 9.41,16.90 C8.46,16.57 7.51,16.16 6.71,15.54 C5.92,14.91 5.07,14.09 4.64,13.16 C4.20,12.23 3.84,10.91 4.12,9.94 C4.40,8.97 5.47,8.05 6.31,7.36 C7.16,6.67 8.16,6.10 9.19,5.78 C10.21,5.47 11.44,5.29 12.47,5.46 C13.50,5.62 14.48,6.23 15.34,6.78 C16.21,7.33 17.11,7.96 17.66,8.76" fill="none" stroke="var(--ink)" stroke-width="1.46" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M15.11,11.24 C15.17,11.78 15.18,12.44 14.95,12.96 C14.71,13.48 14.22,14.09 13.68,14.34 C13.15,14.59 12.33,14.48 11.73,14.44 C11.14,14.41 10.61,14.29 10.09,14.11 C9.57,13.93 9.06,13.71 8.63,13.37 C8.19,13.03 7.73,12.59 7.50,12.08 C7.27,11.58 7.07,10.86 7.22,10.33 C7.37,9.81 7.95,9.31 8.41,8.93 C8.87,8.56 9.41,8.25 9.97,8.08 C10.53,7.90 11.20,7.81 11.75,7.90 C12.31,7.99 12.84,8.32 13.31,8.62 C13.78,8.92 14.27,9.26 14.57,9.69 C14.87,10.13 15.05,10.69 15.11,11.24 Z" fill="var(--ink)"/>
+</svg>
+      <!-- /@diagram -->
+      Symbolic Engineering
     </a>
     <nav>
       <a href="/">Home</a>
@@ -54,27 +59,73 @@
       <p class="lede">Contour turns the systems you already run into one governed model of your business, then puts that model in front of your analysts and the AI assistants they already work in. Four modules extend it into the areas where an answer has to understand physical equipment and not just tables.</p>
       <div class="grid">
         <div class="card">
+          <!-- @diagram icon-model-context-layer -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 68 68" fill="none" aria-hidden="true">
+  <path d="M63.08,34.00 C63.55,38.15 63.63,43.19 61.81,47.14 C59.99,51.08 56.24,55.79 52.16,57.68 C48.08,59.57 41.87,58.76 37.30,58.47 C32.74,58.17 28.72,57.28 24.77,55.91 C20.81,54.55 16.88,52.86 13.58,50.28 C10.28,47.70 6.78,44.30 4.99,40.44 C3.20,36.57 1.68,31.09 2.83,27.09 C3.99,23.08 8.43,19.27 11.93,16.40 C15.43,13.53 19.58,11.19 23.83,9.87 C28.09,8.56 33.19,7.82 37.44,8.51 C41.69,9.20 45.75,11.72 49.34,14.00 C52.92,16.29 56.66,18.88 58.95,22.21" fill="none" stroke="var(--ink)" stroke-width="1.90" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M55.38,33.23 C55.74,36.38 55.80,40.20 54.42,43.19 C53.04,46.19 50.20,49.76 47.10,51.19 C44.00,52.62 39.29,52.01 35.83,51.79 C32.36,51.56 29.32,50.89 26.32,49.85 C23.32,48.82 20.33,47.54 17.83,45.58 C15.33,43.62 12.67,41.04 11.31,38.11 C9.96,35.18 8.80,31.02 9.68,27.98 C10.56,24.94 13.92,22.05 16.58,19.88 C19.23,17.70 22.39,15.92 25.61,14.93 C28.84,13.93 32.71,13.37 35.93,13.89 C39.16,14.41 42.24,16.33 44.96,18.06 C47.68,19.79 50.52,21.76 52.25,24.29" fill="none" stroke="var(--ink)" stroke-width="1.63" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M47.69,32.46 C47.93,34.60 47.97,37.21 47.03,39.25 C46.09,41.29 44.15,43.73 42.04,44.70 C39.93,45.68 36.72,45.26 34.36,45.11 C31.99,44.96 29.92,44.50 27.87,43.79 C25.83,43.08 23.79,42.21 22.09,40.88 C20.38,39.54 18.57,37.78 17.64,35.78 C16.72,33.78 15.93,30.95 16.53,28.88 C17.13,26.81 19.42,24.84 21.23,23.35 C23.04,21.87 25.19,20.66 27.39,19.98 C29.59,19.30 32.23,18.92 34.43,19.27 C36.63,19.63 38.73,20.93 40.58,22.11 C42.44,23.29 44.37,24.64 45.55,26.36" fill="none" stroke="var(--ink)" stroke-width="2.01" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M40.54,31.74 C40.68,32.96 40.70,34.43 40.17,35.59 C39.64,36.74 38.54,38.12 37.34,38.68 C36.15,39.23 34.33,39.00 32.99,38.91 C31.65,38.82 30.47,38.56 29.31,38.16 C28.16,37.76 27.00,37.27 26.04,36.51 C25.07,35.75 24.04,34.76 23.52,33.62 C22.99,32.49 22.55,30.89 22.89,29.71 C23.22,28.54 24.52,27.42 25.55,26.58 C26.58,25.74 27.79,25.05 29.04,24.67 C30.29,24.28 31.78,24.07 33.03,24.27 C34.27,24.47 35.46,25.21 36.52,25.88 C37.57,26.55 38.66,27.31 39.33,28.28 C40.01,29.26 40.40,30.52 40.54,31.74 Z" fill="var(--ink)"/>
+  <path d="M64,58 L43,42" stroke="var(--accent)" stroke-width="2.4" stroke-linecap="round"/>
+</svg>
+      <!-- /@diagram -->
           <h3><a href="/product/model-context-layer/">Model Context Layer</a></h3>
           <p>Plug the AI assistant your team already uses straight into your business. It answers from verified operations rather than from a query it wrote itself, and every figure carries lineage back to source.</p>
         </div>
         <div class="card">
+          <!-- @diagram icon-failure-propagation -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 68 68" fill="none" aria-hidden="true">
+  <path d="M63.08,34.00 C63.55,38.15 63.63,43.19 61.81,47.14 C59.99,51.08 56.24,55.79 52.16,57.68 C48.08,59.57 41.87,58.76 37.30,58.47 C32.74,58.17 28.72,57.28 24.77,55.91 C20.81,54.55 16.88,52.86 13.58,50.28 C10.28,47.70 6.78,44.30 4.99,40.44 C3.20,36.57 1.68,31.09 2.83,27.09 C3.99,23.08 8.43,19.27 11.93,16.40 C15.43,13.53 19.58,11.19 23.83,9.87 C28.09,8.56 33.19,7.82 37.44,8.51 C41.69,9.20 45.75,11.72 49.34,14.00 C52.92,16.29 56.66,18.88 58.95,22.21" fill="none" stroke="var(--ink)" stroke-width="1.90" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M55.38,33.23 C55.74,36.38 55.80,40.20 54.42,43.19 C53.04,46.19 50.20,49.76 47.10,51.19 C44.00,52.62 39.29,52.01 35.83,51.79 C32.36,51.56 29.32,50.89 26.32,49.85 C23.32,48.82 20.33,47.54 17.83,45.58 C15.33,43.62 12.67,41.04 11.31,38.11 C9.96,35.18 8.80,31.02 9.68,27.98 C10.56,24.94 13.92,22.05 16.58,19.88 C19.23,17.70 22.39,15.92 25.61,14.93 C28.84,13.93 32.71,13.37 35.93,13.89 C39.16,14.41 42.24,16.33 44.96,18.06 C47.68,19.79 50.52,21.76 52.25,24.29" fill="none" stroke="var(--ink)" stroke-width="1.63" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M47.69,32.46 C47.93,34.60 47.97,37.21 47.03,39.25 C46.09,41.29 44.15,43.73 42.04,44.70 C39.93,45.68 36.72,45.26 34.36,45.11 C31.99,44.96 29.92,44.50 27.87,43.79 C25.83,43.08 23.79,42.21 22.09,40.88 C20.38,39.54 18.57,37.78 17.64,35.78 C16.72,33.78 15.93,30.95 16.53,28.88 C17.13,26.81 19.42,24.84 21.23,23.35 C23.04,21.87 25.19,20.66 27.39,19.98 C29.59,19.30 32.23,18.92 34.43,19.27 C36.63,19.63 38.73,20.93 40.58,22.11 C42.44,23.29 44.37,24.64 45.55,26.36" fill="none" stroke="var(--ink)" stroke-width="2.01" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M40.54,31.74 C40.68,32.96 40.70,34.43 40.17,35.59 C39.64,36.74 38.54,38.12 37.34,38.68 C36.15,39.23 34.33,39.00 32.99,38.91 C31.65,38.82 30.47,38.56 29.31,38.16 C28.16,37.76 27.00,37.27 26.04,36.51 C25.07,35.75 24.04,34.76 23.52,33.62 C22.99,32.49 22.55,30.89 22.89,29.71 C23.22,28.54 24.52,27.42 25.55,26.58 C26.58,25.74 27.79,25.05 29.04,24.67 C30.29,24.28 31.78,24.07 33.03,24.27 C34.27,24.47 35.46,25.21 36.52,25.88 C37.57,26.55 38.66,27.31 39.33,28.28 C40.01,29.26 40.40,30.52 40.54,31.74 Z" fill="var(--ink)"/>
+  <path d="M21.23,23.35 C22.26,22.79 25.19,20.66 27.39,19.98 C29.59,19.30 32.23,18.92 34.43,19.27 C36.63,19.63 38.73,20.93 40.58,22.11 C42.44,23.29 44.37,24.64 45.55,26.36 C46.74,28.08 47.33,31.44 47.69,32.46" fill="none" stroke="var(--accent)" stroke-width="2.3" stroke-linecap="round"/>
+  <path d="M16.58,19.88 C18.08,19.05 22.39,15.92 25.61,14.93 C28.84,13.93 32.71,13.37 35.93,13.89 C39.16,14.41 42.24,16.33 44.96,18.06 C47.68,19.79 50.52,21.76 52.25,24.29 C53.99,26.81 55.02,30.08 55.38,33.23 C55.74,36.38 54.58,41.53 54.42,43.19" fill="none" stroke="var(--accent)" stroke-width="2.1" stroke-linecap="round"/>
+  <path d="M23.83,9.87 C26.10,9.65 33.19,7.82 37.44,8.51 C41.69,9.20 45.75,11.72 49.34,14.00 C52.92,16.29 56.66,18.88 58.95,22.21 C61.24,25.55 62.60,29.85 63.08,34.00 C63.55,38.15 62.02,44.95 61.81,47.14" fill="none" stroke="var(--accent)" stroke-width="1.9" stroke-linecap="round"/>
+</svg>
+      <!-- /@diagram -->
           <h3><a href="/product/failure-propagation/">Asset Tree &amp; Failure Propagation</a></h3>
           <p>See what a single failure takes down with it. Contour models the plant as a dependency graph rather than a list of tags, so consequence can be traced to the production it costs you.</p>
         </div>
         <div class="card">
+          <!-- @diagram icon-reliability-engineering -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 68 68" fill="none" aria-hidden="true">
+  <path d="M63.08,34.00 C63.55,38.15 63.63,43.19 61.81,47.14 C59.99,51.08 56.24,55.79 52.16,57.68 C48.08,59.57 41.87,58.76 37.30,58.47 C32.74,58.17 28.72,57.28 24.77,55.91 C20.81,54.55 16.88,52.86 13.58,50.28 C10.28,47.70 6.78,44.30 4.99,40.44 C3.20,36.57 1.68,31.09 2.83,27.09 C3.99,23.08 8.43,19.27 11.93,16.40 C15.43,13.53 19.58,11.19 23.83,9.87 C28.09,8.56 33.19,7.82 37.44,8.51 C41.69,9.20 45.75,11.72 49.34,14.00 C52.92,16.29 56.66,18.88 58.95,22.21" fill="none" stroke="var(--ink)" stroke-width="1.90" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M55.38,33.23 C55.74,36.38 55.80,40.20 54.42,43.19 C53.04,46.19 50.20,49.76 47.10,51.19 C44.00,52.62 39.29,52.01 35.83,51.79 C32.36,51.56 29.32,50.89 26.32,49.85 C23.32,48.82 20.33,47.54 17.83,45.58 C15.33,43.62 12.67,41.04 11.31,38.11 C9.96,35.18 8.80,31.02 9.68,27.98 C10.56,24.94 13.92,22.05 16.58,19.88 C19.23,17.70 22.39,15.92 25.61,14.93 C28.84,13.93 32.71,13.37 35.93,13.89 C39.16,14.41 42.24,16.33 44.96,18.06 C47.68,19.79 50.52,21.76 52.25,24.29" fill="none" stroke="var(--ink)" stroke-width="1.63" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M47.69,32.46 C47.93,34.60 47.97,37.21 47.03,39.25 C46.09,41.29 44.15,43.73 42.04,44.70 C39.93,45.68 36.72,45.26 34.36,45.11 C31.99,44.96 29.92,44.50 27.87,43.79 C25.83,43.08 23.79,42.21 22.09,40.88 C20.38,39.54 18.57,37.78 17.64,35.78 C16.72,33.78 15.93,30.95 16.53,28.88 C17.13,26.81 19.42,24.84 21.23,23.35 C23.04,21.87 25.19,20.66 27.39,19.98 C29.59,19.30 32.23,18.92 34.43,19.27 C36.63,19.63 38.73,20.93 40.58,22.11 C42.44,23.29 44.37,24.64 45.55,26.36" fill="none" stroke="var(--ink)" stroke-width="2.01" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M40.54,31.74 C40.68,32.96 40.70,34.43 40.17,35.59 C39.64,36.74 38.54,38.12 37.34,38.68 C36.15,39.23 34.33,39.00 32.99,38.91 C31.65,38.82 30.47,38.56 29.31,38.16 C28.16,37.76 27.00,37.27 26.04,36.51 C25.07,35.75 24.04,34.76 23.52,33.62 C22.99,32.49 22.55,30.89 22.89,29.71 C23.22,28.54 24.52,27.42 25.55,26.58 C26.58,25.74 27.79,25.05 29.04,24.67 C30.29,24.28 31.78,24.07 33.03,24.27 C34.27,24.47 35.46,25.21 36.52,25.88 C37.57,26.55 38.66,27.31 39.33,28.28 C40.01,29.26 40.40,30.52 40.54,31.74 Z" fill="var(--ink)"/>
+  <path d="M7,52 L61,20" stroke="var(--accent)" stroke-width="2.4" stroke-linecap="round"/><path d="M5,48 L10,55.5" stroke="var(--accent)" stroke-width="2.2" stroke-linecap="round"/><path d="M58,16.5 L63,24" stroke="var(--accent)" stroke-width="2.2" stroke-linecap="round"/>
+</svg>
+      <!-- /@diagram -->
           <h3><a href="/product/reliability-engineering/">Reliability Engineering</a></h3>
           <p>Push your maintenance window past the fortnight. Each asset's own failure history becomes a probability of failing inside the period you actually plan against.</p>
         </div>
         <div class="card">
+          <!-- @diagram icon-sensor-intelligence -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 68 68" fill="none" aria-hidden="true">
+  <path d="M63.08,34.00 C63.55,38.15 63.63,43.19 61.81,47.14 C59.99,51.08 56.24,55.79 52.16,57.68 C48.08,59.57 41.87,58.76 37.30,58.47 C32.74,58.17 28.72,57.28 24.77,55.91 C20.81,54.55 16.88,52.86 13.58,50.28 C10.28,47.70 6.78,44.30 4.99,40.44 C3.20,36.57 1.68,31.09 2.83,27.09 C3.99,23.08 8.43,19.27 11.93,16.40 C15.43,13.53 19.58,11.19 23.83,9.87 C28.09,8.56 33.19,7.82 37.44,8.51 C41.69,9.20 45.75,11.72 49.34,14.00 C52.92,16.29 56.66,18.88 58.95,22.21" fill="none" stroke="var(--ink)" stroke-width="1.90" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M55.38,33.23 C55.74,36.38 55.80,40.20 54.42,43.19 C53.04,46.19 50.20,49.76 47.10,51.19 C44.00,52.62 39.29,52.01 35.83,51.79 C32.36,51.56 29.32,50.89 26.32,49.85 C23.32,48.82 20.33,47.54 17.83,45.58 C15.33,43.62 12.67,41.04 11.31,38.11 C9.96,35.18 8.80,31.02 9.68,27.98 C10.56,24.94 13.92,22.05 16.58,19.88 C19.23,17.70 22.39,15.92 25.61,14.93 C28.84,13.93 32.71,13.37 35.93,13.89 C39.16,14.41 42.24,16.33 44.96,18.06 C47.68,19.79 50.52,21.76 52.25,24.29" fill="none" stroke="var(--ink)" stroke-width="1.63" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M47.69,32.46 C47.93,34.60 47.97,37.21 47.03,39.25 C46.09,41.29 44.15,43.73 42.04,44.70 C39.93,45.68 36.72,45.26 34.36,45.11 C31.99,44.96 29.92,44.50 27.87,43.79 C25.83,43.08 23.79,42.21 22.09,40.88 C20.38,39.54 18.57,37.78 17.64,35.78 C16.72,33.78 15.93,30.95 16.53,28.88 C17.13,26.81 19.42,24.84 21.23,23.35 C23.04,21.87 25.19,20.66 27.39,19.98 C29.59,19.30 32.23,18.92 34.43,19.27 C36.63,19.63 38.73,20.93 40.58,22.11 C42.44,23.29 44.37,24.64 45.55,26.36" fill="none" stroke="var(--ink)" stroke-width="2.01" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M40.54,31.74 C40.68,32.96 40.70,34.43 40.17,35.59 C39.64,36.74 38.54,38.12 37.34,38.68 C36.15,39.23 34.33,39.00 32.99,38.91 C31.65,38.82 30.47,38.56 29.31,38.16 C28.16,37.76 27.00,37.27 26.04,36.51 C25.07,35.75 24.04,34.76 23.52,33.62 C22.99,32.49 22.55,30.89 22.89,29.71 C23.22,28.54 24.52,27.42 25.55,26.58 C26.58,25.74 27.79,25.05 29.04,24.67 C30.29,24.28 31.78,24.07 33.03,24.27 C34.27,24.47 35.46,25.21 36.52,25.88 C37.57,26.55 38.66,27.31 39.33,28.28 C40.01,29.26 40.40,30.52 40.54,31.74 Z" fill="var(--ink)"/>
+  <circle cx="37.3" cy="58.5" r="2.6" fill="var(--muted)"/>
+  <circle cx="35.9" cy="13.9" r="2.6" fill="var(--muted)"/>
+  <circle cx="17.6" cy="35.8" r="2.6" fill="var(--muted)"/>
+  <circle cx="57" cy="13" r="5" fill="none" stroke="var(--accent)" stroke-width="2.2"/>
+  <circle cx="57" cy="13" r="1.9" fill="var(--accent)"/>
+</svg>
+      <!-- /@diagram -->
           <h3><a href="/product/sensor-intelligence/">Sensor Intelligence</a></h3>
           <p>Get an alarm that names a cause instead of a tag number. Contour ingests instrumentation continuously, collapses correlated alarms into one event and catches drift before it reaches your models.</p>
         </div>
       </div>
+      <section>
+        <h2>The motto</h2>
+        <p><strong>Contour is not a rule engine</strong>, as that would imply a reactive system. Instead of conditions and the actions that should follow them, Contour offers modules for use cases that share the same infrastructure of knowledge representation under a closed world assumption. While a rule engine fails on a rule, Contour fails on a question that falls outside the model, guaranteeing unapproachability of answer. One accumulates logic; the other maintains a description of your business that can be validated against records you own.</p>
+      </section>
     </article>
   </main>
 
   <footer>
-    <span>© 2026 Contour</span>
+    <span>© 2026 Symbolic Engineering</span>
   </footer>
 
 </div>

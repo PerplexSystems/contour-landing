@@ -1,0 +1,72 @@
+<!--
+  /product/reliability-engineering/ — hand-authored, not PlantUML: this is a chart,
+  and PlantUML has no chart support worth using. render.sh copies diagrams/*.svg
+  into img/ unchanged, so it goes through the same inlining as the rendered ones.
+
+  Emphasis lives in the bars: four in the muted token, the row that matters in the
+  accent. An earlier draft could not do this. Against the first blue accent the
+  muted token measured only 14.8 in OKLab, under the 15 floor for normal vision,
+  so the highlight was not reliably distinguishable and every bar had to be one
+  colour. The current accent measures 21.2 normal and 18.6 protan against the same
+  grey, so the emphasis can sit in the data mark where it belongs rather than in a
+  row fill behind it. Tritan separation is 11.5, which is why the asset graph
+  carries a dash/solid distinction as well as a colour one; here the emphasised
+  row is also the only one with its name and its consequence set in ink, so the
+  row is identifiable without relying on the bar colour at all.
+
+  Colours are custom properties so the figure follows the page theme, and every
+  value is real text — nothing here is gated behind a hover.
+
+  Note for editors: no double hyphen may appear in this comment. It is illegal in
+  XML and the token names would otherwise be the obvious way to write the above.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 240" style="max-width:860px" role="img" aria-labelledby="rel-t rel-d">
+  <title id="rel-t">Five assets ranked by probability of failing within a fifteen-day planning window</title>
+  <desc id="rel-d">Feed pump P-207 is likeliest to fail at 34 percent but puts only 40 tonnes per day at risk. Lube oil pump P-101, second at 28 percent, puts 420 tonnes per day at risk and carries the highest expected loss.</desc>
+
+  <!-- column headings -->
+  <g font-size="9.5" letter-spacing="1.15" fill="var(--muted)">
+    <text x="170" y="40" text-anchor="end">ASSET</text>
+    <text x="186" y="40">PROBABILITY OF FAILING WITHIN 15 DAYS</text>
+    <text x="850" y="40" text-anchor="end">OUTPUT AT RISK</text>
+  </g>
+
+  <!-- baseline the bars grow from -->
+  <line x1="186" y1="52" x2="186" y2="220" stroke="var(--rule)" stroke-width="1"/>
+
+  <!-- bars: 16px, square at the baseline, 4px rounded data-end. Domain 0–40%. -->
+  <g fill="var(--muted)">
+    <path d="M186,64 H522 A4,4 0 0 1 526,68 V76 A4,4 0 0 1 522,80 H186 Z"><title>Feed pump P-207 — 34% within 15 days, 40 t/day at risk</title></path>
+    <path d="M186,132 H402 A4,4 0 0 1 406,136 V144 A4,4 0 0 1 402,148 H186 Z"><title>Agitator M-318 — 22% within 15 days, 95 t/day at risk</title></path>
+    <path d="M186,166 H332 A4,4 0 0 1 336,170 V178 A4,4 0 0 1 332,182 H186 Z"><title>Compressor K-201 — 15% within 15 days, 210 t/day at risk</title></path>
+    <path d="M186,200 H292 A4,4 0 0 1 296,204 V212 A4,4 0 0 1 292,216 H186 Z"><title>Conveyor C-04 — 11% within 15 days, 60 t/day at risk</title></path>
+  </g>
+  <path d="M186,98 H462 A4,4 0 0 1 466,102 V110 A4,4 0 0 1 462,114 H186 Z" fill="var(--accent)"><title>Lube oil pump P-101 — 28% within 15 days, 420 t/day at risk, highest expected loss</title></path>
+
+  <!-- asset names: ink on the emphasised row, muted elsewhere -->
+  <g font-size="12.5" text-anchor="end">
+    <text x="170" y="76" fill="var(--muted)">Feed pump P-207</text>
+    <text x="170" y="110" fill="var(--ink)">Lube oil pump P-101</text>
+    <text x="170" y="144" fill="var(--muted)">Agitator M-318</text>
+    <text x="170" y="178" fill="var(--muted)">Compressor K-201</text>
+    <text x="170" y="212" fill="var(--muted)">Conveyor C-04</text>
+  </g>
+
+  <!-- probability at the bar tip -->
+  <g font-size="12" fill="var(--ink)" style="font-variant-numeric:tabular-nums">
+    <text x="535" y="76">34%</text>
+    <text x="475" y="110">28%</text>
+    <text x="415" y="144">22%</text>
+    <text x="345" y="178">15%</text>
+    <text x="305" y="212">11%</text>
+  </g>
+
+  <!-- consequence, as a value rather than a second encoded axis -->
+  <g font-size="11.5" text-anchor="end" style="font-variant-numeric:tabular-nums">
+    <text x="850" y="76" fill="var(--muted)">40 t/day</text>
+    <text x="850" y="110" fill="var(--ink)">420 t/day</text>
+    <text x="850" y="144" fill="var(--muted)">95 t/day</text>
+    <text x="850" y="178" fill="var(--muted)">210 t/day</text>
+    <text x="850" y="212" fill="var(--muted)">60 t/day</text>
+  </g>
+</svg>

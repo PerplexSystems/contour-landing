@@ -3,27 +3,29 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Reliability Engineering — Contour</title>
+<title>Reliability Engineering &amp; RUL | Symbolic Engineering</title>
 <meta name="description" content="Contour turns failure and maintenance history into hazard and remaining-useful-life estimates per asset, so the maintenance planning horizon is set by the equipment rather than by the reporting cycle.">
-<link rel="canonical" href="https://contour.co/product/reliability-engineering/">
+<link rel="canonical" href="https://symbolic.engineering/product/reliability-engineering/">
 <link rel="stylesheet" href="/style.css">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23B33F1C' stroke-width='2'><circle cx='12' cy='12' r='9.5'/><circle cx='12' cy='12' r='5'/></svg>">
+<!-- @favicon -->
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><style>@media(prefers-color-scheme:dark){.s{stroke:%23EDEAE4}.k{fill:%23EDEAE4}}</style><path d='M22.43,12.00 C22.60,13.49 22.63,15.30 21.97,16.71 C21.32,18.13 19.98,19.81 18.51,20.49 C17.05,21.17 14.82,20.88 13.18,20.77 C11.55,20.67 10.11,20.35 8.69,19.86 C7.27,19.37 5.86,18.76 4.68,17.84 C3.50,16.91 2.24,15.69 1.60,14.31 C0.95,12.92 0.41,10.96 0.82,9.52 C1.24,8.08 2.83,6.72 4.08,5.69 C5.34,4.66 6.83,3.82 8.35,3.35 C9.88,2.88 11.71,2.61 13.23,2.86 C14.76,3.11 16.21,4.01 17.50,4.83 C18.79,5.65 20.13,6.58 20.95,7.77' class='s' fill='none' stroke='%2314110F' stroke-width='1.70' stroke-linecap='round' stroke-linejoin='round'/><path d='M18.66,11.61 C18.77,12.61 18.79,13.83 18.35,14.78 C17.91,15.73 17.01,16.87 16.02,17.32 C15.04,17.78 13.54,17.58 12.44,17.51 C11.34,17.44 10.37,17.23 9.41,16.90 C8.46,16.57 7.51,16.16 6.71,15.54 C5.92,14.91 5.07,14.09 4.64,13.16 C4.20,12.23 3.84,10.91 4.12,9.94 C4.40,8.97 5.47,8.05 6.31,7.36 C7.16,6.67 8.16,6.10 9.19,5.78 C10.21,5.47 11.44,5.29 12.47,5.46 C13.50,5.62 14.48,6.23 15.34,6.78 C16.21,7.33 17.11,7.96 17.66,8.76' class='s' fill='none' stroke='%2314110F' stroke-width='1.46' stroke-linecap='round' stroke-linejoin='round'/><path d='M15.11,11.24 C15.17,11.78 15.18,12.44 14.95,12.96 C14.71,13.48 14.22,14.09 13.68,14.34 C13.15,14.59 12.33,14.48 11.73,14.44 C11.14,14.41 10.61,14.29 10.09,14.11 C9.57,13.93 9.06,13.71 8.63,13.37 C8.19,13.03 7.73,12.59 7.50,12.08 C7.27,11.58 7.07,10.86 7.22,10.33 C7.37,9.81 7.95,9.31 8.41,8.93 C8.87,8.56 9.41,8.25 9.97,8.08 C10.53,7.90 11.20,7.81 11.75,7.90 C12.31,7.99 12.84,8.32 13.31,8.62 C13.78,8.92 14.27,9.26 14.57,9.69 C14.87,10.13 15.05,10.69 15.11,11.24 Z' class='k' fill='%2314110F'/></svg>">
+<!-- /@favicon -->
 <meta property="og:type" content="article">
-<meta property="og:site_name" content="Contour">
+<meta property="og:site_name" content="Symbolic Engineering">
 <meta property="og:title" content="Reliability Engineering">
 <meta property="og:description" content="Hazard and remaining-useful-life estimates per asset, so maintenance is planned on a horizon set by the equipment.">
-<meta property="og:url" content="https://contour.co/product/reliability-engineering/">
+<meta property="og:url" content="https://symbolic.engineering/product/reliability-engineering/">
 <meta name="twitter:card" content="summary">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[
 {"@type":"BreadcrumbList","itemListElement":[
-{"@type":"ListItem","position":1,"name":"Home","item":"https://contour.co/"},
-{"@type":"ListItem","position":2,"name":"Product","item":"https://contour.co/product/"},
-{"@type":"ListItem","position":3,"name":"Reliability Engineering","item":"https://contour.co/product/reliability-engineering/"}]},
+{"@type":"ListItem","position":1,"name":"Home","item":"https://symbolic.engineering/"},
+{"@type":"ListItem","position":2,"name":"Product","item":"https://symbolic.engineering/product/"},
+{"@type":"ListItem","position":3,"name":"Reliability Engineering","item":"https://symbolic.engineering/product/reliability-engineering/"}]},
 {"@type":"FAQPage","mainEntity":[
-{"@type":"Question","name":"What is remaining useful life (RUL)?","acceptedAnswer":{"@type":"Answer","text":"Remaining useful life is an estimate of how much service an asset has left before it is likely to fail or fall below an acceptable condition. It is expressed as a distribution rather than a single date, because the useful output is the probability of failure within a planning window, not a prediction of the exact day."}},
-{"@type":"Question","name":"Why is a fifteen-day maintenance planning window a problem?","acceptedAnswer":{"@type":"Answer","text":"A short planning window forces maintenance to be scheduled around the reporting cycle rather than around the condition of the equipment. Long-lead spares cannot be ordered in time, outages cannot be consolidated into a single shutdown, and work that could have been planned becomes reactive. Extending the horizon requires per-asset failure estimates that hold beyond the current cycle."}},
-{"@type":"Question","name":"How does Contour extend the maintenance planning horizon?","acceptedAnswer":{"@type":"Answer","text":"Contour fits hazard models to each asset's own failure and maintenance history, then ranks assets by probability of failure within a chosen window. Because the estimates are per-asset and probabilistic, planners can extend the horizon and consolidate work into fewer outages rather than reacting inside a fixed fortnight."}}]}
+{"@type":"Question","name":"What is remaining useful life?","acceptedAnswer":{"@type":"Answer","text":"An estimate of how much service an asset has left before it is likely to fail or fall below acceptable condition, expressed as a distribution rather than a single date."}},
+{"@type":"Question","name":"Does this require condition monitoring sensors?","acceptedAnswer":{"@type":"Answer","text":"No. Failure and maintenance history alone supports the models. Where instrumentation exists, sensor intelligence sharpens the estimates."}},
+{"@type":"Question","name":"How much history is needed?","acceptedAnswer":{"@type":"Answer","text":"Enough failure events to fit a distribution per asset class, with per-asset adjustment. In practice most plants with several years of maintenance records have more than they expect, once the records are structured."}}]}
 ]}
 </script>
 </head>
@@ -32,11 +34,14 @@
 
   <header>
     <a class="mark" href="/">
-      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
-        <circle cx="12" cy="12" r="9.5"/><circle cx="12" cy="12" r="5"/>
-        <circle cx="12" cy="12" r="1.3" fill="currentColor" stroke="none"/>
-      </svg>
-      Contour
+      <!-- @diagram mark-sm -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" width="17" height="17" aria-hidden="true">
+  <path d="M22.43,12.00 C22.60,13.49 22.63,15.30 21.97,16.71 C21.32,18.13 19.98,19.81 18.51,20.49 C17.05,21.17 14.82,20.88 13.18,20.77 C11.55,20.67 10.11,20.35 8.69,19.86 C7.27,19.37 5.86,18.76 4.68,17.84 C3.50,16.91 2.24,15.69 1.60,14.31 C0.95,12.92 0.41,10.96 0.82,9.52 C1.24,8.08 2.83,6.72 4.08,5.69 C5.34,4.66 6.83,3.82 8.35,3.35 C9.88,2.88 11.71,2.61 13.23,2.86 C14.76,3.11 16.21,4.01 17.50,4.83 C18.79,5.65 20.13,6.58 20.95,7.77" fill="none" stroke="var(--ink)" stroke-width="1.70" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M18.66,11.61 C18.77,12.61 18.79,13.83 18.35,14.78 C17.91,15.73 17.01,16.87 16.02,17.32 C15.04,17.78 13.54,17.58 12.44,17.51 C11.34,17.44 10.37,17.23 9.41,16.90 C8.46,16.57 7.51,16.16 6.71,15.54 C5.92,14.91 5.07,14.09 4.64,13.16 C4.20,12.23 3.84,10.91 4.12,9.94 C4.40,8.97 5.47,8.05 6.31,7.36 C7.16,6.67 8.16,6.10 9.19,5.78 C10.21,5.47 11.44,5.29 12.47,5.46 C13.50,5.62 14.48,6.23 15.34,6.78 C16.21,7.33 17.11,7.96 17.66,8.76" fill="none" stroke="var(--ink)" stroke-width="1.46" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M15.11,11.24 C15.17,11.78 15.18,12.44 14.95,12.96 C14.71,13.48 14.22,14.09 13.68,14.34 C13.15,14.59 12.33,14.48 11.73,14.44 C11.14,14.41 10.61,14.29 10.09,14.11 C9.57,13.93 9.06,13.71 8.63,13.37 C8.19,13.03 7.73,12.59 7.50,12.08 C7.27,11.58 7.07,10.86 7.22,10.33 C7.37,9.81 7.95,9.31 8.41,8.93 C8.87,8.56 9.41,8.25 9.97,8.08 C10.53,7.90 11.20,7.81 11.75,7.90 C12.31,7.99 12.84,8.32 13.31,8.62 C13.78,8.92 14.27,9.26 14.57,9.69 C14.87,10.13 15.05,10.69 15.11,11.24 Z" fill="var(--ink)"/>
+</svg>
+      <!-- /@diagram -->
+      Symbolic Engineering
     </a>
     <nav>
       <a href="/">Home</a>
@@ -64,6 +69,61 @@
         <h2>Estimates per asset, expressed as probability</h2>
         <p>Contour fits hazard models to each asset's own history rather than applying a class-wide average, and reports remaining useful life as a distribution rather than a date. This matters because the question a planner actually asks is not <em>when will this fail</em> but <em>what is the chance this fails before the next scheduled outage</em>. The second question has a defensible answer where the first does not.</p>
         <p>Assets are then ranked by probability of failure within whatever window you choose to plan against, which is what turns a horizon from an assumption into a setting.</p>
+        <figure>
+          <!-- @diagram reliability -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 240" style="max-width:860px" role="img" aria-labelledby="rel-t rel-d">
+  <title id="rel-t">Five assets ranked by probability of failing within a fifteen-day planning window</title>
+  <desc id="rel-d">Feed pump P-207 is likeliest to fail at 34 percent but puts only 40 tonnes per day at risk. Lube oil pump P-101, second at 28 percent, puts 420 tonnes per day at risk and carries the highest expected loss.</desc>
+
+  <!-- column headings -->
+  <g font-size="9.5" letter-spacing="1.15" fill="var(--muted)">
+    <text x="170" y="40" text-anchor="end">ASSET</text>
+    <text x="186" y="40">PROBABILITY OF FAILING WITHIN 15 DAYS</text>
+    <text x="850" y="40" text-anchor="end">OUTPUT AT RISK</text>
+  </g>
+
+  <!-- baseline the bars grow from -->
+  <line x1="186" y1="52" x2="186" y2="220" stroke="var(--rule)" stroke-width="1"/>
+
+  <!-- bars: 16px, square at the baseline, 4px rounded data-end. Domain 0–40%. -->
+  <g fill="var(--muted)">
+    <path d="M186,64 H522 A4,4 0 0 1 526,68 V76 A4,4 0 0 1 522,80 H186 Z"><title>Feed pump P-207 — 34% within 15 days, 40 t/day at risk</title></path>
+    <path d="M186,132 H402 A4,4 0 0 1 406,136 V144 A4,4 0 0 1 402,148 H186 Z"><title>Agitator M-318 — 22% within 15 days, 95 t/day at risk</title></path>
+    <path d="M186,166 H332 A4,4 0 0 1 336,170 V178 A4,4 0 0 1 332,182 H186 Z"><title>Compressor K-201 — 15% within 15 days, 210 t/day at risk</title></path>
+    <path d="M186,200 H292 A4,4 0 0 1 296,204 V212 A4,4 0 0 1 292,216 H186 Z"><title>Conveyor C-04 — 11% within 15 days, 60 t/day at risk</title></path>
+  </g>
+  <path d="M186,98 H462 A4,4 0 0 1 466,102 V110 A4,4 0 0 1 462,114 H186 Z" fill="var(--accent)"><title>Lube oil pump P-101 — 28% within 15 days, 420 t/day at risk, highest expected loss</title></path>
+
+  <!-- asset names: ink on the emphasised row, muted elsewhere -->
+  <g font-size="12.5" text-anchor="end">
+    <text x="170" y="76" fill="var(--muted)">Feed pump P-207</text>
+    <text x="170" y="110" fill="var(--ink)">Lube oil pump P-101</text>
+    <text x="170" y="144" fill="var(--muted)">Agitator M-318</text>
+    <text x="170" y="178" fill="var(--muted)">Compressor K-201</text>
+    <text x="170" y="212" fill="var(--muted)">Conveyor C-04</text>
+  </g>
+
+  <!-- probability at the bar tip -->
+  <g font-size="12" fill="var(--ink)" style="font-variant-numeric:tabular-nums">
+    <text x="535" y="76">34%</text>
+    <text x="475" y="110">28%</text>
+    <text x="415" y="144">22%</text>
+    <text x="345" y="178">15%</text>
+    <text x="305" y="212">11%</text>
+  </g>
+
+  <!-- consequence, as a value rather than a second encoded axis -->
+  <g font-size="11.5" text-anchor="end" style="font-variant-numeric:tabular-nums">
+    <text x="850" y="76" fill="var(--muted)">40 t/day</text>
+    <text x="850" y="110" fill="var(--ink)">420 t/day</text>
+    <text x="850" y="144" fill="var(--muted)">95 t/day</text>
+    <text x="850" y="178" fill="var(--muted)">210 t/day</text>
+    <text x="850" y="212" fill="var(--muted)">60 t/day</text>
+  </g>
+</svg>
+      <!-- /@diagram -->
+          <figcaption><b>Figure 1</b>Five assets ranked by probability of failing inside a fifteen-day window. The feed pump is likeliest to go and costs the least when it does; the lube oil pump is second on probability and first on what it takes down with it. Ranking on likelihood alone puts the wrong work at the top of the list, which is the subject of the next section.</figcaption>
+        </figure>
       </section>
 
       <section>
@@ -86,7 +146,7 @@
   </main>
 
   <footer>
-    <span>© 2026 Contour</span>
+    <span>© 2026 Symbolic Engineering</span>
   </footer>
 
 </div>

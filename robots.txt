@@ -1,4 +1,4 @@
-# Contour / https://contour.co
+# Symbolic Engineering / https://symbolic.engineering
 # Search and AI crawlers are welcome. We want this content quoted.
 
 User-agent: *
@@ -48,4 +48,4 @@ Allow: /
 User-agent: CCBot
 Allow: /
 
-Sitemap: https://contour.co/sitemap.xml
+Sitemap: https://symbolic.engineering/sitemap.xml

@@ -1,0 +1,91 @@
+# Deploys the site to GitHub Pages.
+#
+# The artifact is the flake's own derivation rather than a copy of the repo, so
+# "exactly the files that should ship" stays defined in one place — flake.nix's
+# fileset — instead of being restated here and drifting. That is also why the
+# job installs Nix: without it this workflow would need its own exclude list,
+# and would happily publish diagrams/, img/ and flake.nix.
+#
+# Two gates run before the build, both of which have caught real breakage:
+#   - figures must be regenerated and committed, not stale
+#   - every page must parse
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main, master]
+  workflow_dispatch:
+
+# Newer pushes supersede older runs rather than racing them to the same site.
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: cachix/install-nix-action@v30
+        with:
+          extra_nix_config: |
+            experimental-features = nix-command flakes
+
+      - name: Flake evaluates
+        run: nix flake check
+
+      - name: Figures are current
+        # render.sh is idempotent, so regenerating must be a no-op. If it is not,
+        # someone edited a .puml or mark.py and shipped the old SVGs.
+        run: |
+          nix run .#diagrams
+          if [ -n "$(git status --porcelain)" ]; then
+            echo "::error::Generated figures are stale. Run 'nix run .#diagrams' and commit the result."
+            git status --porcelain
+            git --no-pager diff --stat
+            exit 1
+          fi
+
+      - name: Every page parses
+        run: |
+          nix shell nixpkgs#libxml2 --command bash -c '
+            status=0
+            while IFS= read -r f; do
+              out=$(xmllint --html --noout "$f" 2>&1) || true
+              if [ -n "$out" ]; then
+                echo "::error file=${f#./}::$out"
+                status=1
+              fi
+            done < <(find . -name "*.html" -not -path "./.git/*")
+            exit $status'
+
+      - name: Build the deployable site
+        # cp -rL dereferences the result symlink and the read-only store paths
+        # behind it; the artifact step needs a writable, real directory.
+        run: |
+          nix build --no-link --print-out-paths > store-path
+          rm -rf public
+          cp -rL "$(cat store-path)" public
+          chmod -R u+w public
+          echo "shipping:"
+          find public -type f | sed 's|^public|  |' | sort
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: public
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

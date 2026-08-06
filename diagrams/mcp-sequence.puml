@@ -1,0 +1,32 @@
+' /product/model-context-layer/ — how one question is answered, including the
+' case where it cannot be. The refusal branch is the point of the diagram: the
+' closed world assumption is a visible path, not a claim in the prose.
+@startuml
+!include theme.puml
+hide footbox
+
+participant "Analyst" as U
+participant "AI assistant" as A
+participant "Contour MCP" as M
+participant "Semantic model" as S
+participant "Source systems" as D
+
+group <b>The model describes the question
+  U -> A: asks in plain language
+  A -> M: calls a typed operation
+  M -> S: resolves entities, metrics,\nrelationships
+  S -> D: read only, entitlements applied
+  D --> S: records
+  S --> M: value
+  M --> A: value **+ lineage**\n(the operations that produced it)
+  M --> A: **+ provenance**\n(the records they read)
+  A --> U: an answer that traces to source
+end
+
+group <b>The question falls outside the model
+  U -> A: asks in plain language
+  A -> M: calls a typed operation
+  M --> A: <color:#1E40AF>no operation covers this
+  A --> U: <color:#1E40AF>says it does not know
+end
+@enduml

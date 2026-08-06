@@ -1,0 +1,110 @@
+' ---------------------------------------------------------------------------
+' Shared skin for every Contour diagram — the diagram equivalent of style.css.
+'
+' The hexes below are the light-mode design tokens. render.sh rewrites each one
+' into its var(--token) in the generated SVG, so an inlined diagram follows the
+' page theme instead of pinning itself to one.
+'
+' The rule that keeps both themes readable: accent is only ever a stroke or a
+' text colour, never a fill. Fills are --panel or --paper. In dark mode accent
+' becomes pale blue, so ink text sitting on an accent fill would disappear.
+' Everything is a rectangle — no cylinders, clouds or folders. The site is flat
+' panels and hairlines, and the diagrams should not introduce a second idiom.
+' ---------------------------------------------------------------------------
+
+skinparam backgroundColor transparent
+skinparam shadowing false
+skinparam roundCorner 0
+skinparam defaultFontName Helvetica
+skinparam defaultFontSize 13
+skinparam defaultTextAlignment center
+skinparam nodesep 22
+skinparam ranksep 26
+skinparam wrapWidth 200
+skinparam linetype ortho
+
+skinparam ArrowColor #6B655E
+skinparam ArrowFontColor #6B655E
+skinparam ArrowFontSize 11
+skinparam ArrowThickness 1
+
+skinparam rectangle {
+  BackgroundColor #EDEAE3
+  BorderColor #DAD5CC
+  BorderThickness 1
+  FontColor #14110F
+  FontSize 13
+  FontStyle plain
+}
+
+' Two accent variants, as stereotypes. Inline "#back:x;line:y" specs are not
+' accepted on rectangles by this PlantUML, and naming them here keeps the
+' emphasis vocabulary in one place. "hide stereotype" keeps the <<tag>> from
+' rendering inside the box.
+hide stereotype
+
+' on the path being traced — accent hairline, ink text
+skinparam rectangle<<trace>> {
+  BackgroundColor #EDEAE3
+  BorderColor #1E40AF
+  FontColor #14110F
+}
+
+' the consequence at the end of a path — accent hairline and accent text
+skinparam rectangle<<emph>> {
+  BackgroundColor #EDEAE3
+  BorderColor #1E40AF
+  FontColor #1E40AF
+}
+
+' a labelled frame around a group, not a box in its own right: no fill, so the
+' panels inside it stay the only filled surfaces
+skinparam rectangle<<frame>> {
+  BackgroundColor transparent
+  BorderColor #DAD5CC
+  FontColor #1E40AF
+}
+
+skinparam sequence {
+  ArrowColor #6B655E
+  ArrowFontColor #6B655E
+  ArrowFontSize 12
+  LifeLineBorderColor #DAD5CC
+  LifeLineBackgroundColor #EDEAE3
+  ParticipantBackgroundColor #EDEAE3
+  ParticipantBorderColor #DAD5CC
+  ParticipantFontColor #14110F
+  ParticipantFontSize 13
+  ParticipantFontStyle plain
+  ActorBackgroundColor #EDEAE3
+  ActorBorderColor #DAD5CC
+  ActorFontColor #14110F
+  BoxBackgroundColor #F4F2ED
+  BoxBorderColor #DAD5CC
+  BoxFontColor #6B655E
+  DividerBackgroundColor #F4F2ED
+  DividerBorderColor #DAD5CC
+  DividerFontColor #1E40AF
+  DividerFontSize 11
+  GroupBackgroundColor #F4F2ED
+  GroupBorderColor #DAD5CC
+  GroupHeaderFontColor #1E40AF
+  GroupHeaderFontSize 11
+  GroupBodyBackgroundColor transparent
+  ReferenceBackgroundColor #F4F2ED
+}
+
+skinparam note {
+  BackgroundColor #F4F2ED
+  BorderColor #DAD5CC
+  BorderThickness 1
+  FontColor #6B655E
+  FontSize 11
+}
+
+skinparam legend {
+  BackgroundColor #F4F2ED
+  BorderColor #DAD5CC
+  FontColor #6B655E
+  FontSize 11
+}

@@ -59,6 +59,21 @@
 
           liveServer = server "contour-serve" ''"$PWD"'';
           builtServer = server "contour-preview" "${self.packages.${pkgs.system}.default}";
+
+          # Renders diagrams/*.puml and re-inlines them into the pages. Writes into
+          # the working tree, not the store, so it has to run from the repo root —
+          # the generated SVGs are committed and the deploy stays copy-only.
+          diagrams = pkgs.writeShellApplication {
+            name = "contour-diagrams";
+            runtimeInputs = [ pkgs.plantuml pkgs.graphviz pkgs.perl pkgs.python3 ];
+            text = ''
+              if [ ! -x ./diagrams/render.sh ]; then
+                echo "run this from the repo root (no ./diagrams/render.sh here)" >&2
+                exit 1
+              fi
+              exec ./diagrams/render.sh
+            '';
+          };
         in
         {
           # nix run          — serve the working tree, so edits show on refresh
@@ -72,11 +87,17 @@
             type = "app";
             program = "${builtServer}/bin/contour-preview";
           };
+
+          # nix run .#diagrams — re-render the figures after editing a .puml
+          diagrams = {
+            type = "app";
+            program = "${diagrams}/bin/contour-diagrams";
+          };
         });
 
       devShells = forAllSystems (pkgs: {
         default = pkgs.mkShell {
-          packages = [ pkgs.caddy pkgs.libxml2 ];
+          packages = [ pkgs.caddy pkgs.libxml2 pkgs.plantuml pkgs.graphviz ];
         };
       });
     };

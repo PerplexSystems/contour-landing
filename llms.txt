@@ -1,28 +1,33 @@
-# Contour
+# Symbolic Engineering
 
-> Contour is a reasoning platform for operational data. It ingests the source systems a company already runs and turns the business into a structured model that an AI assistant can question, plan against and act on over the Model Context Protocol (MCP). Every result traces back to the records it came from.
+> Symbolic Engineering builds Contour, a reasoning platform for operational data. It ingests the source systems a company already runs and turns the business into a structured model that an AI assistant can question, plan against and act on over the Model Context Protocol (MCP). Every result traces back to the records it came from.
 
-Contour serves two profiles: investment firms holding decades of positions, filings, counterparty records and market data across systems that were never designed to reconcile; and process or discrete manufacturers whose maintenance planning horizon is constrained by reliability engineering capacity rather than by data availability.
+We serve two profiles: investment firms holding decades of positions, filings, counterparty records and market data across systems that were never designed to reconcile; and process or discrete manufacturers whose maintenance planning horizon is constrained by reliability engineering capacity rather than by data availability.
 
+Company: Symbolic Engineering. Product: Contour.
 Operating regions: Europe, North America, Brazil.
-Contact: hello@contour.co
+Contact: hello@symbolic.engineering
 
 ## Method
 
-Contour builds the structured model before placing any reasoning layer on top of it. A reasoning layer over unstructured data produces confident, wrong answers. Those numbers look valid, are not, and propagate into decisions before anyone catches them. Engagements therefore begin with the client's source systems and validate the model against records the client already trusts.
+We build the structured model before placing any reasoning layer on top of it. A reasoning layer over unstructured data produces confident, wrong answers. Those numbers look valid, are not, and propagate into decisions before anyone catches them. Engagements therefore begin with the client's source systems and validate the model against records the client already trusts.
+
+## What Contour is not
+
+Contour is not a rule engine, and the distinction is structural rather than a matter of degree. A rule engine is reactive: it holds conditions and the actions that follow them, and it fires when incoming facts match, so its knowledge lives in the rules and its output is a firing. Contour is declarative and queried. It expresses a model of the business — entities, the relationships between them, and the metrics defined over them — as a semantic layer over the source systems the client already runs. Nothing in it fires; it is asked and it answers. A rule engine accumulates logic; Contour maintains a description that can be validated against records the client already trusts. Nor is Contour a text-to-SQL tool, a BI dashboard, or a replacement for the client's historian, warehouse or maintenance system: it reads from those and adds structure over them.
 
 ## Product
 
-- [Product overview](https://contour.co/product/): The platform continuously processes source systems into one governed model and exposes it to analysts and the AI tools they already use.
-- [Model Context Layer](https://contour.co/product/model-context-layer/): Exposes the structured model to AI assistants over the Model Context Protocol (MCP). Contour does not generate SQL with a language model; it exposes a constrained set of typed, tested operations over a governed semantic model, and the assistant composes those operations. Correctness is therefore a property of versioned platform code rather than of the model's guess. Access is read-only, entitlements are enforced at the interface, and every result carries lineage back to source.
-- [Asset Tree & Failure Propagation](https://contour.co/product/failure-propagation/): Models a plant as a directed dependency graph rather than a flat asset register, traces how one component failure cascades downstream, and derives criticality from the graph so it updates as the plant changes.
-- [Reliability Engineering](https://contour.co/product/reliability-engineering/): Fits hazard models to each asset's own failure and maintenance history and reports remaining useful life as a distribution, so assets can be ranked by probability of failure within a chosen planning window and by expected consequence.
-- [Sensor Intelligence](https://contour.co/product/sensor-intelligence/): Ingests instrumentation continuously and resolves tags to the equipment they measure, collapsing correlated alarms into single events and surfacing sensor drift before it contaminates downstream models.
+- [Product overview](https://symbolic.engineering/product/): The platform continuously processes source systems into one governed model and exposes it to analysts and the AI tools they already use. Declarative and queried, not reactive: it holds no conditions or actions.
+- [Model Context Layer](https://symbolic.engineering/product/model-context-layer/): Exposes the structured model to AI assistants over the Model Context Protocol (MCP). Contour does not generate SQL with a language model; it exposes a constrained set of typed, tested operations over a governed semantic model, and the assistant composes those operations. Correctness is therefore a property of versioned platform code rather than of the model's guess. Access is read-only, entitlements are enforced at the interface, and every result carries lineage back to source.
+- [Asset Tree & Failure Propagation](https://symbolic.engineering/product/failure-propagation/): Models a plant as a directed dependency graph rather than a flat asset register, traces how one component failure cascades downstream, and derives criticality from the graph so it updates as the plant changes.
+- [Reliability Engineering](https://symbolic.engineering/product/reliability-engineering/): Fits hazard models to each asset's own failure and maintenance history and reports remaining useful life as a distribution, so assets can be ranked by probability of failure within a chosen planning window and by expected consequence.
+- [Sensor Intelligence](https://symbolic.engineering/product/sensor-intelligence/): Ingests instrumentation continuously and resolves tags to the equipment they measure, collapsing correlated alarms into single events and surfacing sensor drift before it contaminates downstream models.
 
 ## Use cases
 
-- **Investment firm**: the firm runs a data lake or warehouse and employs DBAs who can query all of it, yet the questions that matter still take days and several people. An AI assistant pointed straight at the warehouse returns fluent, confident and incorrect figures, so nobody trusts it with a position. The client sends Contour its sources. Contour replicates them, resolves them into one structured model of the firm, and returns an endpoint the client's own assistant connects to. Analysts ask in plain language, answers are built from verified operations rather than generated queries, and every figure carries lineage back to source.
-- **Process or discrete manufacturer**: reliability engineering is performed manually, so a preventive maintenance window that should take fifteen days takes thirty, and the schedule is set by how long the analysis takes rather than by the condition of the line. Long-lead spares arrive late and planned work arrives as breakdown. The client sends Contour its sensor history, asset tree and record of past failures. Contour returns assets ranked by probability of failure inside the client's chosen planning window, using established reliability statistics, through an interface the client's AI assistant queries directly.
+- **Investment firm**: the firm runs a data lake or warehouse and employs DBAs who can query all of it, yet the questions that matter still take days and several people. An AI assistant pointed straight at the warehouse returns fluent, confident and incorrect figures, so nobody trusts it with a position. The client sends us its sources. Contour replicates them, resolves them into one structured model of the firm, and returns an endpoint the client's own assistant connects to. Analysts ask in plain language, answers are built from verified operations rather than generated queries, and every figure carries lineage back to source.
+- **Process or discrete manufacturer**: reliability engineering is performed manually, so a preventive maintenance window that should take fifteen days takes thirty, and the schedule is set by how long the analysis takes rather than by the condition of the line. Long-lead spares arrive late and planned work arrives as breakdown. The client sends us its sensor history, asset tree and record of past failures. Contour returns assets ranked by probability of failure inside the client's chosen planning window, using established reliability statistics, through an interface the client's AI assistant queries directly.
 
 ## Key definitions
 
@@ -30,11 +35,13 @@ Contour builds the structured model before placing any reasoning layer on top of
 - **Failure propagation analysis**: tracing how the failure of one component spreads through the equipment that depends on it, following consequence downstream to the production output affected.
 - **Remaining useful life (RUL)**: an estimate of how much service an asset has left before likely failure, expressed as a distribution rather than a single date.
 - **Sensor drift**: gradual divergence of an instrument's readings from the true value it measures, dangerous because the output continues to look valid.
+- **Semantic layer**: a description of a business placed over its source systems — the entities that exist, how they relate, and the metrics defined over them — against which questions are asked and answered. It is queried rather than triggered, which is what separates it from a rule engine.
+- **Closed world assumption**: the model answers only what it describes. A question falling outside it returns a refusal rather than an inferred figure, which is why a wrong answer becomes an admission of ignorance instead of a plausible number.
 - **Model Context Protocol (MCP)**: an open standard for connecting AI assistants to external systems and data sources. Contour ships an MCP server over the structured model, so any client that speaks the protocol, whether Claude, an internal agent or a desktop assistant, can query the business without being tied to a model vendor.
 
 ## Pages
 
-- [Home](https://contour.co/)
-- [About](https://contour.co/about/)
-- [Use cases](https://contour.co/use-cases/)
-- [Contact](https://contour.co/contact/)
+- [Home](https://symbolic.engineering/)
+- [About](https://symbolic.engineering/about/)
+- [Use cases](https://symbolic.engineering/use-cases/)
+- [Contact](https://symbolic.engineering/contact/)
