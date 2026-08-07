@@ -83,8 +83,11 @@ def level(cx, cy, radii, seed, r, drift, squash=0.9, n=13):
                 phases(seed), squash, n)
 
 
-def arc(pts, i0, i1, sw=2.3):
-    seg = [pts[i % len(pts)] for i in range(i0, i1 + 1)]
+def open_d(seg):
+    """Catmull-Rom through a run of points that does not close. The end tangents
+    are clamped rather than wrapped, which smooth() cannot do: it treats the
+    list as a ring, so on an open stroke the first and last segments would be
+    aimed at the point at the other end of the line."""
     d = f"M{seg[0][0]:.2f},{seg[0][1]:.2f}"
     for i in range(len(seg) - 1):
         p0, p3 = seg[max(i - 1, 0)], seg[min(i + 2, len(seg) - 1)]
@@ -93,7 +96,12 @@ def arc(pts, i0, i1, sw=2.3):
         c2 = (p2[0] - (p3[0] - p1[0]) / 6, p2[1] - (p3[1] - p1[1]) / 6)
         d += (f" C{c1[0]:.2f},{c1[1]:.2f} {c2[0]:.2f},{c2[1]:.2f}"
               f" {p2[0]:.2f},{p2[1]:.2f}")
-    return (f'<path d="{d}" fill="none" stroke="var(--accent)" '
+    return d
+
+
+def arc(pts, i0, i1, sw=2.3):
+    seg = [pts[i % len(pts)] for i in range(i0, i1 + 1)]
+    return (f'<path d="{open_d(seg)}" fill="none" stroke="var(--accent)" '
             f'stroke-width="{sw}" stroke-linecap="round"/>')
 
 
@@ -189,6 +197,167 @@ def cat_records():
 CATS = [("cat-warehouse", cat_warehouse), ("cat-stream", cat_stream),
         ("cat-historian", cat_historian), ("cat-records", cat_records)]
 CAT_LABELS = ["Warehouse", "Event stream", "Historian", "Maintenance records"]
+
+
+# ------------------------------------------------------------- sector glyphs
+# The home's three failure cards. These sit in the same register as the
+# ingestion categories, not the relief: the relief is Contour, and these three
+# pictures are the customer's own world before Contour is in it. Ink draws what
+# they already have; the single accent marks the thing they cannot pin down.
+#
+# One gesture each, and a different *kind* of gesture — a ring around a figure,
+# a filled node, a cap on one column — so they stay apart at 34px.
+
+def sector_payments():
+    """Provider events, ledgers, bank feeds: many strands, one figure they add
+    up to. The strands stop short of the ring because the definition that would
+    close the gap is the thing nobody has made durable."""
+    # the strands finish parallel and a hair apart rather than meeting at a
+    # point: three feeds that nearly agree, which is the actual complaint
+    out = [f'<path d="M6,{y} C16,{y} 19,{e} 25.5,{e}" fill="none" '
+           f'stroke="var(--ink)" stroke-width="1.8" stroke-linecap="round"/>'
+           for y, e in ((9, 21.6), (39, 26.4))]
+    out.append('<path d="M6,24 L27,24" fill="none" stroke="var(--ink)" '
+               'stroke-width="1.8" stroke-linecap="round"/>')
+    out.append('<circle cx="35.6" cy="24" r="5.4" fill="none" '
+               'stroke="var(--accent)" stroke-width="2.2"/>')
+    return "\n  ".join(out)
+
+
+def sector_reliability():
+    """The plant as a dependency graph rather than a list of tags. Four ink
+    assets, and the accent one is the asset whose failure is coming."""
+    nodes = [(11, 13), (11, 35), (25, 24), (39, 34)]
+    out = [f'<path d="M{a[0]},{a[1]} L{b[0]},{b[1]}" stroke="var(--ink)" '
+           f'stroke-width="1.5"/>'
+           for a, b in [(nodes[0], nodes[2]), (nodes[1], nodes[2]),
+                        (nodes[2], (39, 14)), (nodes[2], nodes[3])]]
+    out += [f'<circle cx="{x}" cy="{y}" r="4" fill="var(--panel)" '
+            f'stroke="var(--ink)" stroke-width="1.7"/>' for x, y in nodes]
+    out.append('<circle cx="39" cy="14" r="4.6" fill="var(--accent)"/>')
+    return "\n  ".join(out)
+
+
+def sector_funds():
+    """Positions, exposure, segments, revenue standing side by side, and the
+    accent on the one figure the firm is being asked to defend."""
+    out = [f'<path d="M{9 + i * 7.5:.1f},38 L{9 + i * 7.5:.1f},{38 - h}" '
+           f'stroke="var(--ink)" stroke-width="3.4"/>'
+           for i, h in enumerate((13, 25, 8, 20, 16))]
+    out.append('<path d="M6,41.6 L42,41.6" stroke="var(--ink)" '
+               'stroke-width="1.6" stroke-linecap="round"/>')
+    out.append('<path d="M12.6,11.4 L20.4,11.4" stroke="var(--accent)" '
+               'stroke-width="2.4" stroke-linecap="round"/>')
+    return "\n  ".join(out)
+
+
+SECTORS = [("sector-payments", sector_payments),
+           ("sector-reliability", sector_reliability),
+           ("sector-funds", sector_funds)]
+
+
+# --------------------------------------------------------------- the reach pair
+# "Start" opens with the same relief drawn twice: once with its centre missing,
+# once with it filled. The contours are the systems the reader already runs, and
+# the only difference between the two drawings is the thing we sell — which is
+# the one place on the site where the mark is allowed to carry an argument
+# rather than just sit there being the mark.
+# the core is a quarter of the outer level, as it is in the mark: any smaller
+# and the thing the whole figure is about reads as a speck
+RR, RC, RD = [54, 43, 32, 21], 14, (-7.5, -8.5)
+
+
+def _reach_contours():
+    """The outer levels alone. core=False keeps the innermost stroked open like
+    the rest, because the core is drawn separately in both states."""
+    return relief(60, 60, RR, 3, drift=RD, sw=2.0, n=21, core=False)
+
+
+def _reach_core():
+    return smooth(level(60, 60, RR, 3, RC, RD, n=21))
+
+
+def relief_open():
+    return _reach_contours() + "\n  " + (
+        f'<path d="{_reach_core()}" fill="none" stroke="var(--accent)" '
+        f'stroke-width="2.1" stroke-dasharray="5 5" stroke-linecap="round"/>')
+
+
+def relief_closed():
+    return _reach_contours() + "\n  " + (
+        f'<path d="{_reach_core()}" fill="var(--ink)"/>')
+
+
+def reach_arrow():
+    """A drawn line rather than a ruled one: one and a half slow waves, so the
+    crossing reads as a hand moving between the two states instead of a UI
+    chevron. The head is aimed along the final tangent, and pathLength
+    normalises both strokes to 1 so the stylesheet can draw them on scroll with
+    one stroke-dashoffset keyframe and no measuring."""
+    n = 17
+    pts = [(4 + 78 * i / (n - 1),
+            12 - 3.5 * math.sin(math.tau * 1.5 * i / (n - 1)))
+           for i in range(n)]
+    (x0, y0), (x1, y1) = pts[-2], pts[-1]
+    a = math.atan2(y1 - y0, x1 - x0)
+    head = [(x1 + 8 * math.cos(a + t), y1 + 8 * math.sin(a + t))
+            for t in (math.radians(148), math.radians(-148))]
+    return "\n  ".join([
+        f'<path d="{open_d(pts)}" pathLength="1" fill="none" '
+        f'stroke="var(--accent)" stroke-width="2.2" stroke-linecap="round"/>',
+        f'<path d="M{head[0][0]:.2f},{head[0][1]:.2f} L{x1:.2f},{y1:.2f} '
+        f'L{head[1][0]:.2f},{head[1][1]:.2f}" pathLength="1" fill="none" '
+        f'stroke="var(--accent)" stroke-width="2.2" stroke-linecap="round" '
+        f'stroke-linejoin="round"/>'])
+
+
+# ------------------------------------------------------------- the question
+# "Start" asks the reader for their one unanswered question, so the section is
+# marked by one. Drawn to the same pencil as everything else: the same wobble
+# harmonics, the same open stroke that does not quite close, and the accent
+# spent once — on the point, which is the part that asks.
+
+WAVER = 1.2      # units of deviation in a 68 box: a pen's drift, not a lurch
+
+
+def query():
+    """Bowl, tail and point, waved perpendicular to the stroke rather than
+    radially.
+
+    Radial wobble at the contours' own setting was the first attempt and it read
+    as crooked. A relief gets away with a 13% swing because five nested lines
+    swing together and the eye takes the irregularity as landform; one line has
+    no neighbours to corroborate it, so the same amplitude just looks badly
+    drawn. Here the deviation runs along the length of the stroke — two slow
+    harmonics, under a pixel at the size it is used — which is what a steady hand
+    with a pen actually produces."""
+    ph, cx, cy, r = phases(11), 34, 24, 13.0
+    spine = [(cx + r * math.cos(a), cy - r * math.sin(a))
+             for a in (math.radians(200 - 235 * i / 12) for i in range(13))]
+    # the tail leaves the bowl, curls in toward the stem and stops above the
+    # point, the way a drawn question mark does
+    spine += [(41.0, 36.5), (37.6, 41.0), (35.6, 46.0), (35.0, 51.0)]
+
+    m, out = len(spine), []
+    for i, (x, y) in enumerate(spine):
+        t = i / (m - 1)
+        # tapered to nothing at both ends: displaced, the first point sits off
+        # the arc the rest of the bowl follows and the entry reads as a stroke
+        # doubling back on itself
+        env = min(1.0, 3.0 * t, 3.0 * (1.0 - t))
+        w = env * (0.62 * math.sin(math.tau * 1.6 * t + ph[0])
+                   + 0.38 * math.sin(math.tau * 3.1 * t + ph[1]))
+        ax, ay = spine[max(i - 1, 0)]
+        bx, by = spine[min(i + 1, m - 1)]
+        dx, dy = bx - ax, by - ay
+        L = math.hypot(dx, dy) or 1.0
+        out.append((x - dy / L * WAVER * w, y + dx / L * WAVER * w))
+
+    dot = ring(cx + 0.7, cy + 36, 3.0, WOBBLE * 0.5, ph, squash=1.0, n=9)
+    return "\n  ".join([
+        f'<path d="{open_d(out)}" fill="none" stroke="var(--ink)" '
+        f'stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>',
+        f'<path d="{smooth(dot)}" fill="var(--accent)"/>'])
 
 
 # ---------------------------------------------------------------- home figure
@@ -300,12 +469,21 @@ def main():
         n += write(name, fn(), 68, 68, ' aria-hidden="true"')
     for name, fn in CATS:
         n += write(name, fn(), 48, 58, ' aria-hidden="true"')
+    for name, fn in SECTORS:
+        n += write(name, fn(), 48, 48, ' aria-hidden="true"')
+    n += write("relief-open", relief_open(), 120, 120, ' role="img"',
+               "The same contours with nothing at the centre")
+    n += write("relief-closed", relief_closed(), 120, 120, ' role="img"',
+               "The same contours resolved into one filled centre")
+    n += write("reach-arrow", reach_arrow(), 90, 24, ' aria-hidden="true"')
+    n += write("query", query(), 68, 68, ' aria-hidden="true"')
     body, w, h = hero()
     n += write("hero", body, w, h, ' style="max-width:860px" role="img"',
                "Your source systems resolved into one governed model, with an "
                "answer traced back through its lineage to the records it came "
                "from")
-    print(f"  marks + icons + hero      {2 + len(ICONS) + len(CATS) + 1} files,"
+    print(f"  marks + icons + hero      "
+          f"{2 + len(ICONS) + len(CATS) + len(SECTORS) + 5} files,"
           f" {n} bytes")
 
 

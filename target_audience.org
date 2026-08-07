@@ -1,0 +1,344 @@
+#+title: Target Audience
+#+subtitle: Symbolic Engineering / Contour
+
+* Summary
+
+Contour is for leaders under pressure to turn existing data infrastructure into defensible business results through AI.
+
+The target is not "companies that need better databases" and not "teams that want AI over data." The target is an accountable person who already has records, systems, engineers, dashboards, warehouses, historians, SAP, or internal tools, but still cannot answer the question the business keeps asking.
+
+The sharper diagnosis is that many organizations no longer have an operationally reliable way to formulate the query that matters. They have storage, pipelines, dashboards, schemas, and sometimes AI copilots, but the business predicates are scattered across vendor systems, application code, report logic, analyst memory, and undocumented convention. The buyer usually does not describe the problem this way. They experience it as an inability to make a defensible statement from data they believe they already own.
+
+The core condition is pressure:
+
+#+begin_quote
+They are under pressure to show results from data they already have but cannot currently reason over.
+#+end_quote
+
+Internally, Contour's belief is that precise reasoning over data requires a precise model of the business. The public claim should not be "we clean up your bad data model" or "we put everything in an RDBMS." The public claim should be that Contour maps the business meaning behind existing systems into a governed model that people and AI agents can query safely.
+
+* Primary Buyer
+
+The primary buyer is a director, VP, founder, partner, or operator accountable for a business result.
+
+Typical titles include:
+
+- Plant director
+- Reliability director
+- Maintenance director
+- COO
+- Operations director
+- Head of business operations
+- CFO or controller
+- Revenue operations leader
+- Fund COO
+- Head of investment operations
+- Head of risk
+- Head of data or platform at an investment firm
+- Clinical engineering or facilities director
+
+They do not wake up wanting a semantic layer, a relational model, normal forms, or better predicates. They wake up needing to answer a question whose answer affects uptime, margin, capital allocation, investor reporting, auditability, regulatory exposure, operational planning, or credibility with leadership.
+
+The best-fit buyer has this profile:
+
+- Owns the consequence of a decision, not merely the database
+- Has already paid for systems that should contain the answer
+- Can point to one recurring question that remains too slow, too fragile, or too disputed
+- Has smart people losing time reconstructing business definitions by hand
+- Suspects another dashboard, warehouse, or AI demo will not fix the underlying issue
+- Can convene the technical sponsor and the domain truth holders needed to validate meaning
+- Values defensibility more than spectacle
+
+This person does not need to believe in relational modeling. They need to believe that the current situation is wasting time, obscuring decisions, or exposing the business.
+
+* Buying Committee
+
+Contour usually needs three kinds of people in the room.
+
+** Economic Buyer
+
+The person who owns the operational or financial consequence.
+
+They care about:
+
+- Showing measurable results
+- Reducing delay
+- Defending decisions
+- Recovering value from existing data spend
+- Avoiding another failed AI, BI, or warehouse project
+- Turning a recurring unanswered question into an institutional capability
+
+** Technical Sponsor
+
+The person responsible for making the implementation real and governable.
+
+Typical profiles:
+
+- CTO
+- CIO
+- Head of data
+- Data platform lead
+- DBA lead
+- Engineering lead
+- Enterprise architect
+
+They care about:
+
+- Read-only access
+- Security and entitlements
+- Lineage and provenance
+- Maintainability
+- Integration with existing systems
+- Avoiding uncontrolled text-to-SQL or opaque AI-generated systems
+- Keeping the solution understandable instead of creating another sprawling generated data platform
+
+** Domain Truth Holder
+
+The person who knows what the data actually means.
+
+Typical profiles:
+
+- Senior analyst
+- Reliability engineer
+- Business operations analyst
+- Controller
+- Plant engineer
+- Senior DBA
+- Maintenance planner
+
+They care about:
+
+- Not rebuilding the same analysis every time
+- Capturing definitions that currently live in people's heads
+- Correcting and validating the model
+- Trusting the output enough to use it
+- Making ambiguity explicit before it becomes a wrong number
+
+* Ideal Customer Conditions
+
+The best customer has:
+
+- A large amount of historical operational or financial data
+- Existing data infrastructure
+- Multiple source systems that disagree or fail to reconcile
+- Smart internal people spending too much time reconstructing definitions
+- A recurring, expensive question that cannot be answered quickly
+- Pressure from a board, investors, regulators, customers, executives, or production targets
+- Prior frustration with BI, dashboards, data warehouses, data lakes, consultants, or AI pilots
+- A need to defend numbers after the fact
+- Hidden business rules spread across tools, code, spreadsheets, and memory
+- Enough domain expertise inside the organization to validate a better model
+- A willingness to start with one valuable question instead of buying a generic platform
+
+The customer should already feel the gap between "we have the data" and "we can act on it."
+
+* Trigger Events
+
+Strong trigger events include:
+
+- A failed AI-over-database or text-to-SQL pilot
+- A warehouse or data lake project that did not produce usable answers
+- A board or executive team asking for metrics the company cannot reconcile
+- A plant missing reliability, uptime, or maintenance targets
+- A finance or operations team unable to explain conflicting numbers
+- A fund or fintech unable to answer basic questions about positions, transactions, clients, segments, or exposure
+- A regulatory, audit, investor, or customer review requiring traceable figures
+- A new leader under pressure to show value from existing systems
+
+* Core Pain
+
+The pain is not lack of data.
+
+The pain is that the organization cannot make precise, defensible statements from the data it already has.
+
+More specifically: the organization cannot reliably translate a business question into the predicates, joins, time windows, exclusions, source priorities, and definitions needed to answer it. They may still have people who can write SQL, use SAP, maintain a historian, or operate a warehouse. The failure is that nobody can safely say what the query should mean without reconstructing the business model each time.
+
+Common symptoms:
+
+- "We have four numbers for the same thing."
+- "Only one person knows how that report is built."
+- "The answer takes three days and two analysts."
+- "The AI demo worked, but no one trusts it."
+- "The data is in SAP, but no one can use it for this decision."
+- "We have years of sensor history and still maintain assets by calendar."
+- "The warehouse exists, but every useful question becomes a project."
+- "Our provider stores part of the truth, our system stores another part, and nobody can say what actually happened."
+- "The generated warehouse has dozens of modules and nobody can explain the path from source record to answer."
+
+* Canonical Situations
+
+These examples should shape sales discovery and website copy.
+
+** Fintech Or Payments
+
+The company has payments, transfers, reversals, accounts, provider events, internal ledgers, and external bank API records. Some truth lives in its own system and some truth lives with the provider. The business wants basic statements such as "how much are our clients transacting?", "which feeds can we publish?", or "what revenue segments are real?", but each answer depends on definitions nobody has made durable.
+
+The buyer is usually a founder, COO, CFO, head of business operations, or risk/operations leader. The sell is not "move to a cleaner database." The sell is "make transaction, client, account, provider event, reversal, settlement, segment, and revenue mean one defensible thing across the systems you already run."
+
+** Processing Plant Or Manufacturer
+
+The plant has SAP, sensors, historians, equipment records, work orders, and reliability engineers. The engineers still spend too much time assembling reliability calculations by hand, and the plant cannot turn years of signals and failure history into a clear answer about what should be maintained before the next outage.
+
+The buyer is usually the plant director, reliability director, maintenance director, or operations leader. The sell is "turn the plant history you already hold into a governed model of assets, instruments, failures, and consequences, so reliability work becomes a reusable capability instead of a recurring reconstruction."
+
+** Fund Or Data-Heavy Financial Firm
+
+The firm has a traditional DBMS, a warehouse, or decades of structured records. It may also have an AI-generated data platform that is too large and indirect for anyone to reason about. Valuable questions still turn into projects because the meaning of positions, exposures, transactions, instruments, strategies, and segments is not represented simply enough.
+
+The buyer is usually a fund COO, head of investment operations, head of risk, CTO, or data/platform leader. The sell is "replace opaque query generation and sprawling warehouse logic with a small, governed model of the business predicates that matter, with every answer traced back to source."
+
+* Emotional State
+
+The buyer is frustrated but not naive.
+
+They may feel:
+
+- Embarrassed that basic questions are hard to answer
+- Exposed because previous data investments have not produced visible results
+- Impatient with another vague AI or transformation promise
+- Worried that smart teams are spending time reconciling facts instead of making decisions
+- Skeptical of demos that cannot survive contact with their actual data
+
+The messaging should respect this. Do not imply that the buyer is incompetent. The more credible diagnosis is that their systems record events but not business meaning.
+
+* Positioning
+
+Contour should be positioned as:
+
+#+begin_quote
+A governed model of what your business means, built over the systems you already run, so people and agents can answer high-value questions with source-traced numbers.
+#+end_quote
+
+The simplest version:
+
+#+begin_quote
+You are not missing data. You are missing a durable model of what the data means.
+#+end_quote
+
+The AI-specific version:
+
+#+begin_quote
+AI can answer precisely only when it does not have to guess what your data means.
+#+end_quote
+
+Internal technical truth:
+
+#+begin_quote
+The closer the model is to clear business predicates, the easier the retrieval and reasoning job becomes. LLMs should call verified operations over explicit relations, not improvise meaning over ambiguous tables.
+#+end_quote
+
+This supports a consulting-plus-product sale: Contour starts by understanding and mapping the customer's business predicates, then installs the symbolic and semantic system that lets people and agents ask precise questions against that model.
+
+* Wedge
+
+Lead with one expensive unanswered question.
+
+Examples:
+
+- Which assets threaten the next outage?
+- Which revenue number can we defend?
+- How much are our clients actually transacting?
+- Which customer segments are profitable?
+- What would this equipment failure take down?
+- Why do trusted internal reports disagree?
+- Which maintenance work should happen before the next shutdown?
+
+The sales motion should not start with a general platform claim. It should start by finding the question that already causes pain and then showing how Contour turns that question into a governed, reusable model.
+
+The best first call should identify:
+
+- The question leadership keeps asking
+- The systems that supposedly contain the answer
+- The people currently required to answer it
+- The definitions that keep changing or remaining implicit
+- The consequence of answering late, incorrectly, or not at all
+- The source record someone would use to defend the answer later
+
+* What To Avoid
+
+Avoid leading with:
+
+- Relational purity
+- Normal forms
+- "We clean up your data"
+- "AI for databases"
+- "Ask your warehouse anything"
+- "A better semantic layer"
+- "Another data warehouse"
+- Generic analytics or dashboard language
+- "Plain-language queries" as the main promise
+- MCP as the primary buyer-facing hook
+- A broad module catalogue before the buyer sees their own pain
+
+Those framings either sound too technical, too insulting, too commoditized, or too close to products the customer already tried.
+
+* Non-Ideal Customers
+
+Contour is a weak fit for:
+
+- Companies without accumulated data pain
+- Teams with no urgent operational or financial question
+- Early startups with simple data and no governance pressure
+- Buyers who only want dashboards
+- Teams that believe text-to-SQL is good enough
+- Organizations unwilling to involve domain experts
+- Organizations without an accountable owner for the question
+
+* Messaging Implications
+
+The website should speak first to the accountable leader, then reassure the technical sponsor.
+
+Primary message:
+
+#+begin_quote
+You already have the data. We make it answerable.
+#+end_quote
+
+Supporting messages:
+
+- Start with the question the business cannot currently answer.
+- We model the business meaning over the systems you already run.
+- Answers come from verified operations, not guessed queries.
+- Every number comes with lineage and provenance.
+- If the model cannot answer, it refuses instead of inventing a plausible number.
+- We read from source systems; we do not write to them.
+
+The homepage should be trimmed around this order:
+
+- Who it is for: leaders accountable for a business result from data they already have
+- The painful condition: basic high-value questions still take days, experts, and reconciliation
+- The reason: the systems record events, not the business meaning needed to query them safely
+- What Contour does: maps that meaning into a governed model over existing systems
+- Why AI matters: agents answer by calling verified operations, not by guessing SQL
+- The proof standard: every number has lineage and provenance, and unsupported questions are refused
+- The call to action: bring one expensive question and the systems that should already answer it
+
+Suggested above-the-fold direction:
+
+#+begin_quote
+Turn the data you already have into defensible answers through AI.
+#+end_quote
+
+#+begin_quote
+Contour builds a governed model of what your business means, over the systems you already run. Your team and AI agents ask high-value questions against verified operations, with every number traced back to source.
+#+end_quote
+
+Better call to action:
+
+#+begin_quote
+Bring us the question your current data infrastructure still cannot answer.
+#+end_quote
+
+Pages should be shorter. The current site has the right thesis, but often spends too long proving it. Keep the concrete examples, but make each example follow the same structure:
+
+- The question the buyer cannot answer
+- The systems they already have
+- Why the answer is not currently queryable
+- What Contour models
+- What decision becomes defensible
+
+The homepage should not lead with "tried pointing AI at your databases" or "ask in plain language" because those phrases can collapse the category into text-to-SQL. Use them later as contrast, after the stronger claim is established: Contour makes business meaning explicit so AI does not have to infer it.
+
+* One-Sentence Profile
+
+Contour is for leaders under pressure to show results from data infrastructure they already have, when the business cannot currently turn that data into precise, defensible answers through AI.

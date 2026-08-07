@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Symbolic Engineering: the Contour reasoning platform</title>
-<meta name="description" content="Tried pointing AI at your databases and got nowhere? Contour ingests your sources and builds the model your warehouse and lake never had. Point Claude, or whatever assistant you already run, at it over MCP and ask in plain language.">
+<title>Contour: take control of what your data means</title>
+<meta name="description" content="Contour turns existing data infrastructure into defensible answers through AI. We build a governed model of what your business means, over the systems you already run, with every answer traced back to source.">
 <link rel="canonical" href="https://symbolic.engineering/">
 <link rel="stylesheet" href="/style.css">
 <!-- @favicon -->
@@ -12,22 +12,22 @@
 <!-- /@favicon -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Symbolic Engineering">
-<meta property="og:title" content="Symbolic Engineering: the Contour reasoning platform">
-<meta property="og:description" content="Tried pointing AI at your databases and got nowhere? Contour builds the model your warehouse and lake never had, so you can point your assistant at it over MCP and ask in plain language.">
+<meta property="og:title" content="Contour: take control of what your data means">
+<meta property="og:description" content="You already have the data. Contour makes it answerable through a governed model your team and AI agents can query precisely.">
 <meta property="og:url" content="https://symbolic.engineering/">
 <meta name="twitter:card" content="summary">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[
 {"@type":"Organization","@id":"https://symbolic.engineering/#org","name":"Symbolic Engineering",
 "url":"https://symbolic.engineering/",
-"description":"Symbolic Engineering builds Contour, a reasoning platform for the databases a company already has. Databases and data warehouses record what happened but not what it means, so an AI pointed at them has to infer the meaning and gets it quietly wrong. Contour builds that missing description over a company's source systems and serves it to their team and their AI agents over the Model Context Protocol, with every result traceable back to source.",
+"description":"Symbolic Engineering builds Contour, a platform that turns existing data infrastructure into defensible answers through AI. Source systems record what happened but not always what it means, so Contour builds a governed model of the business over those systems and returns answers with lineage and provenance.",
 "areaServed":[{"@type":"Place","name":"Europe"},{"@type":"Place","name":"North America"},{"@type":"Place","name":"Brazil"}],
 "knowsAbout":["Operational data","Reliability engineering","Asset failure propagation","Sensor data analysis","Data modelling","Maintenance planning"],
 "email":"contact@symbolic.engineering"},
 {"@type":"WebSite","@id":"https://symbolic.engineering/#site","url":"https://symbolic.engineering/","name":"Symbolic Engineering","publisher":{"@id":"https://symbolic.engineering/#org"}},
 {"@type":"SoftwareApplication","@id":"https://symbolic.engineering/#contour","name":"Contour","applicationCategory":"BusinessApplication",
 "operatingSystem":"Web","url":"https://symbolic.engineering/product/",
-"description":"A reasoning platform that builds the description a company's databases never contained: the entities, relationships and metrics specific to that business. It serves that description to their team and their AI agents over MCP, with lineage and provenance on every figure.",
+"description":"A platform that builds a governed model of a company's business meaning over the systems it already runs, so teams and AI agents can answer high-value questions with lineage and provenance on every figure.",
 "publisher":{"@id":"https://symbolic.engineering/#org"}}
 ]}
 </script>
@@ -57,150 +57,129 @@
   </header>
 
   <main>
-    <article>
-      <p class="eyebrow">Contour</p>
-      <h1>A reasoning platform for the databases you already have.</h1>
-      <p class="lede"><strong>Tried pointing AI at your databases and got nowhere?</strong> Contour ingests your sources and builds the model they never had. You point an agent at it over MCP and ask in plain language.</p>
-      <p>You have a data warehouse, probably a data lake, and fresh data landing every minute. None of it records what any of it <em>means</em>. Which of the four revenue figures do people actually use? What counts as a segment here? Which table is the authoritative one? Your team knows. Nothing you own writes it down. So an assistant pointed at that data has to guess, and a good guess is indistinguishable from a right answer. We write it down once, in your vocabulary, and every number that comes back is one you can defend when someone asks where it came from.</p>
-      <div class="steps">
-        <span>Ingest</span><span>Resolve</span><span>Model</span><span>Answer</span><span class="t">≈ 3 months</span>
+    <article class="hero">
+      <div>
+        <p class="eyebrow">Contour, the platform</p>
+        <h1>Take control of what your data means.</h1>
+        <p class="sub">You already have the data and you are under pressure for results, but somehow you still cannot get your answers. Contour builds the meaning your systems never recorded, over the systems you already run, so your team and your AI agents can go straight to the right answer.</p>
+        <p class="more"><a href="/contact/">Bring us the question your current infrastructure still cannot answer.</a></p>
       </div>
-      <p style="margin-top:16px;font-size:14px">Roughly three months from first access to answers you can put in front of somebody. This estimation takes a specialist modelling of your own domain and the integration of your source systems. We read from those systems; we do not write to them.</p>
+      <div class="reach">
+        <!-- @diagram relief-open -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none" role="img">
+  <title>The same contours with nothing at the centre</title>
+  <path d="M114.14,60.00 C114.62,64.85 114.63,69.90 113.82,74.94 C113.02,79.99 112.04,85.70 109.32,90.27 C106.61,94.83 102.34,99.60 97.51,102.34 C92.69,105.08 86.00,106.24 80.37,106.71 C74.74,107.18 68.94,105.88 63.76,105.15 C58.57,104.42 53.99,103.48 49.26,102.34 C44.54,101.21 39.81,100.22 35.41,98.33 C31.01,96.45 26.72,93.96 22.86,91.02 C19.00,88.08 15.44,84.59 12.25,80.70 C9.06,76.80 5.60,72.42 3.71,67.64 C1.83,62.85 0.32,57.06 0.94,51.99 C1.57,46.92 4.28,41.46 7.44,37.22 C10.60,32.98 15.59,29.64 19.93,26.54 C24.27,23.44 28.78,20.92 33.46,18.63 C38.15,16.34 42.94,13.89 48.03,12.80 C53.12,11.71 58.88,11.36 63.99,12.08 C69.10,12.79 74.15,15.00 78.71,17.08 C83.28,19.17 87.36,21.82 91.36,24.60 C95.37,27.38 99.50,30.22 102.76,33.76 C106.03,37.30 109.04,41.49 110.94,45.86" fill="none" stroke="var(--ink)" stroke-width="2.00" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M101.58,58.27 C101.97,62.13 101.97,66.15 101.33,70.17 C100.69,74.18 99.91,78.73 97.75,82.37 C95.58,86.00 92.19,89.80 88.34,91.98 C84.50,94.16 79.17,95.09 74.69,95.47 C70.21,95.84 65.59,94.80 61.47,94.22 C57.34,93.64 53.68,92.89 49.92,91.99 C46.16,91.08 42.40,90.30 38.89,88.79 C35.39,87.29 31.97,85.31 28.90,82.97 C25.82,80.63 22.99,77.85 20.45,74.75 C17.91,71.65 15.15,68.16 13.65,64.35 C12.15,60.54 10.95,55.93 11.45,51.89 C11.94,47.85 14.10,43.51 16.62,40.13 C19.14,36.75 23.11,34.09 26.56,31.62 C30.02,29.16 33.61,27.15 37.34,25.33 C41.07,23.51 44.89,21.55 48.94,20.68 C52.99,19.81 57.58,19.54 61.65,20.11 C65.72,20.68 69.74,22.43 73.37,24.10 C77.01,25.76 80.26,27.87 83.45,30.08 C86.64,32.30 89.93,34.55 92.52,37.37 C95.12,40.19 97.52,43.53 99.03,47.01" fill="none" stroke="var(--ink)" stroke-width="1.72" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M89.03,56.54 C89.31,59.41 89.32,62.40 88.84,65.39 C88.36,68.38 87.78,71.77 86.17,74.47 C84.56,77.18 82.03,80.00 79.18,81.63 C76.32,83.25 72.35,83.94 69.02,84.22 C65.68,84.50 62.24,83.73 59.17,83.29 C56.10,82.86 53.38,82.30 50.58,81.63 C47.78,80.96 44.98,80.37 42.37,79.25 C39.76,78.13 37.22,76.66 34.93,74.92 C32.65,73.18 30.54,71.11 28.65,68.80 C26.76,66.49 24.71,63.90 23.59,61.06 C22.47,58.23 21.58,54.79 21.95,51.79 C22.32,48.79 23.92,45.55 25.80,43.04 C27.67,40.52 30.63,38.54 33.20,36.71 C35.77,34.87 38.44,33.38 41.22,32.02 C43.99,30.67 46.84,29.21 49.85,28.57 C52.87,27.92 56.28,27.72 59.31,28.14 C62.34,28.56 65.33,29.87 68.03,31.11 C70.74,32.34 73.16,33.91 75.53,35.56 C77.91,37.21 80.35,38.89 82.29,40.99 C84.22,43.09 86.01,45.57 87.13,48.16" fill="none" stroke="var(--ink)" stroke-width="2.12" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M76.47,54.81 C76.66,56.69 76.66,58.65 76.35,60.62 C76.04,62.58 75.66,64.80 74.60,66.58 C73.54,68.35 71.88,70.20 70.01,71.27 C68.13,72.34 65.53,72.79 63.34,72.97 C61.15,73.15 58.90,72.65 56.88,72.36 C54.86,72.08 53.08,71.71 51.24,71.27 C49.40,70.83 47.57,70.45 45.85,69.71 C44.14,68.98 42.47,68.01 40.97,66.87 C39.47,65.72 38.09,64.37 36.85,62.85 C35.61,61.34 34.26,59.64 33.53,57.77 C32.80,55.91 32.21,53.66 32.45,51.69 C32.69,49.72 33.75,47.60 34.98,45.95 C36.21,44.30 38.15,43.00 39.83,41.79 C41.52,40.59 43.28,39.61 45.10,38.72 C46.92,37.83 48.78,36.87 50.76,36.45 C52.74,36.03 54.98,35.89 56.97,36.17 C58.96,36.45 60.92,37.30 62.69,38.12 C64.47,38.93 66.05,39.96 67.61,41.04 C69.17,42.12 70.78,43.22 72.05,44.60 C73.32,45.98 74.49,47.61 75.23,49.31" fill="none" stroke="var(--ink)" stroke-width="1.84" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M68.48,53.70 C68.61,54.96 68.61,56.27 68.40,57.58 C68.19,58.89 67.94,60.37 67.23,61.55 C66.53,62.73 65.42,63.97 64.17,64.68 C62.92,65.39 61.18,65.69 59.73,65.81 C58.27,65.94 56.76,65.60 55.42,65.41 C54.07,65.22 52.89,64.98 51.66,64.68 C50.44,64.39 49.21,64.13 48.07,63.64 C46.93,63.15 45.82,62.51 44.81,61.75 C43.81,60.98 42.89,60.08 42.06,59.07 C41.24,58.06 40.34,56.92 39.85,55.68 C39.36,54.44 38.97,52.94 39.13,51.63 C39.29,50.31 40.00,48.90 40.82,47.80 C41.64,46.70 42.93,45.83 44.06,45.03 C45.18,44.23 46.35,43.57 47.56,42.98 C48.78,42.39 50.02,41.75 51.34,41.47 C52.66,41.18 54.15,41.09 55.48,41.28 C56.80,41.46 58.11,42.04 59.30,42.58 C60.48,43.12 61.54,43.81 62.58,44.53 C63.61,45.25 64.69,45.98 65.53,46.90 C66.38,47.82 67.16,48.90 67.65,50.04 C68.14,51.17 68.36,52.45 68.48,53.70 Z" fill="none" stroke="var(--accent)" stroke-width="2.1" stroke-dasharray="5 5" stroke-linecap="round"/>
+</svg>
+      <!-- /@diagram -->
+        <div class="reach-arrow">
+          <!-- @diagram reach-arrow -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 90 24" fill="none" aria-hidden="true">
+  <path d="M4.00,12.00 C4.81,11.68 7.25,10.59 8.88,10.06 C10.50,9.52 12.12,9.01 13.75,8.77 C15.38,8.52 17.00,8.44 18.62,8.57 C20.25,8.69 21.88,9.07 23.50,9.53 C25.12,9.98 26.75,10.68 28.38,11.32 C30.00,11.95 31.62,12.74 33.25,13.34 C34.88,13.94 36.50,14.55 38.12,14.91 C39.75,15.27 41.38,15.50 43.00,15.50 C44.62,15.50 46.25,15.27 47.88,14.91 C49.50,14.55 51.12,13.94 52.75,13.34 C54.38,12.74 56.00,11.95 57.62,11.32 C59.25,10.68 60.88,9.98 62.50,9.53 C64.12,9.07 65.75,8.69 67.38,8.57 C69.00,8.44 70.62,8.52 72.25,8.77 C73.88,9.01 75.50,9.52 77.12,10.06 C78.75,10.59 81.19,11.68 82.00,12.00" pathLength="1" fill="none" stroke="var(--accent)" stroke-width="2.2" stroke-linecap="round"/>
+  <path d="M74.13,13.42 L82.00,12.00 L77.27,5.55" pathLength="1" fill="none" stroke="var(--accent)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+      <!-- /@diagram -->
+        </div>
+        <span class="is-closed">
+          <!-- @diagram relief-closed -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none" role="img">
+  <title>The same contours resolved into one filled centre</title>
+  <path d="M114.14,60.00 C114.62,64.85 114.63,69.90 113.82,74.94 C113.02,79.99 112.04,85.70 109.32,90.27 C106.61,94.83 102.34,99.60 97.51,102.34 C92.69,105.08 86.00,106.24 80.37,106.71 C74.74,107.18 68.94,105.88 63.76,105.15 C58.57,104.42 53.99,103.48 49.26,102.34 C44.54,101.21 39.81,100.22 35.41,98.33 C31.01,96.45 26.72,93.96 22.86,91.02 C19.00,88.08 15.44,84.59 12.25,80.70 C9.06,76.80 5.60,72.42 3.71,67.64 C1.83,62.85 0.32,57.06 0.94,51.99 C1.57,46.92 4.28,41.46 7.44,37.22 C10.60,32.98 15.59,29.64 19.93,26.54 C24.27,23.44 28.78,20.92 33.46,18.63 C38.15,16.34 42.94,13.89 48.03,12.80 C53.12,11.71 58.88,11.36 63.99,12.08 C69.10,12.79 74.15,15.00 78.71,17.08 C83.28,19.17 87.36,21.82 91.36,24.60 C95.37,27.38 99.50,30.22 102.76,33.76 C106.03,37.30 109.04,41.49 110.94,45.86" fill="none" stroke="var(--ink)" stroke-width="2.00" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M101.58,58.27 C101.97,62.13 101.97,66.15 101.33,70.17 C100.69,74.18 99.91,78.73 97.75,82.37 C95.58,86.00 92.19,89.80 88.34,91.98 C84.50,94.16 79.17,95.09 74.69,95.47 C70.21,95.84 65.59,94.80 61.47,94.22 C57.34,93.64 53.68,92.89 49.92,91.99 C46.16,91.08 42.40,90.30 38.89,88.79 C35.39,87.29 31.97,85.31 28.90,82.97 C25.82,80.63 22.99,77.85 20.45,74.75 C17.91,71.65 15.15,68.16 13.65,64.35 C12.15,60.54 10.95,55.93 11.45,51.89 C11.94,47.85 14.10,43.51 16.62,40.13 C19.14,36.75 23.11,34.09 26.56,31.62 C30.02,29.16 33.61,27.15 37.34,25.33 C41.07,23.51 44.89,21.55 48.94,20.68 C52.99,19.81 57.58,19.54 61.65,20.11 C65.72,20.68 69.74,22.43 73.37,24.10 C77.01,25.76 80.26,27.87 83.45,30.08 C86.64,32.30 89.93,34.55 92.52,37.37 C95.12,40.19 97.52,43.53 99.03,47.01" fill="none" stroke="var(--ink)" stroke-width="1.72" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M89.03,56.54 C89.31,59.41 89.32,62.40 88.84,65.39 C88.36,68.38 87.78,71.77 86.17,74.47 C84.56,77.18 82.03,80.00 79.18,81.63 C76.32,83.25 72.35,83.94 69.02,84.22 C65.68,84.50 62.24,83.73 59.17,83.29 C56.10,82.86 53.38,82.30 50.58,81.63 C47.78,80.96 44.98,80.37 42.37,79.25 C39.76,78.13 37.22,76.66 34.93,74.92 C32.65,73.18 30.54,71.11 28.65,68.80 C26.76,66.49 24.71,63.90 23.59,61.06 C22.47,58.23 21.58,54.79 21.95,51.79 C22.32,48.79 23.92,45.55 25.80,43.04 C27.67,40.52 30.63,38.54 33.20,36.71 C35.77,34.87 38.44,33.38 41.22,32.02 C43.99,30.67 46.84,29.21 49.85,28.57 C52.87,27.92 56.28,27.72 59.31,28.14 C62.34,28.56 65.33,29.87 68.03,31.11 C70.74,32.34 73.16,33.91 75.53,35.56 C77.91,37.21 80.35,38.89 82.29,40.99 C84.22,43.09 86.01,45.57 87.13,48.16" fill="none" stroke="var(--ink)" stroke-width="2.12" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M76.47,54.81 C76.66,56.69 76.66,58.65 76.35,60.62 C76.04,62.58 75.66,64.80 74.60,66.58 C73.54,68.35 71.88,70.20 70.01,71.27 C68.13,72.34 65.53,72.79 63.34,72.97 C61.15,73.15 58.90,72.65 56.88,72.36 C54.86,72.08 53.08,71.71 51.24,71.27 C49.40,70.83 47.57,70.45 45.85,69.71 C44.14,68.98 42.47,68.01 40.97,66.87 C39.47,65.72 38.09,64.37 36.85,62.85 C35.61,61.34 34.26,59.64 33.53,57.77 C32.80,55.91 32.21,53.66 32.45,51.69 C32.69,49.72 33.75,47.60 34.98,45.95 C36.21,44.30 38.15,43.00 39.83,41.79 C41.52,40.59 43.28,39.61 45.10,38.72 C46.92,37.83 48.78,36.87 50.76,36.45 C52.74,36.03 54.98,35.89 56.97,36.17 C58.96,36.45 60.92,37.30 62.69,38.12 C64.47,38.93 66.05,39.96 67.61,41.04 C69.17,42.12 70.78,43.22 72.05,44.60 C73.32,45.98 74.49,47.61 75.23,49.31" fill="none" stroke="var(--ink)" stroke-width="1.84" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M68.48,53.70 C68.61,54.96 68.61,56.27 68.40,57.58 C68.19,58.89 67.94,60.37 67.23,61.55 C66.53,62.73 65.42,63.97 64.17,64.68 C62.92,65.39 61.18,65.69 59.73,65.81 C58.27,65.94 56.76,65.60 55.42,65.41 C54.07,65.22 52.89,64.98 51.66,64.68 C50.44,64.39 49.21,64.13 48.07,63.64 C46.93,63.15 45.82,62.51 44.81,61.75 C43.81,60.98 42.89,60.08 42.06,59.07 C41.24,58.06 40.34,56.92 39.85,55.68 C39.36,54.44 38.97,52.94 39.13,51.63 C39.29,50.31 40.00,48.90 40.82,47.80 C41.64,46.70 42.93,45.83 44.06,45.03 C45.18,44.23 46.35,43.57 47.56,42.98 C48.78,42.39 50.02,41.75 51.34,41.47 C52.66,41.18 54.15,41.09 55.48,41.28 C56.80,41.46 58.11,42.04 59.30,42.58 C60.48,43.12 61.54,43.81 62.58,44.53 C63.61,45.25 64.69,45.98 65.53,46.90 C66.38,47.82 67.16,48.90 67.65,50.04 C68.14,51.17 68.36,52.45 68.48,53.70 Z" fill="var(--ink)"/>
+</svg>
+      <!-- /@diagram -->
+        </span>
+      </div>
     </article>
-    <article>
-      <p class="eyebrow">Where we work</p>
-      <h2>Examples of what we can solve.</h2>
-      <p class="lede">The platform is domain-neutral. These are examples rather than a catalogue, and the same structure applies wherever the records exist and nothing in them records what they mean.</p>
+    <article class="band">
+      <p class="eyebrow">Where you lose control</p>
+      <h2>The same failure, multiple ways.</h2>
+      <p class="sub">The pattern is not that teams lack data. The pattern is that the meaning needed to use it is not under control.</p>
       <div class="cases brief">
         <section>
+          <div class="tagline">
+            <!-- @diagram sector-payments -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+  <path d="M6,9 C16,9 19,21.6 25.5,21.6" fill="none" stroke="var(--ink)" stroke-width="1.8" stroke-linecap="round"/>
+  <path d="M6,39 C16,39 19,26.4 25.5,26.4" fill="none" stroke="var(--ink)" stroke-width="1.8" stroke-linecap="round"/>
+  <path d="M6,24 L27,24" fill="none" stroke="var(--ink)" stroke-width="1.8" stroke-linecap="round"/>
+  <circle cx="35.6" cy="24" r="5.4" fill="none" stroke="var(--accent)" stroke-width="2.2"/>
+</svg>
+      <!-- /@diagram -->
+          <span class="tag">Fintech &amp; payments</span>
+          </div>
+          <p>How much are clients actually transacting? The answer crosses provider events, internal ledgers, bank feeds, reversals, settlements, and definitions nobody has made durable.</p>
+        </section>
+        <section>
+          <div class="tagline">
+            <!-- @diagram sector-reliability -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+  <path d="M11,13 L25,24" stroke="var(--ink)" stroke-width="1.5"/>
+  <path d="M11,35 L25,24" stroke="var(--ink)" stroke-width="1.5"/>
+  <path d="M25,24 L39,14" stroke="var(--ink)" stroke-width="1.5"/>
+  <path d="M25,24 L39,34" stroke="var(--ink)" stroke-width="1.5"/>
+  <circle cx="11" cy="13" r="4" fill="var(--panel)" stroke="var(--ink)" stroke-width="1.7"/>
+  <circle cx="11" cy="35" r="4" fill="var(--panel)" stroke="var(--ink)" stroke-width="1.7"/>
+  <circle cx="25" cy="24" r="4" fill="var(--panel)" stroke="var(--ink)" stroke-width="1.7"/>
+  <circle cx="39" cy="34" r="4" fill="var(--panel)" stroke="var(--ink)" stroke-width="1.7"/>
+  <circle cx="39" cy="14" r="4.6" fill="var(--accent)"/>
+</svg>
+      <!-- /@diagram -->
           <span class="tag">Reliability &amp; maintenance</span>
-          <p>A line instrumented end to end, where the interval on which any given asset is serviced still comes from the calendar rather than from that asset's own failure history.</p>
+          </div>
+          <p>Which assets threaten the next outage? The plant has SAP, sensors, historians, and work orders, but engineers still assemble reliability analysis by hand.</p>
         </section>
         <section>
-          <span class="tag">Revenue &amp; commercial data</span>
-          <p>Every transaction the business has processed, held and queryable, and four figures for the same quarter that never reconcile.</p>
-        </section>
-        <section>
-          <span class="tag">Hospitals &amp; clinical engineering</span>
-          <p>A planned maintenance schedule that says what is due this month and nothing about which failure would close a theatre.</p>
+          <div class="tagline">
+            <!-- @diagram sector-funds -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+  <path d="M9.0,38 L9.0,25" stroke="var(--ink)" stroke-width="3.4"/>
+  <path d="M16.5,38 L16.5,13" stroke="var(--ink)" stroke-width="3.4"/>
+  <path d="M24.0,38 L24.0,30" stroke="var(--ink)" stroke-width="3.4"/>
+  <path d="M31.5,38 L31.5,18" stroke="var(--ink)" stroke-width="3.4"/>
+  <path d="M39.0,38 L39.0,22" stroke="var(--ink)" stroke-width="3.4"/>
+  <path d="M6,41.6 L42,41.6" stroke="var(--ink)" stroke-width="1.6" stroke-linecap="round"/>
+  <path d="M12.6,11.4 L20.4,11.4" stroke="var(--accent)" stroke-width="2.4" stroke-linecap="round"/>
+</svg>
+      <!-- /@diagram -->
+          <span class="tag">Funds &amp; data platforms</span>
+          </div>
+          <p>Which number can the firm defend? Decades of records, or a sprawling generated warehouse, still leave positions, exposure, segments, and revenue hard to trace.</p>
         </section>
       </div>
-      <p style="margin-top:22px;font-size:14px"><a href="/use-cases/">Concrete cases where we can help, worked through in full &#8594;</a></p>
+      <p class="more"><a href="/use-cases/">Concrete cases where we can help, worked through in full &#8594;</a></p>
     </article>
-    <article>
-      <p class="eyebrow">Product</p>
-      <h2>The platform is general, but we have the depth.</h2>
-      <figure>
-        <!-- @diagram hero -->
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 350" fill="none" style="max-width:860px" role="img">
-  <title>Your source systems resolved into one governed model, with an answer traced back through its lineage to the records it came from</title>
-  <path d="M716.34,176.00 C717.13,184.60 717.16,193.34 716.50,202.25 C715.85,211.16 715.01,220.51 712.42,229.47 C709.84,238.44 706.46,248.07 700.97,256.03 C695.49,263.99 687.98,271.81 679.52,277.21 C671.07,282.62 660.32,286.36 650.25,288.47 C640.18,290.57 629.06,290.26 619.12,289.84 C609.18,289.41 599.66,287.39 590.62,285.91 C581.58,284.43 573.30,282.75 564.88,280.97 C556.45,279.19 548.21,277.68 540.07,275.22 C531.94,272.76 523.70,269.97 516.05,266.20 C508.40,262.42 501.04,257.76 494.18,252.57 C487.32,247.39 480.97,241.46 474.90,235.08 C468.83,228.70 462.84,221.85 457.75,214.28 C452.66,206.72 447.42,198.41 444.34,189.67 C441.26,180.93 438.94,171.07 439.28,161.83 C439.61,152.60 442.19,142.71 446.34,134.26 C450.49,125.80 457.35,117.90 464.15,111.10 C470.96,104.30 479.36,98.78 487.19,93.46 C495.01,88.15 502.99,83.62 511.09,79.21 C519.18,74.80 527.15,70.37 535.75,67.00 C544.35,63.63 553.46,60.40 562.68,58.98 C571.91,57.56 581.86,57.34 591.08,58.47 C600.30,59.60 609.54,62.55 618.01,65.76 C626.48,68.96 634.29,73.41 641.90,77.71 C649.52,82.01 656.68,86.58 663.70,91.55 C670.73,96.52 677.85,101.58 684.07,107.54 C690.29,113.49 696.39,120.09 701.01,127.28 C705.64,134.47 709.27,142.56 711.82,150.68" fill="none" stroke="var(--ink)" stroke-width="2.20" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M688.50,174.03 C689.13,180.93 689.16,187.95 688.63,195.11 C688.11,202.27 687.43,209.77 685.36,216.97 C683.28,224.17 680.56,231.91 676.16,238.30 C671.76,244.69 665.72,250.97 658.94,255.31 C652.15,259.65 643.51,262.65 635.43,264.34 C627.34,266.03 618.41,265.79 610.43,265.44 C602.45,265.10 594.80,263.48 587.54,262.29 C580.29,261.11 573.64,259.76 566.87,258.33 C560.11,256.90 553.49,255.69 546.95,253.71 C540.42,251.73 533.80,249.49 527.66,246.46 C521.52,243.43 515.61,239.69 510.10,235.52 C504.59,231.36 499.49,226.60 494.62,221.47 C489.74,216.35 484.93,210.85 480.84,204.77 C476.75,198.70 472.55,192.03 470.07,185.01 C467.60,177.99 465.74,170.07 466.01,162.65 C466.28,155.24 468.35,147.30 471.68,140.51 C475.01,133.72 480.52,127.38 485.99,121.92 C491.45,116.46 498.20,112.02 504.48,107.75 C510.76,103.48 517.18,99.85 523.67,96.31 C530.17,92.77 536.57,89.21 543.48,86.50 C550.38,83.79 557.70,81.20 565.11,80.06 C572.52,78.92 580.51,78.74 587.91,79.65 C595.32,80.56 602.74,82.93 609.54,85.50 C616.34,88.08 622.61,91.65 628.72,95.10 C634.84,98.55 640.59,102.22 646.23,106.21 C651.88,110.21 657.59,114.27 662.59,119.05 C667.58,123.83 672.48,129.13 676.19,134.90 C679.91,140.68 682.82,147.17 684.87,153.70" fill="none" stroke="var(--ink)" stroke-width="1.89" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M661.73,172.14 C662.21,177.41 662.23,182.78 661.83,188.24 C661.43,193.71 660.92,199.45 659.33,204.95 C657.74,210.45 655.67,216.36 652.30,221.25 C648.94,226.13 644.33,230.93 639.14,234.24 C633.95,237.56 627.35,239.86 621.18,241.15 C615.00,242.44 608.17,242.25 602.07,241.99 C595.97,241.73 590.13,240.49 584.59,239.58 C579.04,238.68 573.96,237.64 568.79,236.55 C563.62,235.46 558.56,234.53 553.57,233.02 C548.57,231.51 543.52,229.80 538.83,227.48 C534.13,225.17 529.61,222.31 525.41,219.13 C521.20,215.94 517.30,212.31 513.57,208.39 C509.85,204.47 506.18,200.27 503.05,195.63 C499.93,190.99 496.71,185.89 494.82,180.52 C492.93,175.16 491.51,169.11 491.71,163.44 C491.92,157.78 493.50,151.71 496.05,146.52 C498.59,141.33 502.80,136.48 506.98,132.31 C511.16,128.14 516.31,124.75 521.11,121.49 C525.91,118.23 530.81,115.45 535.78,112.74 C540.75,110.04 545.64,107.32 550.91,105.25 C556.19,103.18 561.78,101.20 567.44,100.33 C573.10,99.46 579.21,99.32 584.87,100.01 C590.53,100.71 596.20,102.52 601.39,104.49 C606.59,106.45 611.38,109.18 616.05,111.82 C620.73,114.46 625.12,117.26 629.43,120.31 C633.74,123.36 638.11,126.47 641.93,130.13 C645.74,133.78 649.49,137.83 652.33,142.24 C655.16,146.65 657.39,151.61 658.96,156.60" fill="none" stroke="var(--ink)" stroke-width="2.33" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M634.96,170.24 C635.30,173.89 635.31,177.60 635.03,181.38 C634.75,185.16 634.40,189.13 633.30,192.93 C632.20,196.73 630.77,200.82 628.44,204.19 C626.12,207.57 622.93,210.89 619.34,213.18 C615.76,215.47 611.20,217.06 606.92,217.96 C602.65,218.85 597.93,218.72 593.72,218.54 C589.50,218.36 585.46,217.50 581.63,216.87 C577.79,216.24 574.28,215.53 570.71,214.78 C567.13,214.02 563.64,213.38 560.18,212.34 C556.73,211.29 553.24,210.11 549.99,208.51 C546.75,206.91 543.62,204.93 540.71,202.73 C537.80,200.53 535.11,198.01 532.53,195.31 C529.96,192.60 527.42,189.70 525.26,186.48 C523.10,183.27 520.87,179.75 519.57,176.04 C518.26,172.33 517.28,168.15 517.42,164.23 C517.56,160.31 518.66,156.12 520.42,152.53 C522.18,148.95 525.09,145.59 527.97,142.71 C530.86,139.83 534.43,137.48 537.75,135.23 C541.06,132.97 544.45,131.05 547.88,129.18 C551.32,127.31 554.70,125.43 558.35,124.00 C562.00,122.57 565.86,121.20 569.77,120.60 C573.69,119.99 577.91,119.90 581.82,120.38 C585.73,120.86 589.65,122.11 593.25,123.47 C596.84,124.83 600.15,126.72 603.38,128.54 C606.61,130.37 609.65,132.31 612.63,134.41 C615.61,136.52 618.63,138.67 621.27,141.20 C623.91,143.72 626.50,146.52 628.46,149.57 C630.42,152.62 631.96,156.05 633.05,159.50" fill="none" stroke="var(--ink)" stroke-width="2.02" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M604.98,168.12 C605.15,169.94 605.15,171.80 605.02,173.69 C604.88,175.58 604.70,177.56 604.15,179.46 C603.60,181.37 602.88,183.41 601.72,185.10 C600.56,186.78 598.96,188.44 597.17,189.59 C595.38,190.74 593.10,191.53 590.96,191.98 C588.83,192.42 586.47,192.36 584.36,192.27 C582.25,192.18 580.23,191.75 578.31,191.44 C576.40,191.12 574.64,190.77 572.85,190.39 C571.07,190.01 569.32,189.69 567.59,189.17 C565.87,188.65 564.12,188.05 562.50,187.25 C560.87,186.45 559.31,185.46 557.86,184.36 C556.40,183.26 555.05,182.01 553.77,180.65 C552.48,179.30 551.21,177.85 550.13,176.24 C549.05,174.64 547.94,172.88 547.28,171.02 C546.63,169.17 546.14,167.08 546.21,165.12 C546.28,163.16 546.83,161.06 547.71,159.27 C548.59,157.47 550.04,155.80 551.49,154.36 C552.93,152.91 554.71,151.74 556.37,150.61 C558.03,149.49 559.73,148.53 561.44,147.59 C563.16,146.66 564.85,145.72 566.67,145.00 C568.50,144.29 570.43,143.60 572.39,143.30 C574.34,143.00 576.46,142.95 578.41,143.19 C580.37,143.43 582.33,144.06 584.12,144.74 C585.92,145.42 587.58,146.36 589.19,147.27 C590.81,148.18 592.33,149.15 593.82,150.21 C595.31,151.26 596.82,152.34 598.14,153.60 C599.45,154.86 600.75,156.26 601.73,157.79 C602.71,159.31 603.48,161.03 604.02,162.75 C604.56,164.47 604.82,166.30 604.98,168.12 Z" fill="var(--ink)"/>
-  <g transform="translate(16,26) scale(0.86)"><path d="M9,20 L24,12 L39,20 L24,28 Z" fill="var(--panel)" stroke="var(--ink)" stroke-width="1.6" stroke-linejoin="round"/>
-  <path d="M9,29 L24,22 L39,29 L24,36 Z" fill="var(--panel)" stroke="var(--ink)" stroke-width="1.6" stroke-linejoin="round"/>
-  <path d="M9,38 L24,30 L39,38 L24,46 Z" fill="var(--panel)" stroke="var(--ink)" stroke-width="1.6" stroke-linejoin="round"/></g>
-  <text x="68" y="56" font-size="11" fill="var(--muted)">Warehouse</text>
-  <path d="M176,52 C280,52 380,120 477,120" fill="none" stroke="var(--rule)" stroke-width="1.4"/>
-  <g transform="translate(16,104) scale(0.86)"><path d="M6.0,16.6 L9.6,16.9 L13.2,17.6 L16.8,18.7 L20.4,19.9 L24.0,21.2 L27.6,22.3 L31.2,23.1 L34.8,23.4 L38.4,23.2 L42.0,22.6" fill="none" stroke="var(--ink)" stroke-width="1.9" stroke-linecap="round"/>
-  <path d="M6.0,29.1 L9.6,30.3 L13.2,31.4 L16.8,32.1 L20.4,32.4 L24.0,32.2 L27.6,31.5 L31.2,30.4 L34.8,29.2 L38.4,27.9 L42.0,26.8" fill="none" stroke="var(--ink)" stroke-width="1.9" stroke-linecap="round"/>
-  <path d="M6.0,41.4 L9.6,41.1 L13.2,40.4 L16.8,39.3 L20.4,38.1 L24.0,36.8 L27.6,35.7 L31.2,34.9 L34.8,34.6 L38.4,34.8 L42.0,35.4" fill="none" stroke="var(--ink)" stroke-width="1.9" stroke-linecap="round"/>
-  <circle cx="40.5" cy="29" r="3.2" fill="var(--accent)"/></g>
-  <text x="68" y="134" font-size="11" fill="var(--muted)">Event stream</text>
-  <path d="M176,130 C280,130 380,157 462,157" fill="none" stroke="var(--rule)" stroke-width="1.4"/>
-  <g transform="translate(16,182) scale(0.86)"><path d="M7.0,39.8 L10.4,39.4 L13.8,38.6 L17.2,37.3 L20.6,35.7 L24.0,34.7 L27.4,34.7 L30.8,35.7 L34.2,37.3 L37.6,38.6 L41.0,39.4" fill="none" stroke="var(--ink)" stroke-width="1.7" stroke-linecap="round"/>
-  <path d="M7.0,32.8 L10.4,32.3 L13.8,31.3 L17.2,29.7 L20.6,27.9 L24.0,26.6 L27.4,26.6 L30.8,27.9 L34.2,29.7 L37.6,31.3 L41.0,32.3" fill="none" stroke="var(--ink)" stroke-width="1.7" stroke-linecap="round"/>
-  <path d="M7.0,25.7 L10.4,25.2 L13.8,24.0 L17.2,22.2 L20.6,20.0 L24.0,18.5 L27.4,18.5 L30.8,20.0 L34.2,22.2 L37.6,24.0 L41.0,25.2" fill="none" stroke="var(--ink)" stroke-width="1.7" stroke-linecap="round"/>
-  <path d="M7.0,18.7 L10.4,18.1 L13.8,16.7 L17.2,14.6 L20.6,12.1 L24.0,10.4 L27.4,10.4 L30.8,12.1 L34.2,14.6 L37.6,16.7 L41.0,18.1" fill="none" stroke="var(--ink)" stroke-width="1.7" stroke-linecap="round"/></g>
-  <text x="68" y="212" font-size="11" fill="var(--muted)">Historian</text>
-  <path d="M176,208 C280,208 380,195 462,195" fill="none" stroke="var(--rule)" stroke-width="1.4"/>
-  <g transform="translate(16,260) scale(0.86)"><rect x="10" y="14" width="28" height="7" fill="var(--panel)" stroke="var(--ink)" stroke-width="1.7"/>
-  <rect x="12" y="22" width="28" height="7" fill="var(--panel)" stroke="var(--ink)" stroke-width="1.7"/>
-  <rect x="14" y="30" width="28" height="7" fill="var(--panel)" stroke="var(--ink)" stroke-width="1.7"/>
-  <path d="M14,44 L34,44" stroke="var(--accent)" stroke-width="2" stroke-linecap="round"/></g>
-  <text x="68" y="290" font-size="11" fill="var(--muted)">Maintenance records</text>
-  <path d="M176,286 C280,286 380,232 477,232" fill="none" stroke="var(--rule)" stroke-width="1.4"/>
-  <path d="M596,146 L790,74" stroke="var(--accent)" stroke-width="2.2" stroke-linecap="round"/>
-  <circle cx="796" cy="70" r="5.4" fill="var(--accent)"/>
-  <path d="M558,190 C480,255 250,310 62,304" fill="none" stroke="var(--accent)" stroke-width="2" stroke-dasharray="5 5" stroke-linecap="round"/>
-  <circle cx="62" cy="304" r="4.4" fill="var(--accent)"/>
-  <text x="516" y="332" style="font:500 10px ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.1em;text-transform:uppercase" fill="var(--muted)">One governed model</text>
-  <text x="700" y="46" style="font:500 10px ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.1em;text-transform:uppercase" fill="var(--accent)">Answer</text>
-  <text x="420" y="272" style="font:500 10px ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.1em;text-transform:uppercase" fill="var(--accent)">Lineage</text>
-  <text x="118" y="326" style="font:500 10px ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.1em;text-transform:uppercase" fill="var(--accent)">Provenance</text>
-</svg>
-      <!-- /@diagram -->
-        <figcaption><b>Figure 1</b>Four source systems, one model. The solid line is the answer; the dashed line is that answer traced back to the records it came from.</figcaption>
-      </figure>
-      <p class="lede"><strong>Contour runs against whatever you already have.</strong> Modules go deeper where an answer has to understand a particular equipment or an internal process, not just tables.</p>
-      <p>Every module can provide customized scenarios for your business. We have here four examples that are commonly used expected:</p>
-      <div class="grid">
-        <div class="card">
-          <!-- @diagram icon-model-context-layer -->
+    <article class="closing">
+      <p class="eyebrow">Start</p>
+      <h2>Bring one expensive unanswered question.</h2>
+      <p class="sub">If your current infrastructure should answer it and still cannot, that is the engagement.</p>
+      <div class="offer">
+        <!-- @diagram query -->
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 68 68" fill="none" aria-hidden="true">
-  <path d="M63.08,34.00 C63.55,38.15 63.63,43.19 61.81,47.14 C59.99,51.08 56.24,55.79 52.16,57.68 C48.08,59.57 41.87,58.76 37.30,58.47 C32.74,58.17 28.72,57.28 24.77,55.91 C20.81,54.55 16.88,52.86 13.58,50.28 C10.28,47.70 6.78,44.30 4.99,40.44 C3.20,36.57 1.68,31.09 2.83,27.09 C3.99,23.08 8.43,19.27 11.93,16.40 C15.43,13.53 19.58,11.19 23.83,9.87 C28.09,8.56 33.19,7.82 37.44,8.51 C41.69,9.20 45.75,11.72 49.34,14.00 C52.92,16.29 56.66,18.88 58.95,22.21" fill="none" stroke="var(--ink)" stroke-width="1.90" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M55.38,33.23 C55.74,36.38 55.80,40.20 54.42,43.19 C53.04,46.19 50.20,49.76 47.10,51.19 C44.00,52.62 39.29,52.01 35.83,51.79 C32.36,51.56 29.32,50.89 26.32,49.85 C23.32,48.82 20.33,47.54 17.83,45.58 C15.33,43.62 12.67,41.04 11.31,38.11 C9.96,35.18 8.80,31.02 9.68,27.98 C10.56,24.94 13.92,22.05 16.58,19.88 C19.23,17.70 22.39,15.92 25.61,14.93 C28.84,13.93 32.71,13.37 35.93,13.89 C39.16,14.41 42.24,16.33 44.96,18.06 C47.68,19.79 50.52,21.76 52.25,24.29" fill="none" stroke="var(--ink)" stroke-width="1.63" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M47.69,32.46 C47.93,34.60 47.97,37.21 47.03,39.25 C46.09,41.29 44.15,43.73 42.04,44.70 C39.93,45.68 36.72,45.26 34.36,45.11 C31.99,44.96 29.92,44.50 27.87,43.79 C25.83,43.08 23.79,42.21 22.09,40.88 C20.38,39.54 18.57,37.78 17.64,35.78 C16.72,33.78 15.93,30.95 16.53,28.88 C17.13,26.81 19.42,24.84 21.23,23.35 C23.04,21.87 25.19,20.66 27.39,19.98 C29.59,19.30 32.23,18.92 34.43,19.27 C36.63,19.63 38.73,20.93 40.58,22.11 C42.44,23.29 44.37,24.64 45.55,26.36" fill="none" stroke="var(--ink)" stroke-width="2.01" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M40.54,31.74 C40.68,32.96 40.70,34.43 40.17,35.59 C39.64,36.74 38.54,38.12 37.34,38.68 C36.15,39.23 34.33,39.00 32.99,38.91 C31.65,38.82 30.47,38.56 29.31,38.16 C28.16,37.76 27.00,37.27 26.04,36.51 C25.07,35.75 24.04,34.76 23.52,33.62 C22.99,32.49 22.55,30.89 22.89,29.71 C23.22,28.54 24.52,27.42 25.55,26.58 C26.58,25.74 27.79,25.05 29.04,24.67 C30.29,24.28 31.78,24.07 33.03,24.27 C34.27,24.47 35.46,25.21 36.52,25.88 C37.57,26.55 38.66,27.31 39.33,28.28 C40.01,29.26 40.40,30.52 40.54,31.74 Z" fill="var(--ink)"/>
-  <path d="M64,58 L43,42" stroke="var(--accent)" stroke-width="2.4" stroke-linecap="round"/>
+  <path d="M21.78,28.45 C21.65,27.72 20.99,25.55 20.98,24.09 C20.97,22.64 21.24,21.11 21.71,19.73 C22.17,18.34 22.92,17.00 23.78,15.80 C24.65,14.60 25.70,13.41 26.91,12.51 C28.13,11.61 29.61,10.72 31.09,10.40 C32.56,10.08 34.33,10.18 35.77,10.58 C37.21,10.98 38.58,11.93 39.73,12.80 C40.88,13.68 41.78,14.77 42.67,15.82 C43.56,16.88 44.39,17.92 45.07,19.13 C45.74,20.34 46.46,21.68 46.73,23.07 C47.01,24.47 47.05,26.10 46.73,27.51 C46.40,28.92 45.72,30.03 44.78,31.54 C43.84,33.05 42.25,34.97 41.08,36.56 C39.91,38.15 38.65,39.51 37.76,41.09 C36.87,42.67 36.21,44.39 35.75,46.04 C35.29,47.69 35.13,50.17 35.00,51.00" fill="none" stroke="var(--ink)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M37.74,60.00 C37.72,60.65 37.37,61.40 36.95,61.89 C36.53,62.37 35.83,62.81 35.21,62.92 C34.60,63.03 33.82,62.84 33.23,62.54 C32.65,62.23 31.96,61.68 31.73,61.08 C31.50,60.49 31.59,59.56 31.85,58.96 C32.11,58.37 32.71,57.83 33.27,57.52 C33.83,57.21 34.57,57.03 35.21,57.11 C35.85,57.19 36.68,57.50 37.10,57.98 C37.53,58.46 37.77,59.35 37.74,60.00 Z" fill="var(--accent)"/>
 </svg>
       <!-- /@diagram -->
-          <h3><a href="/product/model-context-layer/">Model Context Layer</a></h3>
-          <p>Connect the assistants and agents your team already uses to your business, over MCP. They answer from verified operations rather than from a query they wrote themselves, and every figure carries lineage back to source.</p>
-        </div>
-        <div class="card">
-          <!-- @diagram icon-failure-propagation -->
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 68 68" fill="none" aria-hidden="true">
-  <path d="M63.08,34.00 C63.55,38.15 63.63,43.19 61.81,47.14 C59.99,51.08 56.24,55.79 52.16,57.68 C48.08,59.57 41.87,58.76 37.30,58.47 C32.74,58.17 28.72,57.28 24.77,55.91 C20.81,54.55 16.88,52.86 13.58,50.28 C10.28,47.70 6.78,44.30 4.99,40.44 C3.20,36.57 1.68,31.09 2.83,27.09 C3.99,23.08 8.43,19.27 11.93,16.40 C15.43,13.53 19.58,11.19 23.83,9.87 C28.09,8.56 33.19,7.82 37.44,8.51 C41.69,9.20 45.75,11.72 49.34,14.00 C52.92,16.29 56.66,18.88 58.95,22.21" fill="none" stroke="var(--ink)" stroke-width="1.90" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M55.38,33.23 C55.74,36.38 55.80,40.20 54.42,43.19 C53.04,46.19 50.20,49.76 47.10,51.19 C44.00,52.62 39.29,52.01 35.83,51.79 C32.36,51.56 29.32,50.89 26.32,49.85 C23.32,48.82 20.33,47.54 17.83,45.58 C15.33,43.62 12.67,41.04 11.31,38.11 C9.96,35.18 8.80,31.02 9.68,27.98 C10.56,24.94 13.92,22.05 16.58,19.88 C19.23,17.70 22.39,15.92 25.61,14.93 C28.84,13.93 32.71,13.37 35.93,13.89 C39.16,14.41 42.24,16.33 44.96,18.06 C47.68,19.79 50.52,21.76 52.25,24.29" fill="none" stroke="var(--ink)" stroke-width="1.63" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M47.69,32.46 C47.93,34.60 47.97,37.21 47.03,39.25 C46.09,41.29 44.15,43.73 42.04,44.70 C39.93,45.68 36.72,45.26 34.36,45.11 C31.99,44.96 29.92,44.50 27.87,43.79 C25.83,43.08 23.79,42.21 22.09,40.88 C20.38,39.54 18.57,37.78 17.64,35.78 C16.72,33.78 15.93,30.95 16.53,28.88 C17.13,26.81 19.42,24.84 21.23,23.35 C23.04,21.87 25.19,20.66 27.39,19.98 C29.59,19.30 32.23,18.92 34.43,19.27 C36.63,19.63 38.73,20.93 40.58,22.11 C42.44,23.29 44.37,24.64 45.55,26.36" fill="none" stroke="var(--ink)" stroke-width="2.01" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M40.54,31.74 C40.68,32.96 40.70,34.43 40.17,35.59 C39.64,36.74 38.54,38.12 37.34,38.68 C36.15,39.23 34.33,39.00 32.99,38.91 C31.65,38.82 30.47,38.56 29.31,38.16 C28.16,37.76 27.00,37.27 26.04,36.51 C25.07,35.75 24.04,34.76 23.52,33.62 C22.99,32.49 22.55,30.89 22.89,29.71 C23.22,28.54 24.52,27.42 25.55,26.58 C26.58,25.74 27.79,25.05 29.04,24.67 C30.29,24.28 31.78,24.07 33.03,24.27 C34.27,24.47 35.46,25.21 36.52,25.88 C37.57,26.55 38.66,27.31 39.33,28.28 C40.01,29.26 40.40,30.52 40.54,31.74 Z" fill="var(--ink)"/>
-  <path d="M21.23,23.35 C22.26,22.79 25.19,20.66 27.39,19.98 C29.59,19.30 32.23,18.92 34.43,19.27 C36.63,19.63 38.73,20.93 40.58,22.11 C42.44,23.29 44.37,24.64 45.55,26.36 C46.74,28.08 47.33,31.44 47.69,32.46" fill="none" stroke="var(--accent)" stroke-width="2.3" stroke-linecap="round"/>
-  <path d="M16.58,19.88 C18.08,19.05 22.39,15.92 25.61,14.93 C28.84,13.93 32.71,13.37 35.93,13.89 C39.16,14.41 42.24,16.33 44.96,18.06 C47.68,19.79 50.52,21.76 52.25,24.29 C53.99,26.81 55.02,30.08 55.38,33.23 C55.74,36.38 54.58,41.53 54.42,43.19" fill="none" stroke="var(--accent)" stroke-width="2.1" stroke-linecap="round"/>
-  <path d="M23.83,9.87 C26.10,9.65 33.19,7.82 37.44,8.51 C41.69,9.20 45.75,11.72 49.34,14.00 C52.92,16.29 56.66,18.88 58.95,22.21 C61.24,25.55 62.60,29.85 63.08,34.00 C63.55,38.15 62.02,44.95 61.81,47.14" fill="none" stroke="var(--accent)" stroke-width="1.9" stroke-linecap="round"/>
-</svg>
-      <!-- /@diagram -->
-          <h3><a href="/product/failure-propagation/">Asset Tree &amp; Failure Propagation</a></h3>
-          <p>See what a single failure takes down with it. Contour models the plant as a dependency graph rather than a list of tags, so consequence can be traced to the production it costs you.</p>
-        </div>
-        <div class="card">
-          <!-- @diagram icon-reliability-engineering -->
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 68 68" fill="none" aria-hidden="true">
-  <path d="M63.08,34.00 C63.55,38.15 63.63,43.19 61.81,47.14 C59.99,51.08 56.24,55.79 52.16,57.68 C48.08,59.57 41.87,58.76 37.30,58.47 C32.74,58.17 28.72,57.28 24.77,55.91 C20.81,54.55 16.88,52.86 13.58,50.28 C10.28,47.70 6.78,44.30 4.99,40.44 C3.20,36.57 1.68,31.09 2.83,27.09 C3.99,23.08 8.43,19.27 11.93,16.40 C15.43,13.53 19.58,11.19 23.83,9.87 C28.09,8.56 33.19,7.82 37.44,8.51 C41.69,9.20 45.75,11.72 49.34,14.00 C52.92,16.29 56.66,18.88 58.95,22.21" fill="none" stroke="var(--ink)" stroke-width="1.90" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M55.38,33.23 C55.74,36.38 55.80,40.20 54.42,43.19 C53.04,46.19 50.20,49.76 47.10,51.19 C44.00,52.62 39.29,52.01 35.83,51.79 C32.36,51.56 29.32,50.89 26.32,49.85 C23.32,48.82 20.33,47.54 17.83,45.58 C15.33,43.62 12.67,41.04 11.31,38.11 C9.96,35.18 8.80,31.02 9.68,27.98 C10.56,24.94 13.92,22.05 16.58,19.88 C19.23,17.70 22.39,15.92 25.61,14.93 C28.84,13.93 32.71,13.37 35.93,13.89 C39.16,14.41 42.24,16.33 44.96,18.06 C47.68,19.79 50.52,21.76 52.25,24.29" fill="none" stroke="var(--ink)" stroke-width="1.63" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M47.69,32.46 C47.93,34.60 47.97,37.21 47.03,39.25 C46.09,41.29 44.15,43.73 42.04,44.70 C39.93,45.68 36.72,45.26 34.36,45.11 C31.99,44.96 29.92,44.50 27.87,43.79 C25.83,43.08 23.79,42.21 22.09,40.88 C20.38,39.54 18.57,37.78 17.64,35.78 C16.72,33.78 15.93,30.95 16.53,28.88 C17.13,26.81 19.42,24.84 21.23,23.35 C23.04,21.87 25.19,20.66 27.39,19.98 C29.59,19.30 32.23,18.92 34.43,19.27 C36.63,19.63 38.73,20.93 40.58,22.11 C42.44,23.29 44.37,24.64 45.55,26.36" fill="none" stroke="var(--ink)" stroke-width="2.01" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M40.54,31.74 C40.68,32.96 40.70,34.43 40.17,35.59 C39.64,36.74 38.54,38.12 37.34,38.68 C36.15,39.23 34.33,39.00 32.99,38.91 C31.65,38.82 30.47,38.56 29.31,38.16 C28.16,37.76 27.00,37.27 26.04,36.51 C25.07,35.75 24.04,34.76 23.52,33.62 C22.99,32.49 22.55,30.89 22.89,29.71 C23.22,28.54 24.52,27.42 25.55,26.58 C26.58,25.74 27.79,25.05 29.04,24.67 C30.29,24.28 31.78,24.07 33.03,24.27 C34.27,24.47 35.46,25.21 36.52,25.88 C37.57,26.55 38.66,27.31 39.33,28.28 C40.01,29.26 40.40,30.52 40.54,31.74 Z" fill="var(--ink)"/>
-  <path d="M7,52 L61,20" stroke="var(--accent)" stroke-width="2.4" stroke-linecap="round"/><path d="M5,48 L10,55.5" stroke="var(--accent)" stroke-width="2.2" stroke-linecap="round"/><path d="M58,16.5 L63,24" stroke="var(--accent)" stroke-width="2.2" stroke-linecap="round"/>
-</svg>
-      <!-- /@diagram -->
-          <h3><a href="/product/reliability-engineering/">Reliability Engineering</a></h3>
-          <p>Plan against the outage you are actually scoping. Each asset's own failure history is fitted with established reliability statistics and becomes a probability of failing inside the window you set, ranked by what that failure would take with it.</p>
-        </div>
-        <div class="card">
-          <!-- @diagram icon-sensor-intelligence -->
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 68 68" fill="none" aria-hidden="true">
-  <path d="M63.08,34.00 C63.55,38.15 63.63,43.19 61.81,47.14 C59.99,51.08 56.24,55.79 52.16,57.68 C48.08,59.57 41.87,58.76 37.30,58.47 C32.74,58.17 28.72,57.28 24.77,55.91 C20.81,54.55 16.88,52.86 13.58,50.28 C10.28,47.70 6.78,44.30 4.99,40.44 C3.20,36.57 1.68,31.09 2.83,27.09 C3.99,23.08 8.43,19.27 11.93,16.40 C15.43,13.53 19.58,11.19 23.83,9.87 C28.09,8.56 33.19,7.82 37.44,8.51 C41.69,9.20 45.75,11.72 49.34,14.00 C52.92,16.29 56.66,18.88 58.95,22.21" fill="none" stroke="var(--ink)" stroke-width="1.90" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M55.38,33.23 C55.74,36.38 55.80,40.20 54.42,43.19 C53.04,46.19 50.20,49.76 47.10,51.19 C44.00,52.62 39.29,52.01 35.83,51.79 C32.36,51.56 29.32,50.89 26.32,49.85 C23.32,48.82 20.33,47.54 17.83,45.58 C15.33,43.62 12.67,41.04 11.31,38.11 C9.96,35.18 8.80,31.02 9.68,27.98 C10.56,24.94 13.92,22.05 16.58,19.88 C19.23,17.70 22.39,15.92 25.61,14.93 C28.84,13.93 32.71,13.37 35.93,13.89 C39.16,14.41 42.24,16.33 44.96,18.06 C47.68,19.79 50.52,21.76 52.25,24.29" fill="none" stroke="var(--ink)" stroke-width="1.63" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M47.69,32.46 C47.93,34.60 47.97,37.21 47.03,39.25 C46.09,41.29 44.15,43.73 42.04,44.70 C39.93,45.68 36.72,45.26 34.36,45.11 C31.99,44.96 29.92,44.50 27.87,43.79 C25.83,43.08 23.79,42.21 22.09,40.88 C20.38,39.54 18.57,37.78 17.64,35.78 C16.72,33.78 15.93,30.95 16.53,28.88 C17.13,26.81 19.42,24.84 21.23,23.35 C23.04,21.87 25.19,20.66 27.39,19.98 C29.59,19.30 32.23,18.92 34.43,19.27 C36.63,19.63 38.73,20.93 40.58,22.11 C42.44,23.29 44.37,24.64 45.55,26.36" fill="none" stroke="var(--ink)" stroke-width="2.01" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M40.54,31.74 C40.68,32.96 40.70,34.43 40.17,35.59 C39.64,36.74 38.54,38.12 37.34,38.68 C36.15,39.23 34.33,39.00 32.99,38.91 C31.65,38.82 30.47,38.56 29.31,38.16 C28.16,37.76 27.00,37.27 26.04,36.51 C25.07,35.75 24.04,34.76 23.52,33.62 C22.99,32.49 22.55,30.89 22.89,29.71 C23.22,28.54 24.52,27.42 25.55,26.58 C26.58,25.74 27.79,25.05 29.04,24.67 C30.29,24.28 31.78,24.07 33.03,24.27 C34.27,24.47 35.46,25.21 36.52,25.88 C37.57,26.55 38.66,27.31 39.33,28.28 C40.01,29.26 40.40,30.52 40.54,31.74 Z" fill="var(--ink)"/>
-  <circle cx="37.3" cy="58.5" r="2.6" fill="var(--muted)"/>
-  <circle cx="35.9" cy="13.9" r="2.6" fill="var(--muted)"/>
-  <circle cx="17.6" cy="35.8" r="2.6" fill="var(--muted)"/>
-  <circle cx="57" cy="13" r="5" fill="none" stroke="var(--accent)" stroke-width="2.2"/>
-  <circle cx="57" cy="13" r="1.9" fill="var(--accent)"/>
-</svg>
-      <!-- /@diagram -->
-          <h3><a href="/product/sensor-intelligence/">Sensor Intelligence</a></h3>
-          <p>The layer the other two stand on. Contour ingests instrumentation continuously and resolves every tag to the equipment it measures, which is what lets a decade of time series be read against a decade of failures at all.</p>
-        </div>
+        <p>If you have a project with a date already promised and the data underneath it not holding up. We start with offering a consultancy: what you already run, what the question actually requires, and whether it can be answered at all. If it can, the data work comes off the delivery you are already carrying.</p>
       </div>
+      <p class="more"><a href="/contact/">Tell us what you cannot currently answer &#8594;</a></p>
     </article>
   </main>
 
   <footer>
     <span>© 2026 Symbolic Engineering</span>
+    <nav class="foot">
+      <a href="/product/">Product</a>
+      <a href="/use-cases/">Use cases</a>
+      <a href="/about/">About</a>
+      <a href="mailto:contact@symbolic.engineering">contact@symbolic.engineering</a>
+    </nav>
   </footer>
 
 </div>
