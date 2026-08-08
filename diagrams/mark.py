@@ -369,6 +369,110 @@ def query():
         f'<path d="{smooth(exclaim_dot)}" fill="var(--ink)"/>'])
 
 
+# ------------------------------------------------------------- Linear B tablet
+
+def linear_tablet():
+    """A tablet as an image of decipherment, not archaeology decoration. The
+    signs are deliberately schematic: what matters is that the marks become
+    legible when they are tied to place, quantity and ordinary records."""
+    ph = phases(31)
+
+    def waved(points, seed, amount=1.0):
+        p, n, out = phases(seed), len(points), []
+        for i, (x, y) in enumerate(points):
+            t = i / max(n - 1, 1)
+            w = (0.55 * math.sin(math.tau * 1.3 * t + p[0])
+                 + 0.45 * math.sin(math.tau * 2.2 * t + p[1]))
+            ax, ay = points[max(i - 1, 0)]
+            bx, by = points[min(i + 1, n - 1)]
+            dx, dy = bx - ax, by - ay
+            L = math.hypot(dx, dy) or 1.0
+            out.append((x - dy / L * WOBBLE * 3.8 * amount * w,
+                        y + dx / L * WOBBLE * 3.8 * amount * w))
+        return out
+
+    outline = []
+    for i in range(28):
+        a = math.tau * i / 28
+        # Superellipse-like tablet with a chipped upper-left corner.
+        c, s = math.cos(a), math.sin(a)
+        x = 180 + math.copysign(abs(c) ** 0.58, c) * 148
+        y = 130 + math.copysign(abs(s) ** 0.62, s) * 94
+        chip = max(0, 1 - math.hypot(x - 55, y - 46) / 46)
+        wob = 1 + WOBBLE * (0.45 * math.sin(3 * a + ph[0])
+                            + 0.25 * math.sin(7 * a + ph[1]))
+        outline.append((180 + (x - 180) * wob + 18 * chip,
+                        130 + (y - 130) * wob + 8 * chip))
+
+    out = [
+        f'<path d="{smooth(outline)}" fill="var(--panel)" '
+        f'stroke="var(--ink)" stroke-width="2.2" stroke-linejoin="round"/>'
+    ]
+
+    rows = [
+        [(74, 70, 0), (110, 68, 3), (148, 70, 1), (188, 68, 5),
+         (230, 70, 2), (268, 69, 4)],
+        [(86, 104, 2), (126, 102, 5), (170, 104, 4), (210, 102, 0),
+         (252, 104, 3)],
+        [(76, 138, 5), (116, 137, 1), (160, 139, 0), (203, 137, 2),
+         (246, 139, 5), (286, 138, 4)],
+        [(91, 173, 3), (136, 171, 4), (180, 173, 1), (222, 171, 0),
+         (264, 173, 2)]
+    ]
+
+    def add_path(points, seed, sw=2.0, colour="var(--ink)"):
+        out.append(f'<path d="{open_d(waved(points, seed))}" fill="none" '
+                   f'stroke="{colour}" stroke-width="{sw}" '
+                   f'stroke-linecap="round" stroke-linejoin="round"/>')
+
+    def glyph(x, y, kind, seed):
+        s = 1.0
+        if kind == 0:
+            add_path([(x, y - 12*s), (x - 3*s, y), (x - 5*s, y + 13*s)],
+                     seed)
+            add_path([(x - 12*s, y - 2*s), (x, y - 7*s), (x + 12*s, y - 2*s)],
+                     seed + 1, 1.7)
+        elif kind == 1:
+            add_path([(x - 12*s, y - 9*s), (x - 2*s, y - 14*s),
+                      (x + 10*s, y - 7*s), (x + 8*s, y + 5*s),
+                      (x - 6*s, y + 10*s), (x - 12*s, y + 1*s)],
+                     seed)
+        elif kind == 2:
+            add_path([(x - 11*s, y - 11*s), (x + 8*s, y + 10*s)], seed)
+            add_path([(x + 10*s, y - 9*s), (x - 7*s, y + 12*s)], seed + 1)
+        elif kind == 3:
+            add_path([(x, y - 13*s), (x, y + 13*s)], seed)
+            add_path([(x, y - 3*s), (x - 12*s, y - 10*s)], seed + 1, 1.7)
+            add_path([(x, y + 3*s), (x + 13*s, y - 4*s)], seed + 2, 1.7)
+        elif kind == 4:
+            add_path([(x - 12*s, y - 8*s), (x + 11*s, y - 8*s),
+                      (x + 6*s, y + 10*s), (x - 8*s, y + 10*s),
+                      (x - 12*s, y - 8*s)], seed)
+        else:
+            for k in range(3):
+                add_path([(x - 9*s + k * 8*s, y - 12*s),
+                          (x - 12*s + k * 8*s, y + 12*s)],
+                         seed + k, 1.7)
+
+    for ridx, row in enumerate(rows):
+        ybase = row[0][1]
+        add_path([(62, ybase + 22), (294, ybase + 22)], 71 + ridx, 0.9,
+                 "var(--rule)")
+        for cidx, (x, y, kind) in enumerate(row):
+            glyph(x, y, kind, 100 + ridx * 13 + cidx)
+
+    # The accent is the act of decipherment: a suspected group of signs is tied
+    # to ordinary geography rather than left as isolated marks.
+    out.append('<ellipse cx="112" cy="68" rx="42" ry="22" fill="none" '
+               'stroke="var(--accent)" stroke-width="2" '
+               'stroke-dasharray="5 5"/>')
+    add_path([(154, 66), (198, 48), (246, 44), (286, 58)], 211, 2.0,
+             "var(--accent)")
+    out.append('<circle cx="292" cy="60" r="5.2" fill="var(--accent)"/>')
+
+    return "\n  ".join(out)
+
+
 # ---------------------------------------------------------------- home figure
 
 def hero():
@@ -486,13 +590,16 @@ def main():
                "The same contours resolved into one filled centre")
     n += write("reach-arrow", reach_arrow(), 90, 24, ' aria-hidden="true"')
     n += write("query", query(), 68, 68, ' aria-hidden="true"')
+    n += write("linear-tablet", linear_tablet(), 360, 260, ' role="img"',
+               "A clay tablet whose signs become legible when connected to "
+               "ordinary places and records")
     body, w, h = hero()
     n += write("hero", body, w, h, ' style="max-width:860px" role="img"',
                "Your source systems resolved into one governed model, with an "
                "answer traced back through its lineage to the records it came "
                "from")
     print(f"  marks + icons + hero      "
-          f"{2 + len(ICONS) + len(CATS) + len(SECTORS) + 5} files,"
+          f"{2 + len(ICONS) + len(CATS) + len(SECTORS) + 6} files,"
           f" {n} bytes")
 
 

@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>About: the same problem, in every industry | Symbolic Engineering</title>
-<meta name="description" content="Across hedge funds, fintechs, healthcare and manufacturing we met one recurring problem: organizations holding enormous amounts of data with no affordable way to act on it. Contour is the description of a business that makes its databases answerable.">
+<title>About: when company data loses meaning | Symbolic Engineering</title>
+<meta name="description" content="Symbolic Engineering builds Contour to recover the business semantics missing from databases, data lakes and warehouses, so questions can be answered with meaning and context.">
 <link rel="canonical" href="https://symbolic.engineering/about/">
 <link rel="stylesheet" href="/style.css">
 <!-- @favicon -->
@@ -13,13 +13,13 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Symbolic Engineering">
 <meta property="og:title" content="About Symbolic Engineering">
-<meta property="og:description" content="We build the structured model first, because a reasoning layer over unstructured data produces confident, wrong answers.">
+<meta property="og:description" content="We recover the business semantics missing from company data, so AI agents and teams can ask questions that still carry their meaning.">
 <meta property="og:url" content="https://symbolic.engineering/about/">
 <meta name="twitter:card" content="summary">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"AboutPage","url":"https://symbolic.engineering/about/",
 "name":"About Symbolic Engineering",
-"description":"Across hedge funds, fintechs, healthcare and manufacturing, Symbolic Engineering met one recurring problem: organizations holding enormous amounts of data with no affordable way to act on it. Contour holds the description of a business once, over the source systems the client already runs, so questions are answered against a model rather than reconstructed each time.",
+"description":"Symbolic Engineering builds Contour to recover the business semantics missing from databases, data lakes and warehouses, so questions can be answered with meaning and context.",
 "mainEntity":{"@type":"Organization","@id":"https://symbolic.engineering/#org","name":"Symbolic Engineering","url":"https://symbolic.engineering/"}}
 </script>
 <script defer src="https://cloud.umami.is/script.js" data-website-id="3b43d27a-9e41-4141-a3c9-e2682a3845c4"></script>
@@ -49,21 +49,163 @@
 
   <main>
     <article>
-      <p class="eyebrow">About</p>
-      <h1>We kept meeting the same problem.</h1>
-      <p class="lede">Across years of work with hedge funds, fintechs, healthcare providers and manufacturers, one thing recurred in every engagement regardless of the industry: these organizations hold an enormous amount of data and almost no way to act on it. Not because anything is missing, and not because nobody is capable. Because organizing that data into something answerable is expensive, and it has to be paid for again every time a new question is asked.</p>
-      <p>A fintech has every transaction it has ever processed. Every payment, every transfer, every reversal, timestamped and retained for years. Ask it which segments its revenue actually comes from and the answer takes weeks of work, because nothing in those records says what a segment is.</p>
-      <p>A plant has sensors along the length of the production line emitting a signal every second, and years of them stored. Ask it which asset to service before the next outage and there is no basis for an answer, because nothing connects a signal to the equipment it describes, or that equipment to the failure it is drifting towards.</p>
-      <p>In each case the missing piece is the same, and it is not the data, not the compute, and not the data warehouse built to consolidate them. It is a description: which entities exist, how they relate, and what the numbers actually mean. Every organization we worked with had built fragments of that description by hand, inside a report, a spreadsheet or in one analyst's memory. Then built them again for the next question, and the one after that.</p>
-      <p>So we built Contour to hold that description once and keep it. It aggregates the source systems you already run and enforces a semantics over them that is specific to your business, so a question is answered against a model rather than reconstructed from scratch. Your team queries it directly. So do your agents, over MCP.</p>
-      <p>It is also why we do not open with a demonstration. A model pointed at an undescribed warehouse will answer anything you ask it, and the answers it gets wrong are indistinguishable from the ones it gets right. The description has to exist first, and it has to be validated against records you already trust.</p>
+      <p class="eyebrow">About Symbolic Engineering</p>
+      <h1>When company data loses its meaning.</h1>
+      <div class="about-opening">
+        <div>
+          <p class="lede">When I was still just a child, I encountered this section in a history book presenting Linear B. It was the name given to the language of the ancient Mycenaean. It went for a long time undeciphered, but to me what made it fascinating wasn't just the mystery, but how its meaning got eventually recovered. Now that I work with companies from different domains, we have modern Linear B everywhere.</p>
+        </div>
+        <figure class="about-tablet">
+          <!-- @diagram linear-tablet -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 260" fill="none" role="img">
+  <title>A clay tablet whose signs become legible when connected to ordinary places and records</title>
+  <path d="M325.30,130.00 C328.16,142.39 334.13,159.26 335.01,169.36 C335.90,179.45 334.49,185.11 330.63,190.56 C326.77,196.02 318.26,198.75 311.86,202.07 C305.46,205.39 298.95,207.75 292.24,210.49 C285.54,213.24 280.28,216.92 271.62,218.54 C262.97,220.15 255.60,220.54 240.33,220.18 C225.06,219.82 199.70,217.01 180.00,216.39 C160.30,215.77 137.58,215.95 122.16,216.45 C106.74,216.95 97.59,219.65 87.48,219.40 C77.37,219.16 68.14,217.82 61.49,214.98 C54.84,212.15 51.80,206.91 47.58,202.38 C43.36,197.85 39.75,193.38 36.17,187.83 C32.60,182.28 27.28,178.70 26.13,169.06 C24.99,159.43 26.43,142.29 29.30,130.00 C32.16,117.71 38.61,103.46 43.34,95.30 C48.08,87.15 53.65,85.73 57.70,81.07 C61.76,76.41 63.92,71.70 67.66,67.33 C71.40,62.96 75.76,58.68 80.14,54.85 C84.51,51.03 87.86,47.67 93.92,44.38 C99.98,41.09 102.17,37.78 116.52,35.12 C130.87,32.45 158.42,29.01 180.00,28.39 C201.58,27.77 231.00,28.92 245.98,31.39 C260.95,33.85 263.09,39.47 269.86,43.17 C276.62,46.87 280.83,50.43 286.55,53.59 C292.28,56.75 299.49,58.41 304.20,62.11 C308.91,65.82 312.53,70.32 314.80,75.80 C317.07,81.28 316.06,85.98 317.81,95.01 C319.56,104.05 322.43,117.61 325.30,130.00 Z" fill="var(--panel)" stroke="var(--ink)" stroke-width="2.2" stroke-linejoin="round"/>
+  <path d="M62.00,92.46 C100.67,92.37 255.33,92.00 294.00,91.91" fill="none" stroke="var(--rule)" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M73.89,57.97 C73.43,59.98 71.97,65.86 71.16,70.03 C70.34,74.20 69.37,80.84 69.01,83.00" fill="none" stroke="var(--ink)" stroke-width="2.0" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M62.10,68.25 C64.09,67.34 69.99,62.90 74.00,62.80 C78.01,62.70 84.12,66.85 86.14,67.66" fill="none" stroke="var(--ink)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M109.73,55.00 C109.83,59.33 110.26,76.67 110.37,81.00" fill="none" stroke="var(--ink)" stroke-width="2.0" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M110.18,64.69 C108.15,63.57 100.03,59.11 98.00,57.99" fill="none" stroke="var(--ink)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M109.99,70.99 C112.13,69.77 120.69,64.90 122.83,63.68" fill="none" stroke="var(--ink)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M136.16,61.32 C137.80,60.40 142.34,55.54 146.02,55.80 C149.69,56.06 156.59,59.72 158.22,62.89 C159.85,66.05 158.49,71.95 155.79,74.80 C153.09,77.65 145.30,80.62 142.00,79.98 C138.71,79.35 137.01,72.49 136.01,71.00" fill="none" stroke="var(--ink)" stroke-width="2.0" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M179.01,56.00 C178.57,60.01 176.80,76.04 176.36,80.04" fill="none" stroke="var(--ink)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M186.64,55.96 C186.25,59.97 184.67,76.02 184.28,80.03" fill="none" stroke="var(--ink)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M194.99,56.00 C194.51,60.00 192.59,76.01 192.11,80.01" fill="none" stroke="var(--ink)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M218.73,59.24 C221.98,62.67 234.96,76.38 238.21,79.81" fill="none" stroke="var(--ink)" stroke-width="2.0" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M239.99,60.99 C237.18,64.51 225.91,78.56 223.09,82.07" fill="none" stroke="var(--ink)" stroke-width="2.0" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M256.00,61.01 C259.86,60.98 276.19,57.86 279.17,60.83 C282.15,63.81 277.07,75.85 273.88,78.88 C270.69,81.90 263.03,81.94 260.03,78.97 C257.03,75.99 256.58,64.01 255.89,61.02" fill="none" stroke="var(--ink)" stroke-width="2.0" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M62.00,126.02 C100.67,125.99 255.33,125.86 294.00,125.82" fill="none" stroke="var(--rule)" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M75.35,92.69 C78.46,96.24 90.90,110.44 94.01,113.99" fill="none" stroke="var(--ink)" stroke-width="2.0" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M96.11,95.09 C93.27,98.58 81.91,112.56 79.07,116.05" fill="none" stroke="var(--ink)" stroke-width="2.0" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M117.14,90.02 C116.63,94.02 114.60,110.01 114.09,114.01" fill="none" stroke="var(--ink)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M125.25,90.03 C124.66,94.02 122.28,109.97 121.69,113.96" fill="none" stroke="var(--ink)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M133.41,90.05 C132.85,94.04 130.61,110.01 130.05,114.01" fill="none" stroke="var(--ink)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M158.00,95.75 C161.83,95.79 177.99,93.03 180.96,96.04 C183.93,99.05 179.02,110.74 175.80,113.79 C172.59,116.84 164.59,117.30 161.67,114.33 C158.76,111.35 158.87,99.00 158.31,95.93" fill="none" stroke="var(--ink)" stroke-width="2.0" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M210.40,90.10 C209.86,92.09 208.01,97.87 207.12,102.02 C206.23,106.18 205.40,112.84 205.05,115.01" fill="none" stroke="var(--ink)" stroke-width="2.0" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M197.99,99.98 C199.99,99.19 206.02,95.19 210.00,95.24 C213.98,95.28 219.91,99.43 221.89,100.27" fill="none" stroke="var(--ink)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M252.02,91.00 C251.97,95.33 251.76,112.67 251.71,117.00" fill="none" stroke="var(--ink)" stroke-width="2.0" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M251.80,101.35 C249.86,100.08 242.08,95.02 240.14,93.76" fill="none" stroke="var(--ink)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M251.95,106.91 C254.13,105.77 262.86,101.21 265.04,100.07" fill="none" stroke="var(--ink)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M62.00,160.26 C100.67,160.14 255.33,159.69 294.00,159.58" fill="none" stroke="var(--rule)" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M67.03,126.00 C66.52,130.00 64.50,146.00 63.99,150.00" fill="none" stroke="var(--ink)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M74.58,125.95 C74.14,129.95 72.38,145.99 71.95,149.99" fill="none" stroke="var(--ink)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M82.85,125.98 C82.35,129.98 80.32,145.98 79.82,149.98" fill="none" stroke="var(--ink)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M104.19,128.38 C105.83,127.47 110.37,122.65 114.01,122.92 C117.65,123.19 124.33,126.77 126.03,129.99 C127.73,133.20 126.86,139.42 124.20,142.19 C121.54,144.97 113.43,147.35 110.07,146.65 C106.71,145.94 105.05,139.42 104.05,137.97" fill="none" stroke="var(--ink)" stroke-width="2.0" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M159.85,126.96 C159.41,128.98 158.03,134.87 157.19,139.04 C156.35,143.21 155.21,149.82 154.82,151.97" fill="none" stroke="var(--ink)" stroke-width="2.0" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M148.08,137.20 C150.07,136.27 156.00,131.71 160.00,131.63 C164.00,131.56 170.08,135.91 172.10,136.77" fill="none" stroke="var(--ink)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M191.84,126.15 C195.06,129.59 207.96,143.38 211.19,146.83" fill="none" stroke="var(--ink)" stroke-width="2.0" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M212.65,127.72 C209.86,131.26 198.71,145.40 195.92,148.94" fill="none" stroke="var(--ink)" stroke-width="2.0" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M236.56,126.94 C236.11,130.95 234.34,146.98 233.90,150.99" fill="none" stroke="var(--ink)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M244.96,126.99 C244.50,131.00 242.66,147.02 242.20,151.02" fill="none" stroke="var(--ink)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M252.58,126.95 C252.20,130.96 250.65,147.02 250.26,151.03" fill="none" stroke="var(--ink)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M274.00,130.04 C277.83,130.04 293.94,127.00 296.97,130.03 C300.01,133.05 295.31,145.26 292.20,148.21 C289.08,151.16 281.35,150.75 278.28,147.72 C275.22,144.69 274.55,132.99 273.80,130.04" fill="none" stroke="var(--ink)" stroke-width="2.0" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M62.00,195.20 C100.67,195.16 255.33,195.00 294.00,194.96" fill="none" stroke="var(--rule)" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M91.23,160.00 C91.26,164.33 91.39,181.67 91.42,186.00" fill="none" stroke="var(--ink)" stroke-width="2.0" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M91.05,169.92 C89.03,168.78 80.97,164.22 78.95,163.08" fill="none" stroke="var(--ink)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M90.83,175.68 C93.02,174.56 101.77,170.05 103.96,168.92" fill="none" stroke="var(--ink)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M124.00,163.09 C127.88,163.03 144.32,159.81 147.26,162.74 C150.21,165.66 144.92,177.59 141.68,180.66 C138.44,183.74 130.79,184.11 127.83,181.17 C124.87,178.23 124.56,166.05 123.91,163.02" fill="none" stroke="var(--ink)" stroke-width="2.0" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M167.84,163.68 C169.53,162.90 174.30,158.64 178.00,159.02 C181.69,159.41 188.39,162.87 190.02,165.99 C191.64,169.11 190.42,174.86 187.74,177.75 C185.06,180.65 177.23,183.96 173.93,183.35 C170.63,182.73 168.93,175.60 167.93,174.05" fill="none" stroke="var(--ink)" stroke-width="2.0" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M222.14,159.03 C221.58,161.02 219.62,166.79 218.81,170.96 C218.00,175.13 217.53,181.86 217.27,184.04" fill="none" stroke="var(--ink)" stroke-width="2.0" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M209.94,168.85 C211.95,168.11 218.00,164.37 222.00,164.43 C226.00,164.48 231.94,168.38 233.93,169.17" fill="none" stroke="var(--ink)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M253.12,161.89 C256.25,165.43 268.74,179.58 271.87,183.12" fill="none" stroke="var(--ink)" stroke-width="2.0" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M274.35,164.29 C271.48,167.75 259.99,181.63 257.12,185.09" fill="none" stroke="var(--ink)" stroke-width="2.0" stroke-linecap="round" stroke-linejoin="round"/>
+  <ellipse cx="112" cy="68" rx="42" ry="22" fill="none" stroke="var(--accent)" stroke-width="2" stroke-dasharray="5 5"/>
+  <path d="M153.96,65.91 C161.32,62.99 182.76,52.14 198.10,48.43 C213.45,44.72 231.40,42.02 246.04,43.63 C260.69,45.24 279.32,55.66 285.98,58.07" fill="none" stroke="var(--accent)" stroke-width="2.0" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="292" cy="60" r="5.2" fill="var(--accent)"/>
+</svg>
+      <!-- /@diagram -->
+        </figure>
+      </div>
+      <p>The tablets of this day and age are old databases, data lakes and sometimes even brand-new data warehouses. The problem is not necessarily with the tools, but the series of accidents that lead to an information loss: the semantics is not encoded anywhere.</p>
+      <p>I faced this loss of information many times. The answer is hardly ever to record more, although that often helps helps. The real challenge lies on recording with greater precision what the business actually mean. Facts without their meaning and context have become normal, but in a world where there is an ever increasing expectation to give more context and leverage the large information processing capabilities from AI agents, this is unnaceptable.</p>
+      <p>For this reason that I started building Symbolic Engineering. My goal is to leverage logic and symbolic manipulation to unlock value from stale, ambiguous and underused data. Contour, our adaptable software, is this discipline productized, not a generic tool expecting your organization to adapt around it, but a non-intrusive tool that helps you make your demo, that at first might have worked, but now struggles to be deployed in production, finally show results.</p>
+      <p>Your hardest questions shouldn't share the fate of Linear B, waiting centuries to be answered. You should be able to ask them now, ad get answers that still cary their meaning.</p>
       <figure>
         <!-- @diagram two-paths -->
-<svg style="max-width:807px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" data-diagram-type="DESCRIPTION" version="1.1" viewBox="0 0 807 239" zoomAndPan="magnify"><?plantuml 1.2026.3?><defs/><g><!--cluster g2--><g class="cluster" data-qualified-name="g2" data-source-line="11" id="ent0002"><rect fill="none" height="102" style="stroke:var(--rule);stroke-width:1;" width="786.86" x="7" y="123"/><text fill="var(--accent)" font-size="11" lengthAdjust="spacing" textLength="55.6069" x="372.6265" y="133.4702">CONTOUR</text></g><!--cluster g1--><g class="cluster" data-qualified-name="g1" data-source-line="25" id="ent0013"><rect fill="none" height="92" style="stroke:var(--rule);stroke-width:1;" width="622.85" x="7" y="7"/><text fill="var(--accent)" font-size="11" lengthAdjust="spacing" textLength="209.6445" x="213.6027" y="17.4702">POINTING A MODEL AT THE DATABASE</text></g><!--entity q2--><g class="entity" data-qualified-name="g2.q2" data-source-line="12" id="ent0003"><rect fill="var(--panel)" height="33" style="stroke:var(--rule);stroke-width:1;" width="130.5635" x="23" y="164.5"/><text fill="var(--ink)" font-size="13" lengthAdjust="spacing" textLength="22.4009" x="33" y="184.5103">The</text><text fill="var(--ink)" font-size="13" lengthAdjust="spacing" textLength="3.6118" x="55.4009" y="184.5103">&#160;</text><text fill="var(--ink)" font-size="13" lengthAdjust="spacing" textLength="31.7891" x="59.0127" y="184.5103">same</text><text fill="var(--ink)" font-size="13" lengthAdjust="spacing" textLength="3.6118" x="90.8018" y="184.5103">&#160;</text><text fill="var(--ink)" font-size="13" lengthAdjust="spacing" textLength="49.1499" x="94.4136" y="184.5103">question</text></g><!--entity w2--><g class="entity" data-qualified-name="g2.w2" data-source-line="13" id="ent0004"><rect fill="var(--panel)" height="46" style="stroke:var(--rule);stroke-width:1;" width="116.1226" x="179.56" y="158"/><text fill="var(--ink)" font-size="13" lengthAdjust="spacing" textLength="52.7427" x="196.4409" y="178.0103">Assistant</text><text fill="var(--ink)" font-size="13" lengthAdjust="spacing" textLength="3.6118" x="249.1835" y="178.0103">&#160;</text><text fill="var(--ink)" font-size="13" lengthAdjust="spacing" textLength="26.0063" x="252.7954" y="178.0103">calls</text><text fill="var(--ink)" font-size="13" lengthAdjust="spacing" textLength="31.8018" x="189.56" y="191.0103">typed</text><text fill="var(--ink)" font-size="13" lengthAdjust="spacing" textLength="3.6118" x="221.3618" y="191.0103">&#160;</text><text fill="var(--ink)" font-size="13" lengthAdjust="spacing" textLength="60.709" x="224.9736" y="191.0103">operations</text></g><!--entity m2--><g class="entity" data-qualified-name="g2.m2" data-source-line="14" id="ent0005"><rect fill="var(--panel)" height="46" style="stroke:var(--rule);stroke-width:1;" width="116.1099" x="321.69" y="158"/><text fill="var(--ink)" font-size="13" lengthAdjust="spacing" textLength="57.0908" x="331.69" y="178.0103">Governed</text><text fill="var(--ink)" font-size="13" lengthAdjust="spacing" textLength="3.6118" x="388.7808" y="178.0103">&#160;</text><text fill="var(--ink)" font-size="13" lengthAdjust="spacing" textLength="35.4072" x="392.3926" y="178.0103">model</text><text fill="var(--ink)" font-size="13" lengthAdjust="spacing" textLength="10.8418" x="332.4136" y="191.0103">of</text><text fill="var(--ink)" font-size="13" lengthAdjust="spacing" textLength="3.6118" x="343.2554" y="191.0103">&#160;</text><text fill="var(--ink)" font-size="13" lengthAdjust="spacing" textLength="25.2891" x="346.8672" y="191.0103">your</text><text fill="var(--ink)" font-size="13" lengthAdjust="spacing" textLength="3.6118" x="372.1563" y="191.0103">&#160;</text><text fill="var(--ink)" font-size="13" lengthAdjust="spacing" textLength="51.3081" x="375.7681" y="191.0103">business</text></g><!--entity s2--><g class="entity" data-qualified-name="g2.s2" data-source-line="15" id="ent0006"><rect fill="var(--panel)" height="33" style="stroke:var(--rule);stroke-width:1;" width="141.3735" x="468.13" y="176.5"/><text fill="var(--ink)" font-size="13" lengthAdjust="spacing" textLength="27.46" x="478.13" y="196.5103">Your</text><text fill="var(--ink)" font-size="13" lengthAdjust="spacing" textLength="3.6118" x="505.59" y="196.5103">&#160;</text><text fill="var(--ink)" font-size="13" lengthAdjust="spacing" textLength="39.019" x="509.2018" y="196.5103">source</text><text fill="var(--ink)" font-size="13" lengthAdjust="spacing" textLength="3.6118" x="548.2208" y="196.5103">&#160;</text><text fill="var(--ink)" font-size="13" lengthAdjust="spacing" textLength="47.6709" x="551.8326" y="196.5103">systems</text></g><!--entity r2--><g class="entity" data-qualified-name="g2.r2" data-source-line="16" id="ent0007"><rect fill="var(--panel)" height="46" style="stroke:var(--accent);stroke-width:1;" width="132.0171" x="645.85" y="158"/><text fill="var(--accent)" font-size="13" lengthAdjust="spacing" textLength="15.9009" x="655.85" y="178.0103">An</text><text fill="var(--accent)" font-size="13" lengthAdjust="spacing" textLength="3.6118" x="671.7509" y="178.0103">&#160;</text><text fill="var(--accent)" font-size="13" lengthAdjust="spacing" textLength="45.519" x="675.3627" y="178.0103">answer,</text><text fill="var(--accent)" font-size="13" lengthAdjust="spacing" textLength="3.6118" x="720.8817" y="178.0103">&#160;</text><text fill="var(--accent)" font-size="13" lengthAdjust="spacing" textLength="21.6899" x="724.4936" y="178.0103">and</text><text fill="var(--accent)" font-size="13" lengthAdjust="spacing" textLength="3.6118" x="746.1835" y="178.0103">&#160;</text><text fill="var(--accent)" font-size="13" lengthAdjust="spacing" textLength="18.0718" x="749.7953" y="178.0103">the</text><text fill="var(--accent)" font-size="13" lengthAdjust="spacing" textLength="43.3481" x="664.8922" y="191.0103">records</text><text fill="var(--accent)" font-size="13" lengthAdjust="spacing" textLength="3.6118" x="708.2404" y="191.0103">&#160;</text><text fill="var(--accent)" font-size="13" lengthAdjust="spacing" textLength="33.249" x="711.8522" y="191.0103">under</text><text fill="var(--accent)" font-size="13" lengthAdjust="spacing" textLength="3.6118" x="745.1012" y="191.0103">&#160;</text><text fill="var(--accent)" font-size="13" lengthAdjust="spacing" textLength="10.1118" x="748.713" y="191.0103">it.</text></g><!--entity q1--><g class="entity" data-qualified-name="g1.q1" data-source-line="26" id="ent0014"><rect fill="var(--panel)" height="33" style="stroke:var(--rule);stroke-width:1;" width="130.5635" x="23" y="43.5"/><text fill="var(--ink)" font-size="13" lengthAdjust="spacing" textLength="22.4009" x="33" y="63.5103">The</text><text fill="var(--ink)" font-size="13" lengthAdjust="spacing" textLength="3.6118" x="55.4009" y="63.5103">&#160;</text><text fill="var(--ink)" font-size="13" lengthAdjust="spacing" textLength="31.7891" x="59.0127" y="63.5103">same</text><text fill="var(--ink)" font-size="13" lengthAdjust="spacing" textLength="3.6118" x="90.8018" y="63.5103">&#160;</text><text fill="var(--ink)" font-size="13" lengthAdjust="spacing" textLength="49.1499" x="94.4136" y="63.5103">question</text></g><!--entity w1--><g class="entity" data-qualified-name="g1.w1" data-source-line="27" id="ent0015"><rect fill="var(--panel)" height="46" style="stroke:var(--rule);stroke-width:1;" width="110.3018" x="182.47" y="37"/><text fill="var(--ink)" font-size="13" lengthAdjust="spacing" textLength="52.7427" x="192.47" y="57.0103">Assistant</text><text fill="var(--ink)" font-size="13" lengthAdjust="spacing" textLength="3.6118" x="245.2127" y="57.0103">&#160;</text><text fill="var(--ink)" font-size="13" lengthAdjust="spacing" textLength="33.9473" x="248.8245" y="57.0103">writes</text><text fill="var(--ink)" font-size="13" lengthAdjust="spacing" textLength="13" x="202.5786" y="70.0103">its</text><text fill="var(--ink)" font-size="13" lengthAdjust="spacing" textLength="3.6118" x="215.5786" y="70.0103">&#160;</text><text fill="var(--ink)" font-size="13" lengthAdjust="spacing" textLength="23.8481" x="219.1905" y="70.0103">own</text><text fill="var(--ink)" font-size="13" lengthAdjust="spacing" textLength="3.6118" x="243.0386" y="70.0103">&#160;</text><text fill="var(--ink)" font-size="13" lengthAdjust="spacing" textLength="26.0127" x="246.6504" y="70.0103">SQL</text></g><!--entity t1--><g class="entity" data-qualified-name="g1.t1" data-source-line="28" id="ent0016"><rect fill="var(--panel)" height="46" style="stroke:var(--rule);stroke-width:1;" width="114.6563" x="322.41" y="37"/><text fill="var(--ink)" font-size="13" lengthAdjust="spacing" textLength="64.3208" x="340.3509" y="57.0103">Thousands</text><text fill="var(--ink)" font-size="13" lengthAdjust="spacing" textLength="3.6118" x="404.6717" y="57.0103">&#160;</text><text fill="var(--ink)" font-size="13" lengthAdjust="spacing" textLength="10.8418" x="408.2835" y="57.0103">of</text><text fill="var(--ink)" font-size="13" lengthAdjust="spacing" textLength="56.3545" x="332.41" y="70.0103">unfamiliar</text><text fill="var(--ink)" font-size="13" lengthAdjust="spacing" textLength="3.6118" x="388.7645" y="70.0103">&#160;</text><text fill="var(--ink)" font-size="13" lengthAdjust="spacing" textLength="34.6899" x="392.3763" y="70.0103">tables</text></g><!--entity r1--><g class="entity" data-qualified-name="g1.r1" data-source-line="29" id="ent0017"><rect fill="var(--panel)" height="46" style="stroke:var(--accent);stroke-width:1;" width="150.0508" x="463.8" y="37"/><text fill="var(--accent)" font-size="13" lengthAdjust="spacing" textLength="8.6709" x="481.3759" y="57.0103">A</text><text fill="var(--accent)" font-size="13" lengthAdjust="spacing" textLength="3.6118" x="490.0468" y="57.0103">&#160;</text><text fill="var(--accent)" font-size="13" lengthAdjust="spacing" textLength="51.3145" x="493.6586" y="57.0103">plausible</text><text fill="var(--accent)" font-size="13" lengthAdjust="spacing" textLength="3.6118" x="544.9731" y="57.0103">&#160;</text><text fill="var(--accent)" font-size="13" lengthAdjust="spacing" textLength="47.6899" x="548.5849" y="57.0103">number.</text><text fill="var(--accent)" font-size="13" lengthAdjust="spacing" textLength="30.3481" x="473.8" y="70.0103">Right</text><text fill="var(--accent)" font-size="13" lengthAdjust="spacing" textLength="3.6118" x="504.1481" y="70.0103">&#160;</text><text fill="var(--accent)" font-size="13" lengthAdjust="spacing" textLength="28.1709" x="507.76" y="70.0103">most</text><text fill="var(--accent)" font-size="13" lengthAdjust="spacing" textLength="3.6118" x="535.9309" y="70.0103">&#160;</text><text fill="var(--accent)" font-size="13" lengthAdjust="spacing" textLength="10.8418" x="539.5427" y="70.0103">of</text><text fill="var(--accent)" font-size="13" lengthAdjust="spacing" textLength="3.6118" x="550.3845" y="70.0103">&#160;</text><text fill="var(--accent)" font-size="13" lengthAdjust="spacing" textLength="18.0718" x="553.9963" y="70.0103">the</text><text fill="var(--accent)" font-size="13" lengthAdjust="spacing" textLength="3.6118" x="572.0681" y="70.0103">&#160;</text><text fill="var(--accent)" font-size="13" lengthAdjust="spacing" textLength="28.1709" x="575.6799" y="70.0103">time.</text></g><!--link q2 to w2--><g class="link" data-entity-1="ent0003" data-entity-2="ent0004" data-link-type="dependency" data-source-line="18" id="lnk8"><path d="M153.79,181 C162.25,181 164.87,181 173.21,181" fill="none" id="q2-to-w2" style="stroke:var(--muted);stroke-width:1;"/><polygon fill="var(--muted)" points="179.21,181,170.21,177,174.21,181,170.21,185,179.21,181" style="stroke:var(--muted);stroke-width:1;"/></g><!--link w2 to m2--><g class="link" data-entity-1="ent0004" data-entity-2="ent0005" data-link-type="dependency" data-source-line="19" id="lnk9"><path d="M295.84,181 C304.27,181 306.95,181 315.39,181" fill="none" id="w2-to-m2" style="stroke:var(--muted);stroke-width:1;"/><polygon fill="var(--muted)" points="321.39,181,312.39,177,316.39,181,312.39,185,321.39,181" style="stroke:var(--muted);stroke-width:1;"/></g><!--link m2 to s2--><g class="link" data-entity-1="ent0005" data-entity-2="ent0006" data-link-type="dependency" data-source-line="20" id="lnk10"><path d="M438.07,190.25 C447.74,190.25 451.86,190.25 461.79,190.25" fill="none" id="m2-to-s2" style="stroke:var(--muted);stroke-width:1;"/><polygon fill="var(--muted)" points="467.79,190.25,458.79,186.25,462.79,190.25,458.79,194.25,467.79,190.25" style="stroke:var(--muted);stroke-width:1;"/></g><!--link s2 to r2--><g class="link" data-entity-1="ent0006" data-entity-2="ent0007" data-link-type="dependency" data-source-line="21" id="lnk11"><path d="M609.7,190.25 C621.55,190.25 627.81,190.25 639.54,190.25" fill="none" id="s2-to-r2" style="stroke:var(--muted);stroke-width:1;"/><polygon fill="var(--muted)" points="645.54,190.25,636.54,186.25,640.54,190.25,636.54,194.25,645.54,190.25" style="stroke:var(--muted);stroke-width:1;"/></g><!--link r2 to m2--><g class="link" data-entity-1="ent0007" data-entity-2="ent0005" data-link-type="dependency" data-source-line="22" id="lnk12"><path d="M645.45,167.25 C584.87,167.25 502.22,167.25 444.26,167.25" fill="none" id="r2-to-m2" style="stroke:var(--accent);stroke-width:1;stroke-dasharray:7,7;"/><polygon fill="var(--accent)" points="438.26,167.25,447.26,171.25,443.26,167.25,447.26,163.25,438.26,167.25" style="stroke:var(--accent);stroke-width:1;"/><text fill="var(--muted)" font-size="12" lengthAdjust="spacing" textLength="38.7012" x="502.85" y="163.4902">lineage</text></g><!--link q1 to w1--><g class="link" data-entity-1="ent0014" data-entity-2="ent0015" data-link-type="dependency" data-source-line="31" id="lnk18"><path d="M153.79,60 C163.19,60 166.79,60 175.98,60" fill="none" id="q1-to-w1" style="stroke:var(--muted);stroke-width:1;"/><polygon fill="var(--muted)" points="181.98,60,172.98,56,176.98,60,172.98,64,181.98,60" style="stroke:var(--muted);stroke-width:1;"/></g><!--link w1 to t1--><g class="link" data-entity-1="ent0015" data-entity-2="ent0016" data-link-type="dependency" data-source-line="32" id="lnk19"><path d="M292.98,60 C302.49,60 306.39,60 315.96,60" fill="none" id="w1-to-t1" style="stroke:var(--muted);stroke-width:1;"/><polygon fill="var(--muted)" points="321.96,60,312.96,56,316.96,60,312.96,64,321.96,60" style="stroke:var(--muted);stroke-width:1;"/></g><!--link t1 to r1--><g class="link" data-entity-1="ent0016" data-entity-2="ent0017" data-link-type="dependency" data-source-line="33" id="lnk20"><path d="M437.17,60 C445.72,60 448.63,60 457.47,60" fill="none" id="t1-to-r1" style="stroke:var(--muted);stroke-width:1;"/><polygon fill="var(--muted)" points="463.47,60,454.47,56,458.47,60,454.47,64,463.47,60" style="stroke:var(--muted);stroke-width:1;"/></g></g></svg>
+<svg style="max-width:860px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 286" fill="none" role="img">
+  <title>Company records without semantics and with Contour</title>
+  <defs>
+    <marker id="arrow-muted" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="strokeWidth">
+      <path d="M0 0 L8 4 L0 8 Z" fill="var(--muted)"/>
+    </marker>
+  </defs>
+
+  <rect x="10" y="14" width="840" height="112" fill="none" stroke="var(--rule)" stroke-width="1"/>
+  <text x="430" y="33" text-anchor="middle" fill="var(--accent)" font-size="11" font-weight="500" letter-spacing="1.3">FACTS WITHOUT SEMANTICS</text>
+
+  <g fill="var(--panel)" stroke-width="1">
+    <rect x="32" y="53" width="162" height="54" stroke="var(--rule)"/>
+    <rect x="242" y="53" width="162" height="54" stroke="var(--rule)"/>
+    <rect x="452" y="53" width="162" height="54" stroke="var(--rule)"/>
+    <rect x="662" y="53" width="162" height="54" stroke="var(--accent)"/>
+  </g>
+
+  <g fill="var(--ink)" font-size="13" text-anchor="middle">
+    <text x="113" y="71">
+      <tspan x="113" dy="0">Databases,</tspan>
+      <tspan x="113" dy="14">lakes and</tspan>
+      <tspan x="113" dy="14">warehouses</tspan>
+    </text>
+    <text x="323" y="78">
+      <tspan x="323" dy="0">Facts</tspan>
+      <tspan x="323" dy="14">recorded</tspan>
+    </text>
+    <text x="533" y="78">
+      <tspan x="533" dy="0">Meaning</tspan>
+      <tspan x="533" dy="14">not encoded</tspan>
+    </text>
+  </g>
+  <text x="743" y="78" fill="var(--accent)" font-size="13" text-anchor="middle">
+    <tspan x="743" dy="0">Question waits</tspan>
+    <tspan x="743" dy="14">or agent guesses</tspan>
+  </text>
+
+  <g stroke="var(--muted)" stroke-width="1.2" marker-end="url(#arrow-muted)">
+    <path d="M204 80 H232"/>
+    <path d="M414 80 H442"/>
+    <path d="M624 80 H652"/>
+  </g>
+
+  <rect x="10" y="150" width="840" height="122" fill="none" stroke="var(--rule)" stroke-width="1"/>
+  <text x="430" y="169" text-anchor="middle" fill="var(--accent)" font-size="11" font-weight="500" letter-spacing="1.3">WITH CONTOUR</text>
+
+  <g fill="var(--panel)" stroke-width="1">
+    <rect x="32" y="188" width="162" height="54" stroke="var(--rule)"/>
+    <rect x="242" y="188" width="162" height="54" stroke="var(--accent)"/>
+    <rect x="452" y="188" width="162" height="54" stroke="var(--rule)"/>
+    <rect x="662" y="188" width="162" height="54" stroke="var(--accent)"/>
+  </g>
+
+  <g fill="var(--ink)" font-size="13" text-anchor="middle">
+    <text x="113" y="213">
+      <tspan x="113" dy="0">Existing</tspan>
+      <tspan x="113" dy="14">records</tspan>
+    </text>
+    <text x="323" y="206">
+      <tspan x="323" dy="0">Business</tspan>
+      <tspan x="323" dy="14">semantics</tspan>
+      <tspan x="323" dy="14">encoded</tspan>
+    </text>
+    <text x="533" y="213">
+      <tspan x="533" dy="0">Logic + symbolic</tspan>
+      <tspan x="533" dy="14">operations</tspan>
+    </text>
+  </g>
+  <text x="743" y="206" fill="var(--accent)" font-size="13" text-anchor="middle">
+    <tspan x="743" dy="0">Answer with</tspan>
+    <tspan x="743" dy="14">meaning +</tspan>
+    <tspan x="743" dy="14">context</tspan>
+  </text>
+
+  <g stroke="var(--muted)" stroke-width="1.2" marker-end="url(#arrow-muted)">
+    <path d="M204 215 H232"/>
+    <path d="M414 215 H442"/>
+    <path d="M624 215 H652"/>
+  </g>
+
+</svg>
       <!-- /@diagram -->
-        <figcaption><b>Figure 1</b>The same question, sent both ways. Above, the assistant composes its own query against tables nobody ever described to it. Below, it calls operations defined over a model of your business, and the answer returns with the records it stood on.</figcaption>
+        <figcaption><b>Figure 1</b>Records survive in databases, lakes and warehouses, but their meaning is often absent. Contour adds the semantic layer that lets questions return answers with their context still attached.</figcaption>
       </figure>
-      <p>We work with clients across Europe, North America and Brazil.</p>
     </article>
   </main>
 
