@@ -312,17 +312,16 @@ def reach_arrow():
 
 
 # ------------------------------------------------------------- the question
-# "Start" asks the reader for their one unanswered question, so the section is
-# marked by one. Drawn to the same pencil as everything else: the same wobble
-# harmonics, the same open stroke that does not quite close, and the accent
-# spent once — on the point, which is the part that asks.
+# "Bring us your expensive questions" asks the reader for the problem they are
+# stuck on, so the section is marked by punctuation. This one stays entirely in
+# ink: the marks are content, not annotation.
 
-WAVER = 1.2      # units of deviation in a 68 box: a pen's drift, not a lurch
+WAVER = 0.58     # units of deviation in a 68 box: a pen's drift, not a lurch
 
 
 def query():
-    """Bowl, tail and point, waved perpendicular to the stroke rather than
-    radially.
+    """Question and exclamation points, waved perpendicular to the stroke rather
+    than radially.
 
     Radial wobble at the contours' own setting was the first attempt and it read
     as crooked. A relief gets away with a 13% swing because five nested lines
@@ -331,33 +330,43 @@ def query():
     drawn. Here the deviation runs along the length of the stroke — two slow
     harmonics, under a pixel at the size it is used — which is what a steady hand
     with a pen actually produces."""
-    ph, cx, cy, r = phases(11), 34, 24, 13.0
-    spine = [(cx + r * math.cos(a), cy - r * math.sin(a))
-             for a in (math.radians(200 - 235 * i / 12) for i in range(13))]
-    # the tail leaves the bowl, curls in toward the stem and stops above the
-    # point, the way a drawn question mark does
-    spine += [(41.0, 36.5), (37.6, 41.0), (35.6, 46.0), (35.0, 51.0)]
 
-    m, out = len(spine), []
-    for i, (x, y) in enumerate(spine):
-        t = i / (m - 1)
-        # tapered to nothing at both ends: displaced, the first point sits off
-        # the arc the rest of the bowl follows and the entry reads as a stroke
-        # doubling back on itself
-        env = min(1.0, 3.0 * t, 3.0 * (1.0 - t))
-        w = env * (0.62 * math.sin(math.tau * 1.6 * t + ph[0])
-                   + 0.38 * math.sin(math.tau * 3.1 * t + ph[1]))
-        ax, ay = spine[max(i - 1, 0)]
-        bx, by = spine[min(i + 1, m - 1)]
-        dx, dy = bx - ax, by - ay
-        L = math.hypot(dx, dy) or 1.0
-        out.append((x - dy / L * WAVER * w, y + dx / L * WAVER * w))
+    def waved(points, seed, amount=1.0):
+        ph, m, out = phases(seed), len(points), []
+        for i, (x, y) in enumerate(points):
+            t = i / (m - 1)
+            env = min(1.0, 3.0 * t, 3.0 * (1.0 - t))
+            w = env * (0.62 * math.sin(math.tau * 1.4 * t + ph[0])
+                       + 0.38 * math.sin(math.tau * 2.5 * t + ph[1]))
+            ax, ay = points[max(i - 1, 0)]
+            bx, by = points[min(i + 1, m - 1)]
+            dx, dy = bx - ax, by - ay
+            L = math.hypot(dx, dy) or 1.0
+            out.append((x - dy / L * WAVER * amount * w,
+                        y + dx / L * WAVER * amount * w))
+        return out
 
-    dot = ring(cx + 0.7, cy + 36, 3.0, WOBBLE * 0.5, ph, squash=1.0, n=9)
+    question = [
+        (15.2, 31.4), (15.1, 27.4), (16.9, 23.4), (20.2, 20.4),
+        (24.6, 19.0), (29.0, 19.7), (32.4, 22.2), (34.1, 25.8),
+        (33.7, 29.4), (31.5, 32.1), (28.4, 34.2), (26.1, 36.8),
+        (25.3, 40.7), (24.6, 44.2)
+    ]
+    exclaim = [(61.2, 38.7), (60.5, 44.1), (59.5, 49.7), (58.3, 55.1)]
+
+    question_dot = ring(24.5, 52.0, 3.0, WOBBLE * 0.45, phases(11),
+                        squash=1.0, n=9)
+    exclaim_dot = ring(58.3, 64.3, 3.2, WOBBLE * 0.45, phases(19),
+                       squash=1.0, n=9)
     return "\n  ".join([
-        f'<path d="{open_d(out)}" fill="none" stroke="var(--ink)" '
-        f'stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>',
-        f'<path d="{smooth(dot)}" fill="var(--accent)"/>'])
+        f'<path d="{open_d(waved(question, 11))}" fill="none" '
+        f'stroke="var(--ink)" stroke-width="2.7" stroke-linecap="round" '
+        f'stroke-linejoin="round"/>',
+        f'<path d="{open_d(waved(exclaim, 19, 0.8))}" fill="none" '
+        f'stroke="var(--ink)" stroke-width="3.1" stroke-linecap="round" '
+        f'stroke-linejoin="round"/>',
+        f'<path d="{smooth(question_dot)}" fill="var(--ink)"/>',
+        f'<path d="{smooth(exclaim_dot)}" fill="var(--ink)"/>'])
 
 
 # ---------------------------------------------------------------- home figure
