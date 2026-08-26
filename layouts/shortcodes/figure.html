@@ -1,0 +1,7 @@
+{{- $name := .Get 0 -}}
+<figure>
+  {{ partial "diagram-inline.html" $name }}
+  {{- with .Inner }}
+    <figcaption>{{ . | safeHTML }}</figcaption>
+  {{- end }}
+</figure>

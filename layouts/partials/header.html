@@ -1,0 +1,14 @@
+<header>
+  <a class="mark" href="/">
+    {{ readFile "img/mark-sm.svg" | safeHTML }}
+    Symbolic Engineering
+  </a>
+  <nav>
+    <a href="/"{{ if .IsHome }} aria-current="page"{{ end }}>Home</a>
+    <a href="/about/"{{ if eq .RelPermalink "/about/" }} aria-current="page"{{ end }}>About</a>
+    <a href="/product/"{{ if hasPrefix .RelPermalink "/product/" }} aria-current="page"{{ end }}>Product</a>
+    <a href="/use-cases/"{{ if eq .RelPermalink "/use-cases/" }} aria-current="page"{{ end }}>Use cases</a>
+    <a href="/blog/"{{ if hasPrefix .RelPermalink "/blog/" }} aria-current="page"{{ end }}>Blog</a>
+    <a href="/contact/"{{ if eq .RelPermalink "/contact/" }} aria-current="page"{{ end }}>Contact</a>
+  </nav>
+</header>

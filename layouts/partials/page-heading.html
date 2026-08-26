@@ -1,0 +1,9 @@
+{{- with .Params.crumb }}
+  <p class="crumb"><a href="/">Home</a>{{ if hasPrefix $.RelPermalink "/product/" }} / <a href="/product/">Product</a> / {{ . }}{{ else }} / {{ . | safeHTML }}{{ end }}</p>
+{{- end }}
+{{- with .Params.eyebrow }}
+  <p class="eyebrow">{{ . }}</p>
+{{- end }}
+{{- with (.Params.heading | default "") }}
+  <h1>{{ . }}</h1>
+{{- end }}

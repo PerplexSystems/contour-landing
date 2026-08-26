@@ -1,0 +1,60 @@
+#+TITLE: Contour: one platform and the modules over it | Symbolic Engineering
+#+DESCRIPTION: Contour resolves the systems you already run into one governed model your team and your agents can query over MCP. The platform is domain-neutral; modules take it deeper, into MCP access, asset failure propagation, reliability engineering and sensor intelligence.
+#+OG_TITLE: The Contour platform
+#+OG_DESCRIPTION: One platform and the modules over it: model context layer, failure propagation, reliability engineering, sensor intelligence.
+#+EYEBROW: Product
+#+HEADING: One platform, and special logic over it.
+
+#+attr_html: :class lede
+Contour resolves the systems you already run into one governed model of your business, then serves that model to your team and to the agents they work alongside. The platform itself is domain-neutral. Specialized modules take it deeper, into the areas where an answer has to understand equipment and instruments rather than only tables.
+
+#+attr_html: :class more
+Below are some domains in which we can offer specialized read models:
+
+#+begin_grid
+#+begin_card
+#+begin_export html
+{{< diagram "icon-model-context-layer" >}}
+#+end_export
+
+* [[/product/model-context-layer/][Model Context Layer]]
+
+Connect the assistants and agents your team already uses to your business, over MCP. They answer from verified operations rather than from a query they wrote themselves, and every figure carries lineage back to source.
+#+end_card
+
+#+begin_card
+#+begin_export html
+{{< diagram "icon-failure-propagation" >}}
+#+end_export
+
+* [[/product/failure-propagation/][Asset Tree & Failure Propagation]]
+
+See what a single failure takes down with it. Contour models the plant as a dependency graph rather than a list of tags, so consequence can be traced to the production it costs you.
+#+end_card
+
+#+begin_card
+#+begin_export html
+{{< diagram "icon-reliability-engineering" >}}
+#+end_export
+
+* [[/product/reliability-engineering/][Reliability Engineering]]
+
+Plan against the outage you are actually scoping. Each asset's own failure history is fitted with established reliability statistics and becomes a probability of failing inside the window you set, ranked by what that failure would take with it.
+#+end_card
+
+#+begin_card
+#+begin_export html
+{{< diagram "icon-sensor-intelligence" >}}
+#+end_export
+
+* [[/product/sensor-intelligence/][Sensor Intelligence]]
+
+The layer the other two stand on. Contour ingests instrumentation continuously and resolves every tag to the equipment it measures, which is what lets a decade of time series be read against a decade of failures at all.
+#+end_card
+#+end_grid
+
+* What the modules have in common
+
+Every module reads the same model and answers through the same interface. There is no separate integration per module and no second copy of your data: the asset tree, the reliability estimates and the sensor history are all descriptions laid over sources you already run, so a question can cross between them without leaving the model.
+
+They share the same limit too. Contour answers only what the model describes, and a question falling outside it comes back as a refusal rather than an inference. That constraint is what makes the rest usable, because an answer you do receive is one the model could account for.

@@ -1,0 +1,51 @@
+#+TITLE: Asset Tree & Failure Propagation | Symbolic Engineering
+#+DESCRIPTION: Contour models a plant as a dependency graph rather than a list of tags, traces how a single component failure cascades downstream, and quantifies what each asset puts at risk.
+#+OG_TITLE: Asset Tree & Failure Propagation
+#+OG_DESCRIPTION: Model the plant as a dependency graph. Trace how one failure cascades downstream and quantify what each node puts at risk.
+#+CRUMB: Failure propagation
+#+EYEBROW: Module
+#+HEADING: Asset Tree & Failure Propagation
+
+#+attr_html: :class lede
+*Contour models your plant as a dependency graph rather than a list of tags*, so the consequence of any single component failure can be traced downstream to the production it eventually costs you.
+
+* Why a list of assets is not a model of a plant
+
+Most asset registers are flat. They record that a pump exists, when it was last serviced and what it costs to replace, but not what stops running when it fails. That structure can answer questions about individual equipment and almost nothing about consequence, which is the question maintenance planning actually turns on.
+
+Contour builds the missing structure. It resolves maintenance records, process topology and control system configuration into a directed graph of dependencies, in which every node carries both its own failure history and the set of downstream nodes it can take with it.
+
+#+begin_fig
+#+begin_export html
+{{< diagram "asset-graph" >}}
+#+end_export
+
+*Figure 1* One lube oil pump fails. The accented path is the consequence traced through to the production it costs; the muted branch is reachable in the same graph and provably unaffected. A flat register holds every one of these assets and none of these edges.
+#+end_fig
+
+* What the graph makes answerable
+
+Once dependencies are explicit, a class of question becomes tractable that was previously a matter of institutional memory. Which single assets, if they failed this quarter, would idle the bottleneck line? Where does redundancy exist on paper but converge on a shared utility in practice? Which two failures are individually tolerable and jointly not? Contour answers these against the current state of the plant rather than against a spreadsheet someone last revised two years ago.
+
+* Criticality that updates itself
+
+Criticality rankings are typically assigned by hand and then left to decay. Because Contour derives criticality from the graph, it moves as the plant moves: when routing changes, when a redundant path is decommissioned, when failure history accumulates on a particular class of equipment. It also separates two things a single score conflates: assets that are critical because they are fragile, and assets that are critical because a great deal depends on them. Those call for different interventions.
+
+#+begin_faq
+* Common questions
+
+** What is failure propagation analysis?
+
+Failure propagation analysis traces how the failure of one component spreads through the equipment that depends on it, following the consequence downstream to the production output it eventually affects.
+
+** What data does the module need?
+
+Typically a maintenance or asset management system, process topology, and control system or historian configuration. Contour resolves these into the graph; it does not require you to draw it manually first.
+
+** Does this replace an FMEA?
+
+No. It gives an FMEA a live structural basis, so the analysis reflects the plant as it currently runs rather than as it was configured when the study was commissioned.
+#+end_faq
+
+#+attr_html: :class more related
+Related: [[/product/model-context-layer/][Model context layer]] · [[/product/reliability-engineering/][Reliability engineering]] · [[/product/sensor-intelligence/][Sensor intelligence]] · [[/use-cases/][Use cases]]

@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ .Title }}</title>
+{{ with .Description }}<meta name="description" content="{{ . }}">{{ end }}
+<link rel="canonical" href="{{ .Permalink }}">
+<link rel="stylesheet" href="{{ "style.css" | relURL }}">
+{{ readFile "img/favicon.html" | safeHTML }}
+<meta property="og:type" content="{{ if eq .Section "blog" }}article{{ else }}website{{ end }}">
+<meta property="og:site_name" content="Symbolic Engineering">
+<meta property="og:title" content="{{ with .Params.og_title }}{{ . }}{{ else }}{{ .Title }}{{ end }}">
+{{ $ogDescription := .Params.og_description | default .Description }}
+{{ with $ogDescription }}<meta property="og:description" content="{{ . }}">{{ end }}
+<meta property="og:url" content="{{ .Permalink }}">
+<meta name="twitter:card" content="summary">
+{{ partial "schema.html" . }}
+<script defer src="https://cloud.umami.is/script.js" data-website-id="3b43d27a-9e41-4141-a3c9-e2682a3845c4"></script>
+</head>
+<body{{ with .Params.body_class }} class="{{ . }}"{{ end }}>
+<div class="wrap">
+  {{ partial "header.html" . }}
+  <main>
+    {{ block "main" . }}{{ end }}
+  </main>
+  {{ partial "footer.html" . }}
+</div>
+</body>
+</html>

@@ -1,0 +1,12 @@
+#+TITLE: Contact Symbolic Engineering
+#+DESCRIPTION: Describe the data you hold and the question it should be answering. We will tell you whether we can help, and if we cannot, we will say so.
+#+OG_TITLE: Contact Symbolic Engineering
+#+OG_DESCRIPTION: Describe the data you hold and the question it should be answering.
+#+EYEBROW: Contact
+#+HEADING: Tell us what you cannot currently answer.
+
+#+attr_html: :class lede
+Describe the data you hold and the question it should be answering. We will tell you whether we can help, and if we cannot, we will say so.
+
+#+attr_html: :class email
+[[mailto:contact@symbolic.engineering][contact@symbolic.engineering]]

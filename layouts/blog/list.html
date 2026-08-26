@@ -1,0 +1,20 @@
+{{ define "main" }}
+<article class="blog-list">
+  {{ partial "page-heading.html" . }}
+  {{ .Content }}
+  {{ $posts := .RegularPages.ByDate.Reverse }}
+  {{ if $posts }}
+    <div class="post-list">
+      {{ range $posts }}
+        <section class="post-card">
+          <p class="meta">{{ .Date.Format "Jan 2, 2006" }}</p>
+          <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+          {{ with .Description }}<p>{{ . }}</p>{{ end }}
+        </section>
+      {{ end }}
+    </div>
+  {{ else }}
+    <p class="more">No posts published yet.</p>
+  {{ end }}
+</article>
+{{ end }}

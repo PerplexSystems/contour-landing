@@ -1,0 +1,8 @@
+#+TITLE: {{ replace .File.ContentBaseName "-" " " | title }}
+#+DATE: {{ .Date }}
+#+DRAFT: true
+#+DESCRIPTION:
+#+OG_TITLE:
+#+OG_DESCRIPTION:
+
+Write the post in Org mode here.

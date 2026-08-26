@@ -1,0 +1,39 @@
+baseURL = "https://symbolic.engineering/"
+locale = "en-US"
+title = "Symbolic Engineering"
+disableKinds = ["taxonomy", "term"]
+
+[outputFormats.RSS]
+  mediaType = "application/rss+xml"
+  baseName = "rss"
+
+[markup.goldmark.renderer]
+  unsafe = true
+
+[[module.mounts]]
+  source = "content"
+  target = "content"
+
+[[module.mounts]]
+  source = "layouts"
+  target = "layouts"
+
+[[module.mounts]]
+  source = "img"
+  target = "static/img"
+
+[[module.mounts]]
+  source = "style.css"
+  target = "static/style.css"
+
+[[module.mounts]]
+  source = "robots.txt"
+  target = "static/robots.txt"
+
+[[module.mounts]]
+  source = "llms.txt"
+  target = "static/llms.txt"
+
+[[module.mounts]]
+  source = "CNAME"
+  target = "static/CNAME"

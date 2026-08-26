@@ -1,0 +1,9 @@
+#+TITLE: Blog | Symbolic Engineering
+#+DESCRIPTION: Notes from Symbolic Engineering on semantic layers, operational data, AI access, reliability engineering, and Contour.
+#+OG_TITLE: Blog | Symbolic Engineering
+#+OG_DESCRIPTION: Notes from Symbolic Engineering on semantic layers, operational data, AI access, reliability engineering, and Contour.
+#+EYEBROW: Blog
+#+HEADING: Notes on making company data answerable.
+
+#+attr_html: :class lede
+Writing on semantic layers, operational systems, reliability engineering, AI access, and the work of making existing records mean something precise.

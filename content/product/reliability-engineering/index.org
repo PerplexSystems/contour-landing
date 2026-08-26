@@ -1,0 +1,61 @@
+#+TITLE: Reliability Engineering & RUL | Symbolic Engineering
+#+DESCRIPTION: Contour turns failure and maintenance history into hazard and remaining-useful-life estimates per asset, so the maintenance planning horizon is set by the equipment rather than by the reporting cycle.
+#+OG_TITLE: Reliability Engineering
+#+OG_DESCRIPTION: Hazard and remaining-useful-life estimates per asset, so maintenance is planned on a horizon set by the equipment.
+#+CRUMB: Reliability engineering
+#+EYEBROW: Module
+#+HEADING: Reliability Engineering
+
+#+attr_html: :class lede
+*Contour turns failure and maintenance history into hazard and remaining-useful-life estimates for each asset*, so the planning horizon is set by the condition of the equipment rather than by the reporting cycle.
+
+* The history exists; nothing has joined it
+
+Most plants hold the raw material for an estimate and very few hold it in a usable state. The work orders are there, but the failure codes are populated on a minority of notifications, the free text was typed at the end of a shift and no two fitters describe the same fault the same way, and run hours are recorded against the line rather than against the pump that was changed out twice during it. The history is genuinely present. It is simply not joined to the instrumentation or to itself, and performing that join is the work [[/product/sensor-intelligence/][sensor intelligence]] does before any estimate is fitted.
+
+That is why reliability engineering becomes a queue. Converting the history into per-asset estimates by hand is slower than the rate at which the plant generates new equipment to analyse, so the queue sets the planning horizon rather than the condition of the line.
+
+When that horizon collapses to two weeks, the consequences are structural rather than cosmetic. Long-lead spares cannot be ordered in time. Outages cannot be consolidated, so the same line is stopped three times where once would have done. Work that could have been planned arrives as breakdown.
+
+* Estimates per asset, expressed as probability
+
+Contour fits a hazard model at the level of the asset class and then conditions it on each individual asset's own history, so a unit with a long record is judged mostly on itself and a unit with a short one borrows strength from its class rather than being reported with false precision. Remaining useful life comes back as a distribution rather than a date, because the question a planner actually asks is not /when will this fail/ but /what is the chance this fails before the next scheduled outage/. The second question has a defensible answer where the first does not.
+
+The statistics are the established ones rather than anything proprietary. Lifetimes are fitted with the standard families, the Weibull above all, whose shape parameter separates infant mortality from random failure from wear-out - a distinction that decides whether a preventive replacement interval would help at all or would merely reset the clock on a component that is failing at random. Units still in service, and units replaced on condition before they failed, are treated as censored observations and contribute to the fit rather than being discarded; in most plants they are the majority of the record, and dropping them biases every estimate toward pessimism. An engineer can therefore check the method against a textbook, which is the point: the work being removed is the assembly, not the judgement.
+
+Assets are then ranked by probability of failure within whatever window you choose to plan against, which is what turns a horizon from an assumption into a setting.
+
+#+begin_fig
+#+begin_export html
+{{< diagram "reliability" >}}
+#+end_export
+
+*Figure 1* Five assets ranked by probability of failing inside a fifteen-day window. The feed pump is likeliest to go and costs the least when it does; the lube oil pump is second on probability and first on what it takes down with it. Ranking on likelihood alone puts the wrong work at the top of the list, which is the subject of the next section.
+#+end_fig
+
+* Ranked by consequence, not just likelihood
+
+Likelihood alone produces a work list dominated by cheap components that fail often. Because this module reads the same structure as the [[/product/failure-propagation/][asset tree]], it ranks by expected consequence: the probability of failure multiplied by what that failure takes down with it. The result is a maintenance schedule ordered by what it protects.
+
+#+begin_faq
+* Common questions
+
+** What is remaining useful life?
+
+An estimate of how much service an asset has left before it is likely to fail or fall below acceptable condition, expressed as a distribution rather than a single date.
+
+** Does this require condition monitoring sensors?
+
+No. Failure and maintenance history alone supports the models. Where instrumentation exists, [[/product/sensor-intelligence/][sensor intelligence]] sharpens the estimates.
+
+** How much history is needed?
+
+Fewer events than people assume, because the units that have not failed carry information too. An asset class with a handful of documented failures and several dozen suspensions, meaning units still running or replaced on condition before failure, will usually support an estimate, though the interval will be wide and we report the width rather than hiding it. Where the evidence will not support a useful estimate we say so, and the asset is reported as one we cannot yet speak about rather than being given a number.
+
+** What about an asset that has never failed?
+
+It is estimated from its class, its duty and its condition data rather than from a history it does not have, with the uncertainty that implies reported alongside it. This case matters more than it appears, because the assets with no failure history are frequently the ones whose failure would cost the most, and a method that can only speak about equipment that has already broken is silent exactly where it is needed.
+#+end_faq
+
+#+attr_html: :class more related
+Related: [[/product/model-context-layer/][Model context layer]] · [[/product/failure-propagation/][Failure propagation]] · [[/product/sensor-intelligence/][Sensor intelligence]] · [[/use-cases/][Use cases]]

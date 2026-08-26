@@ -10,7 +10,7 @@
         nixpkgs.lib.genAttrs systems (system: f nixpkgs.legacyPackages.${system});
     in
     {
-      # The deployable site: exactly the files that should ship, nothing else.
+      # The deployable site: rendered by Hugo from Org content.
       packages = forAllSystems (pkgs: {
         default = pkgs.stdenvNoCC.mkDerivation {
           pname = "contour-website";
@@ -19,25 +19,60 @@
           src = pkgs.lib.fileset.toSource {
             root = ./.;
             fileset = pkgs.lib.fileset.unions [
-              ./index.html
+              ./hugo.toml
+              ./content
+              ./layouts
               ./style.css
               ./robots.txt
-              ./sitemap.xml
               ./llms.txt
-              ./about
-              ./product
-              ./use-cases
-              ./contact
+              ./CNAME
+              ./img
             ];
           };
 
           dontConfigure = true;
-          dontBuild = true;
+          nativeBuildInputs = [ pkgs.hugo ];
+
+          buildPhase = ''
+            runHook preBuild
+            export HUGO_ENVIRONMENT=production
+            export HUGO_ENV=production
+            hugo --minify --destination public
+            touch public/.nojekyll
+            runHook postBuild
+          '';
+
+          doCheck = true;
+          checkPhase = ''
+            runHook preCheck
+            expected="
+            public/index.html
+            public/about/index.html
+            public/product/index.html
+            public/product/model-context-layer/index.html
+            public/product/failure-propagation/index.html
+            public/product/reliability-engineering/index.html
+            public/product/sensor-intelligence/index.html
+            public/use-cases/index.html
+            public/blog/index.html
+            public/contact/index.html
+            public/CNAME
+            public/.nojekyll
+            "
+            for f in $expected; do
+              test -f "$f" || { echo "missing generated route or Pages file: $f" >&2; exit 1; }
+            done
+            if grep -R '{{[<%]' public; then
+              echo "unresolved Hugo shortcode leaked into public output" >&2
+              exit 1
+            fi
+            runHook postCheck
+          '';
 
           installPhase = ''
             runHook preInstall
             mkdir -p "$out"
-            cp -r ./. "$out"/
+            cp -r public/. "$out"/
             runHook postInstall
           '';
         };
@@ -57,7 +92,15 @@
             '';
           };
 
-          liveServer = server "contour-serve" ''"$PWD"'';
+          liveServer = pkgs.writeShellApplication {
+            name = "contour-serve";
+            runtimeInputs = [ pkgs.hugo ];
+            text = ''
+              port="''${1:-1313}"
+              echo "Contour → http://localhost:$port  (Hugo source: $PWD)"
+              exec hugo server --bind 127.0.0.1 --baseURL "http://localhost:$port/" --port "$port"
+            '';
+          };
           builtServer = server "contour-preview" "${self.packages.${pkgs.system}.default}";
 
           # Renders diagrams/*.puml and re-inlines them into the pages. Writes into
@@ -97,7 +140,7 @@
 
       devShells = forAllSystems (pkgs: {
         default = pkgs.mkShell {
-          packages = [ pkgs.caddy pkgs.libxml2 pkgs.plantuml pkgs.graphviz ];
+          packages = [ pkgs.caddy pkgs.hugo pkgs.libxml2 pkgs.plantuml pkgs.graphviz ];
         };
       });
     };

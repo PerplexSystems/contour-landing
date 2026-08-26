@@ -47,4 +47,5 @@ Contour is not a rule engine, and the distinction is structural rather than a ma
 - [Home](https://symbolic.engineering/)
 - [About](https://symbolic.engineering/about/)
 - [Use cases](https://symbolic.engineering/use-cases/)
+- [Blog](https://symbolic.engineering/blog/)
 - [Contact](https://symbolic.engineering/contact/)

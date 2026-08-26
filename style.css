@@ -343,6 +343,19 @@ figcaption b{
 .faq div + div{margin-top:15px}
 .faq p{font-size:15px}
 
+.blog-list .lede{max-width:58ch}
+.post-list{display:grid;gap:18px;margin-top:30px;border-top:1px solid var(--rule);padding-top:22px}
+.post-card{margin:0}
+.post-card h2{font-size:22px;line-height:1.25;margin-bottom:6px}
+.post-card h2 a{border:0;text-decoration:none;color:var(--ink)}
+.post-card h2 a:hover{color:var(--accent)}
+.post-card p{font-size:15px}
+.post .meta,.post-card .meta{
+  font:500 11px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);
+  margin-bottom:10px;
+}
+
 a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--accent);padding-bottom:1px}
 a:hover{color:var(--accent)}
 .email{font-size:22px;letter-spacing:-0.01em;display:inline-block;margin-top:22px}
@@ -401,4 +414,215 @@ footer a:hover{color:var(--accent)}
      scale down rather than forcing the case to scroll sideways */
   .cases figure{overflow-x:visible}
   .cases figure svg{min-width:0}
+}
+
+/* Org-authored content.
+   Hugo renders Org special blocks as divs with a "-block" suffix, so these
+   selectors mirror the original hand-written HTML structure without requiring
+   page authors to write that structure directly. */
+.hero-block{
+  padding:54px 0 78px;
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  align-items:center;
+  gap:46px;
+}
+.band-block{padding:66px 0 72px}
+.closing-block{padding:66px 0 78px;border-bottom:1px solid var(--rule)}
+.band-block{
+  --paper:#E7E1D4;
+  --panel:#F4F2ED;
+  --rule:#CDC5B4;
+  background:var(--paper);
+  box-shadow:0 0 0 100vmax var(--paper);
+  clip-path:inset(0 -100vmax);
+}
+@media (prefers-color-scheme:dark){
+  .band-block{--paper:#1D1B18;--panel:#262320;--rule:#38332D}
+}
+body.home .hero_text-block > .outline-2 > h2,
+body.home .hero-text-block > .outline-2 > h2{
+  font-size:clamp(32px,5.2vw,50px);
+  line-height:1.08;
+  letter-spacing:-0.03em;
+  font-weight:600;
+  max-width:22ch;
+  text-wrap:balance;
+  margin-bottom:0;
+}
+body.home .band-block > .outline-2 > h2,
+body.home .closing-block > .outline-2 > h2{
+  font-size:clamp(30px,4.2vw,38px);
+  line-height:1.15;
+  letter-spacing:-0.025em;
+  max-width:20ch;
+  margin-bottom:0;
+}
+
+article > .outline-2 + .outline-2,
+article > .lede + .outline-2,
+article > .grid-block + .outline-2,
+article > .fig-block + .outline-2{margin-top:26px}
+
+.grid-block{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:26px}
+.card-block{
+  position:relative;
+  background:var(--panel);
+  border:1px solid var(--rule);
+  padding:18px 16px;
+  transition:border-color .15s,background-color .15s;
+}
+.card-block p{font-size:14.5px;line-height:1.55}
+.card-block > svg{display:block;width:38px;height:38px;margin-bottom:13px}
+.card-block .outline-2 > h2{
+  display:flex;
+  align-items:baseline;
+  gap:8px;
+  font-size:14px;
+  font-weight:600;
+  letter-spacing:0;
+  margin-bottom:7px;
+}
+.card-block .outline-2 > h2 a{border:0;color:var(--ink);text-decoration:none}
+.card-block .outline-2 > h2 a::after{content:"";position:absolute;inset:0}
+.card-block .outline-2 > h2::after{
+  content:"→";
+  margin-left:auto;
+  color:var(--accent);
+  opacity:.5;
+  transition:transform .15s,opacity .15s;
+}
+.card-block:hover{border-color:var(--accent)}
+.card-block:hover .outline-2 > h2 a{color:var(--accent)}
+.card-block:hover .outline-2 > h2::after{opacity:1;transform:translateX(3px)}
+.card-block:has(a:focus-visible){border-color:var(--accent);outline:2px solid var(--accent);outline-offset:2px}
+.card-block .outline-2 > h2 a:focus-visible{outline:0}
+@media (prefers-reduced-motion:reduce){.card-block,.card-block .outline-2 > h2::after{transition:none}}
+
+.cases-block,.cases_brief-block,.cases-brief-block{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:40px;
+  margin-top:24px;
+}
+.cases_brief-block,.cases-brief-block{grid-template-columns:repeat(3,1fr);gap:22px}
+.cases_brief-block p,.cases-brief-block p{font-size:15px}
+.case-block > .outline-2 > h2{line-height:1.3}
+.tagline-block,.tagline_block{
+  display:flex;
+  align-items:center;
+  gap:9px;
+  margin-bottom:9px;
+}
+.tagline-block svg,.tagline_block svg{flex:none;width:24px;height:24px}
+.tagline-block .tag,.tagline_block .tag{margin-bottom:0}
+
+.offer-block{display:flex;gap:22px;align-items:flex-start;margin-top:28px;max-width:64ch}
+.offer-block svg{display:block;width:52px;height:52px;flex:none;margin-top:2px}
+.offer-block p{font-size:16px;line-height:1.6}
+.reach-block{display:flex;align-items:center;gap:2px}
+.reach-block svg{display:block}
+.reach-block > svg,.reach-block .is-closed,.reach-block .is_closed-block{flex:none}
+.reach-block > svg,.reach-block .is-closed svg,.reach-block .is_closed-block svg{width:104px;height:104px}
+.reach_arrow-block{flex:none}
+.reach_arrow-block svg{width:88px;height:24px}
+@supports (animation-timeline:view()){
+  @media (prefers-reduced-motion:no-preference){
+    .reach_arrow-block svg path{
+      stroke-dasharray:1;
+      animation:draw linear both;
+      animation-timeline:view();
+      animation-range:entry 15% entry 70%;
+    }
+    .is_closed-block svg path:last-child{
+      transform-box:fill-box;
+      transform-origin:center;
+      animation:settle linear both;
+      animation-timeline:view();
+      animation-range:entry 50% entry 90%;
+    }
+  }
+}
+
+.about_opening-block,.about-opening-block{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(220px,300px);
+  align-items:stretch;
+  gap:34px;
+  margin-top:18px;
+}
+.about_opening-block .lede,.about-opening-block .lede{margin-top:0}
+.about_tablet-block,.about-tablet-block{
+  position:relative;
+  align-self:stretch;
+  margin:0;
+  min-height:0;
+  overflow:visible;
+}
+.about_tablet-block svg,.about-tablet-block svg{
+  position:absolute;
+  inset:0;
+  display:block;
+  width:100%;
+  height:100%;
+  min-width:0;
+  object-fit:contain;
+}
+.about_opening-block + p,.about-opening-block + p{margin-top:18px}
+
+.fig-block{margin-top:26px}
+.fig-block svg{display:block;width:100%;height:auto}
+.fig-block svg text{
+  font-family:ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  -webkit-font-smoothing:antialiased;
+}
+.fig-block > p:last-child{margin-top:12px;font-size:14px;line-height:1.55;color:var(--muted)}
+.fig-block > p:last-child strong{
+  display:block;
+  font:500 11px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+  color:var(--accent);
+  margin-bottom:7px;
+  font-weight:500;
+}
+
+.faq-block{margin-top:26px;border-top:1px solid var(--rule);padding-top:22px}
+.faq-block > .outline-2 > h2{margin-bottom:16px}
+.faq-block .outline-3 > h3{margin-bottom:5px}
+.faq-block .outline-3 + .outline-3{margin-top:15px}
+.faq-block p{font-size:15px}
+.related{font-size:14px}
+.email a{font:inherit;letter-spacing:inherit}
+
+@media (max-width:860px){
+  .reach-block > svg,.reach-block .is-closed svg,.reach-block .is_closed-block svg{width:84px;height:84px}
+  .reach_arrow-block svg{width:64px}
+}
+
+@media (max-width:720px){
+  body.home .hero-block{
+    min-height:calc(100vh - 170px);
+    min-height:calc(100svh - 170px);
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    padding:36px 0 40px;
+    grid-template-columns:1fr;
+    gap:34px;
+  }
+  .offer-block{gap:16px}
+  .offer-block svg{width:42px;height:42px}
+  .band-block{padding:46px 0 50px}
+  .closing-block{padding:46px 0 56px}
+  .grid-block,.cases-block{grid-template-columns:1fr;gap:14px}
+  .cases-block{gap:34px}
+  .cases_brief-block,.cases-brief-block{grid-template-columns:1fr;gap:18px}
+  .fig-block{overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .fig-block svg{min-width:500px}
+  .about_opening-block,.about-opening-block{grid-template-columns:1fr;gap:18px}
+  .about_tablet-block,.about-tablet-block{width:min(300px,100%);height:170px;margin-top:0;overflow:visible}
+  .about_tablet-block svg,.about-tablet-block svg{min-width:0}
+  .cases-block .fig-block{overflow-x:visible}
+  .cases-block .fig-block svg{min-width:0}
 }

@@ -1,0 +1,35 @@
+#+TITLE: About: when company data loses meaning | Symbolic Engineering
+#+DESCRIPTION: Symbolic Engineering builds Contour to recover the business semantics missing from databases, data lakes and warehouses, so questions can be answered with meaning and context.
+#+OG_TITLE: About Symbolic Engineering
+#+OG_DESCRIPTION: We recover the business semantics missing from company data, so AI agents and teams can ask questions that still carry their meaning.
+#+EYEBROW: About Symbolic Engineering
+#+HEADING: When company data loses its meaning.
+
+#+begin_about_opening
+#+begin_about_text
+#+attr_html: :class lede
+When I was still just a child, I encountered this section in a history book presenting Linear B. It was the name given to the language of the ancient Mycenaean. It went for a long time undeciphered, but to me what made it fascinating wasn't just the mystery, but how its meaning got eventually recovered. Now that I work with companies from different domains, we have modern Linear B everywhere.
+#+end_about_text
+
+#+begin_about_tablet
+#+begin_export html
+{{< diagram "linear-tablet" >}}
+#+end_export
+#+end_about_tablet
+#+end_about_opening
+
+The tablets of this day and age are old databases, data lakes and sometimes even brand-new data warehouses. The problem is not necessarily with the tools, but the series of accidents that lead to an information loss: the semantics is not encoded anywhere.
+
+I faced this loss of information many times. The answer is hardly ever to record more, although that often helps. The real challenge lies on recording with greater precision what the business actually means. Facts without their meaning and context have become normal, but in a world where there is an ever increasing expectation to give more context and leverage the large information processing capabilities from AI agents, this is unacceptable.
+
+For this reason, I started building Symbolic Engineering. My goal is to leverage logic and symbolic manipulation to unlock value from stale, ambiguous and underused data. Contour, our adaptable software, is this discipline productized, not a generic tool expecting your organization to adapt around it, but a non-intrusive tool that helps you make your demo, that at first might have worked, but now struggles to be deployed in production, finally show results.
+
+Your hardest questions shouldn't share the fate of Linear B, waiting centuries to be answered. You should be able to ask them now, and get answers that still carry their meaning.
+
+#+begin_fig
+#+begin_export html
+{{< diagram "two-paths" >}}
+#+end_export
+
+*Figure 1* Records survive in databases, lakes and warehouses, but their meaning is often absent. Contour adds the semantic layer that lets questions return answers with their context still attached.
+#+end_fig

@@ -1,0 +1,117 @@
+#+TITLE: Contour: take control of what your data means
+#+DESCRIPTION: Contour turns existing data infrastructure into defensible answers through AI. We build a governed model of what your business means, over the systems you already run, with every answer traced back to source.
+#+OG_TITLE: Contour: take control of what your data means
+#+OG_DESCRIPTION: You already have the data. Contour makes it answerable through a governed model your team and AI agents can query precisely.
+#+BODY_CLASS: home
+#+FOOTER_NAV: true
+
+#+begin_hero
+#+begin_hero_text
+#+attr_html: :class eyebrow
+Contour, the platform
+
+* We help your AI get the right answers from your databases.
+
+#+attr_html: :class sub
+You have a lot of data and you are under pressure for results? Contour builds the semantics your systems expect, over what you already run, so */your team/* and */your AI agents/* can go straight to the right answer.
+
+#+attr_html: :class more
+[[/about/][Learn more about what we work with and how.]]
+#+end_hero_text
+
+#+begin_reach
+#+begin_export html
+{{< diagram "relief-open" >}}
+#+end_export
+
+#+begin_reach_arrow
+#+begin_export html
+{{< diagram "reach-arrow" >}}
+#+end_export
+#+end_reach_arrow
+
+#+begin_is_closed
+#+begin_export html
+{{< diagram "relief-closed" >}}
+#+end_export
+#+end_is_closed
+#+end_reach
+#+end_hero
+
+#+begin_band
+#+attr_html: :class eyebrow
+Bring us your expensive questions
+
+* We help you deliver the impossible.
+
+#+attr_html: :class sub
+If your current infrastructure should answer it and still can't, reach out.
+
+#+begin_offer
+#+begin_export html
+{{< diagram "query" >}}
+#+end_export
+
+You made a successful demo, and everyone loved it. But you can't get it to work in production: data is messy, your AI is getting confused, and now you are under a lot of pressure. Talk to us, we bring the expertise to make your data and AI work together.
+#+end_offer
+
+#+attr_html: :class more
+[[/contact/][Tell us what you cannot currently answer →]]
+#+end_band
+
+#+begin_closing
+#+attr_html: :class eyebrow
+Take control of what your data means
+
+* The same pattern of failure.
+
+#+attr_html: :class sub
+We have experience working with different segments, and over time noticed that companies don't often lack data. In fact, there is usually a lot of it; what they lack is a semantics under their control. To address that problem, we have a logic system that produces a read-model for agents and people.
+
+#+attr_html: :class sub
+Some domains where we can help include:
+
+#+begin_cases_brief
+#+begin_case
+#+begin_tagline
+#+begin_export html
+{{< diagram "sector-payments" >}}
+#+end_export
+
+#+attr_html: :class tag
+Fintech & payments
+#+end_tagline
+
+How much are clients actually transacting? The answer crosses provider events, internal ledgers, bank feeds, reversals, settlements, and definitions nobody has made durable.
+#+end_case
+
+#+begin_case
+#+begin_tagline
+#+begin_export html
+{{< diagram "sector-reliability" >}}
+#+end_export
+
+#+attr_html: :class tag
+Reliability & maintenance
+#+end_tagline
+
+Which assets threaten the next outage? The plant has SAP, sensors, historians, and work orders, but engineers still assemble reliability analysis by hand.
+#+end_case
+
+#+begin_case
+#+begin_tagline
+#+begin_export html
+{{< diagram "sector-funds" >}}
+#+end_export
+
+#+attr_html: :class tag
+Funds & data platforms
+#+end_tagline
+
+Which number can the firm defend? Decades of records, or a sprawling generated warehouse, still leave positions, exposure, segments, and revenue hard to trace.
+#+end_case
+#+end_cases_brief
+
+#+attr_html: :class more
+[[/use-cases/][Some concrete cases where we can help, worked through in full →]]
+#+end_closing

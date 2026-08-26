@@ -1,0 +1,63 @@
+#+TITLE: Model Context Layer: AI access via MCP | Symbolic Engineering
+#+DESCRIPTION: Contour exposes your structured model to AI assistants over the Model Context Protocol (MCP). Answers are composed from verified, typed operations rather than generated SQL, and every figure returns with both its lineage and its provenance.
+#+OG_TITLE: Model Context Layer: connect an AI to your data via MCP
+#+OG_DESCRIPTION: Verified, typed operations over your structured model, exposed through MCP. Not text-to-SQL against a raw warehouse.
+#+CRUMB: Model context layer
+#+EYEBROW: Module
+#+HEADING: Model Context Layer
+
+#+attr_html: :class lede
+*Contour connects the AI assistant your team already uses to your business, over the Model Context Protocol (MCP).* Your analysts ask questions in the tools they already work in, and every answer is built from verified operations rather than from SQL a model invented.
+
+* Pointing a model at your database does not work
+
+The obvious version of this idea is to give a language model credentials and a schema and let it query away. It demonstrates well and fails in production, and the reason is not the query language. Your DBAs write excellent SQL. The reason is that a schema records what happened without recording what it means, so the model has to infer the rest. Which table is authoritative. Which of four revenue columns anyone actually uses. What a join across these two quietly implies. It infers well /most/ of the time. That is the failure mode, not the success case: a figure that is wrong one time in ten looks exactly like the nine that are right, so nobody catches it at the point of use. It surfaces later, after it has already reached a position, a valuation or an investment committee.
+
+Firms that hold a great deal of data and a capable DBA team usually understand this instinctively, which is why enthusiasm for these tools rarely survives contact with the people accountable for the numbers.
+
+* Verified operations, not generated queries
+
+Contour takes the other route. Your data is resolved into a governed semantic model first, so the meaning is written down rather than inferred, and the MCP layer exposes a constrained set of typed, tested operations over that model: defined metrics, entities and relationships, each with known semantics. The assistant composes those operations. It does not improvise joins across a raw warehouse.
+
+This moves correctness out of the model's guess and into platform code that is versioned, reviewed and tested in CI. It is the difference between a number you can defend and a number you have to check.
+
+#+begin_fig
+#+begin_export html
+{{< diagram "mcp-sequence" >}}
+#+end_export
+
+*Figure 1* One question, answered and refused. The lower path is the one that matters: when no operation covers what was asked, the layer says so instead of composing something plausible. Nothing in the diagram lets the assistant reach your databases directly.
+#+end_fig
+
+* Lineage and provenance on every figure
+
+These are two different guarantees and a defensible number needs both. *Lineage* is how a figure was derived: the chain of operations applied, in order. *Provenance* is what it was derived from: the specific records those operations read, in which source system, as of when. Lineage without provenance tells you the method but not whether the inputs were the right ones; provenance without lineage tells you the inputs but not what was done to them.
+
+Every result returns with both. An analyst can follow any number back to source without leaving the conversation, and a reviewer can reconstruct weeks later both how a figure was derived and which records it stood on. Answers that cannot be traced are answers that cannot be used.
+
+* What your DBAs keep
+
+Access is read-only and enforced at the interface. Row and column entitlements defined in the model are respected, so an assistant acting on behalf of a user reaches exactly what that user could reach directly and nothing further. Every call is logged with the operations invoked and the records touched. Your production systems are never queried by a model, and your DBA team retains the control surface it already has.
+
+#+begin_faq
+* Common questions
+
+** What is MCP?
+
+The Model Context Protocol is an open standard for connecting AI assistants to external systems. Contour ships an MCP server over your structured model, so any client that speaks the protocol can query the business.
+
+** Can we bring our own assistant?
+
+Yes. Claude, an internal agent, or whatever your analysts already run. Contour does not tie you to a model vendor.
+
+** Does the data leave our environment?
+
+Deployment follows your requirements, you can opt to share only what you want, and we will replicate. This is usually the first question a fund asks and the answer is designed to be boring.
+
+** What if a question cannot be answered correctly?
+
+The layer returns that it simply cannot answer, rather than composing something plausible out of a guess. Refusing is a feature; the alternative is the one-in-ten problem described above.
+#+end_faq
+
+#+attr_html: :class more related
+Related: [[/use-cases/][Use cases]] · [[/product/reliability-engineering/][Reliability engineering]] · [[/product/failure-propagation/][Failure propagation]]

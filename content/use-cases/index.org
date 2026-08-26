@@ -1,0 +1,95 @@
+#+TITLE: Use cases: funds, manufacturing and hospitals | Symbolic Engineering
+#+DESCRIPTION: Situations Contour can address, and what we do in each: a fund whose AI assistant returns confident, wrong answers from the warehouse; a plant whose maintenance intervals still come from the calendar rather than from any asset's own failure history; and a hospital whose schedule says what is due but not which failure closes a theatre.
+#+OG_TITLE: Use cases | Symbolic Engineering
+#+OG_DESCRIPTION: A fund whose AI cannot be trusted with a number, a plant whose maintenance intervals come from the calendar rather than from the equipment, and a hospital that finds out what mattered when it fails. What we do in each.
+#+EYEBROW: Use cases
+#+HEADING: Situations we can address, and what we do in each.
+
+#+attr_html: :class lede
+These are examples rather than a catalogue. The platform is domain-neutral, and the same structure applies wherever an organization holds the records and nothing in them records what they mean.
+
+#+begin_cases
+#+begin_case
+#+attr_html: :class tag
+Investment firms
+
+* You hold the data and still cannot get an answer.
+
+You run a fund with a data lake, a data warehouse and a team of DBAs who can query every table in either. The question you actually want answered still takes three days and two people, if it gets answered at all. You have tried pointing an AI assistant at the warehouse, and it came back fluent, confident and wrong often enough that nobody trusts it with a position.
+
+#+begin_fig
+#+begin_export html
+{{< diagram "case-revenue" >}}
+#+end_export
+
+Four systems, one quarter, four answers. Contour records which of them the business means and reconciles the rest against it, rather than quietly picking one. Figures illustrative.
+#+end_fig
+
+#+attr_html: :class fix
+*What we do* Contour ingests your sources and resolves them into a structured model carrying the vocabulary of your own firm. What a position is here. What a segment is here. Which of the four revenue figures is the one people mean. Your assistant connects to it through the [[/product/model-context-layer/][model context layer]]. Analysts ask in plain language, the assistant answers from verified operations rather than invented queries, and every figure comes back with both its lineage - the operations that produced it - and its provenance, the records those operations read.
+#+end_case
+
+#+begin_case
+#+attr_html: :class tag
+Manufacturing & process industry
+
+* Your maintenance intervals come from the calendar, not from the equipment.
+
+You direct a plant where the line is instrumented end to end. Every piece of equipment on it carries its own measurement: a vessel measured for pressure and oxidation, an exhauster downstream measured for temperature, and so on along the train. Those instruments report continuously and your maintenance system holds years of work orders written against the same equipment, and still the interval on which any given asset is serviced comes from the calendar, the manufacturer's manual or the last shutdown. [[/product/reliability-engineering/][Reliability engineering]] is done by hand, so long-lead spares arrive late and planned work keeps arriving as breakdown.
+
+#+begin_fig
+#+begin_export html
+{{< diagram "case-reliability" >}}
+#+end_export
+
+The line as your equipment master already describes it, each asset with the instruments that measure it. The window is derived for one named asset from that asset's own history. Tags and dates illustrative.
+#+end_fig
+
+#+attr_html: :class fix
+*What we do* Contour builds the [[/product/failure-propagation/][asset tree]] of the line from the equipment master you already maintain, in SAP or wherever it lives, and attaches each instrument to the equipment it measures. Each asset's own failure and maintenance history is then fitted with established reliability statistics, conditioned on what its [[/product/sensor-intelligence/][instruments]] have been reporting, and comes back as a preventive maintenance window for that asset: when that vessel should be serviced, with the probability behind the date and the records the estimate was built from. Your engineers stop assembling the analysis and start deciding on it.
+#+end_case
+
+#+begin_case
+#+attr_html: :class tag
+Hospitals & clinical engineering
+
+* You know which devices are due. You do not know which ones matter.
+
+You run clinical engineering for a hospital carrying several thousand devices, against a planned maintenance schedule that comes almost entirely from manufacturers' intervals. That schedule tells you what is due this month. It does not tell you what a failure would cost: that an air handling unit closes a theatre on ventilation grounds whatever else is working, that the chiller serving imaging takes two scanners with it, that one autoclave in sterile services stops every theatre it supplies. Consequence is discovered rather than anticipated, and next year's capital replacement case is argued from the age of the equipment and from whoever argues hardest.
+
+#+begin_fig
+#+begin_export html
+{{< diagram "case-healthcare" >}}
+#+end_export
+
+Criticality derived from the estate rather than maintained by hand in a column. The dependency is the part no register holds. Assets and figures illustrative.
+#+end_fig
+
+#+attr_html: :class fix
+*What we do* Contour builds the dependency graph of the estate from the systems that already describe it: the equipment register in your maintenance system, the building management system, and the service history written against both. Criticality is then [[/product/failure-propagation/][derived from that graph]] rather than maintained by hand, so each asset carries both its own probability of failure and the set of clinical services it would take with it, and planned work is ordered by what it protects. Where a vendor telemetry feed exists, it [[/product/sensor-intelligence/][sharpens the estimates]]. Manufacturers' intervals and accreditation requirements remain the floor; what this changes is where attention and capital go above that floor, and because every figure carries the records it came from, the reasoning is still answerable when a review asks for it months later. None of it requires patient data.
+#+end_case
+#+end_cases
+
+#+begin_faq
+* Common questions
+
+** What kinds of organizations use Contour?
+
+Contour itself is domain-neutral, and we have met the same problem in hedge funds, fintechs, healthcare and manufacturing. The profiles that recur include investment firms that hold a data lake or data warehouse and a capable team, and still cannot get a trustworthy answer out of either, particularly after an AI assistant pointed at the warehouse returned confident and incorrect figures; process and discrete manufacturers whose lines are instrumented end to end and whose maintenance intervals are still set by the calendar rather than by what any particular asset's own history says about it; and hospitals whose planned maintenance comes from manufacturers' intervals and whose criticality is discovered when something fails. These are examples of where the same structure applies rather than the limit of it.
+
+** Why does an AI assistant give wrong answers about our own data?
+
+Because your schema records what happened without recording what it means, so the assistant has to infer the meaning, and a plausible inference is indistinguishable from a correct one. Contour removes that step: the assistant calls verified operations over a described model of your business instead of composing its own query, so a wrong answer becomes a refusal rather than a number. There is [[/product/model-context-layer/][more on how this works]] in the model context layer.
+
+** What does a client send us?
+
+A fund sends its source systems, typically the lake or data warehouse it already maintains. A plant sends sensor history, its asset tree and its record of past failures. We replicate the data, resolve it into one structured model, and return an interface the client's own AI assistant connects to over MCP. We read from your systems; we do not change them.
+
+** Is Contour a rule engine?
+
+No, and the difference is structural. A rule engine is reactive: it holds conditions and the actions that follow them, and it fires when incoming facts match. Contour is a semantic layer over your source systems that describes entities, relationships and metrics, and answers questions asked of it. Nothing in it fires. A rule engine accumulates logic; Contour maintains a description of your business that can be validated against records you already trust.
+
+** How does an engagement start?
+
+With your source systems rather than with a demonstration. The structured model is built first and validated against records you already trust, before any reasoning layer is placed on top of it.
+#+end_faq

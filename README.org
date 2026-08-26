@@ -1,0 +1,98 @@
+#+TITLE: Symbolic Engineering website
+
+This site is built with [[https://gohugo.io/][Hugo]] from Org mode content.
+
+* Editing content
+
+All page content lives under ~content/~ as ~.org~ files:
+
+- ~content/_index.org~ is the home page.
+- ~content/about/index.org~, ~content/contact/index.org~, and ~content/use-cases/index.org~ are standalone pages.
+- ~content/product/_index.org~ is the product overview.
+- ~content/product/*/index.org~ are product module pages.
+- ~content/blog/_index.org~ is the blog index.
+
+The pages use normal Org front matter, for example:
+
+#+begin_src org
+#+TITLE: Page title
+#+DESCRIPTION: Search result description.
+#+OG_TITLE: Social preview title
+#+OG_DESCRIPTION: Social preview description
+#+EYEBROW: Page label
+#+HEADING: Visible page heading
+#+end_src
+
+Use regular Org for copy, headings, emphasis, and links:
+
+#+begin_src org
+#+attr_html: :class lede
+This paragraph renders as the opening lede.
+
+* Section heading
+
+Text can link to [[/product/][Product]] and use *strong* or /emphasized/ text.
+#+end_src
+
+Use Org special blocks when a section needs a layout class:
+
+#+begin_src org
+#+begin_grid
+#+begin_card
+* [[/product/model-context-layer/][Model Context Layer]]
+
+The card body remains editable Org.
+#+end_card
+#+end_grid
+#+end_src
+
+Keep ~#+begin_export html~ blocks small. They are only needed where Org has to hand control to Hugo shortcodes or exact visual markup. Diagrams are inserted with Hugo shortcodes that inline committed SVG assets from ~img/~:
+
+#+begin_src org
+#+begin_export html
+{{< diagram "mark-sm" >}}
+#+end_export
+
+#+begin_fig
+#+begin_export html
+{{< diagram "reliability" >}}
+#+end_export
+
+*Figure 1* Caption text stays editable as Org.
+#+end_fig
+#+end_src
+
+* Blog posts
+
+Create a post with:
+
+#+begin_src sh
+hugo new blog/my-post.org
+#+end_src
+
+New posts start as drafts from ~archetypes/blog.org~. Remove ~#+DRAFT: true~ when the post is ready to publish.
+
+* Local development
+
+With Hugo available:
+
+#+begin_src sh
+make run
+#+end_src
+
+With Nix:
+
+#+begin_src sh
+nix run
+#+end_src
+
+Both serve the site at ~http://localhost:1313/~.
+
+* Build
+
+#+begin_src sh
+make
+nix build
+#+end_src
+
+The deployable artifact is the Nix package output. ~public/~ and ~resources/~ are generated locally and ignored by Git.

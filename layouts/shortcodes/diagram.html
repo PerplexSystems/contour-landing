@@ -1,0 +1,3 @@
+{{- $name := .Get 0 -}}
+{{- $file := cond (strings.HasSuffix $name ".svg") $name (printf "%s.svg" $name) -}}
+{{- readFile (printf "img/%s" $file) | safeHTML -}}

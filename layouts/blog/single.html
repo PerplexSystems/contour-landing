@@ -1,0 +1,9 @@
+{{ define "main" }}
+<article class="post">
+  <p class="crumb"><a href="/">Home</a> / <a href="/blog/">Blog</a> / {{ .Title }}</p>
+  <h1>{{ .Title }}</h1>
+  <p class="meta">{{ .Date.Format "Jan 2, 2006" }}</p>
+  {{ .Content }}
+  <p class="more"><a href="/blog/">All posts</a></p>
+</article>
+{{ end }}
