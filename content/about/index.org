@@ -31,5 +31,5 @@ Your hardest questions shouldn't share the fate of Linear B, waiting centuries t
 {{< diagram "two-paths" >}}
 #+end_export
 
-*Figure 1* Records survive in databases, lakes and warehouses, but their meaning is often absent. Contour adds the semantic layer that lets questions return answers with their context still attached.
+*Figure 1* The same question, two routes. An assistant writing its own queries returns a figure nobody can check. Through Contour it can only call operations the plant model defines, and each step of the result is checked against that model, the way a proof assistant checks each inference. The answer arrives with its derivation, and a question outside the model is refused. Values illustrative.
 #+end_fig
