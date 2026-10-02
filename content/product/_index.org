@@ -1,60 +1,185 @@
-#+TITLE: Contour: one platform and the modules over it | Symbolic Engineering
-#+DESCRIPTION: Contour resolves the systems you already run into one governed model your team and your agents can query over MCP. The platform is domain-neutral; modules take it deeper, into MCP access, asset failure propagation, reliability engineering and sensor intelligence.
-#+OG_TITLE: The Contour platform
-#+OG_DESCRIPTION: One platform and the modules over it: model context layer, failure propagation, reliability engineering, sensor intelligence.
+#+TITLE: Contour, component by component | Symbolic Engineering
+#+DESCRIPTION: Contour is a set of components that each do one job and share one model of your plant: connectors, the asset tree, the model context layer, reliability block diagrams, life data analysis, per-asset models, and an interface for AI assistants.
+#+OG_TITLE: Contour, component by component
+#+OG_DESCRIPTION: Sixteen components in five layers, from the systems you already run to failure predictions and a maintenance schedule.
 #+EYEBROW: Product
-#+HEADING: One platform, and special logic over it.
+#+HEADING: Contour, component by component.
 
 #+attr_html: :class lede
-Contour resolves the systems you already run into one governed model of your business, then serves that model to your team and to the agents they work alongside. The platform itself is domain-neutral. Specialized modules take it deeper, into the areas where an answer has to understand equipment and instruments rather than only tables.
+*Contour is a set of components that each do one job and share one model of your plant.* They are described separately because each answers a different question. In an engagement they are deployed together.
 
-#+attr_html: :class more
-Below are some domains in which we can offer specialized read models:
+The components fall into two halves. The first describes the plant symbolically: what assets exist, what they are made of, which variable each sensor measures, and how assets depend on each other in series and in parallel. The second fits statistics and machine-learning models over that description, so every estimate knows which asset it is about and what fails with it.
+
+#+begin_fig
+#+begin_export html
+{{< diagram "components" >}}
+#+end_export
+
+*Figure 1* The components by layer. Data moves down from the systems you already run; the bottom row shows examples of what the models make possible, which are results rather than components.
+#+end_fig
+
+#+begin_layer
+#+attr_html: :class tag
+Integrate
+
+* Getting the data in without changing the systems that hold it.
 
 #+begin_grid
 #+begin_card
-#+begin_export html
-{{< diagram "icon-model-context-layer" >}}
-#+end_export
+* Source Connectors
 
-* [[/product/model-context-layer/][Model Context Layer]]
-
-Connect the assistants and agents your team already uses to your business, over MCP. They answer from verified operations rather than from a query they wrote themselves, and every figure carries lineage back to source.
+Read-only connectors to process historians, SAP HANA and SAP PM, SCADA and maintenance systems. Data is replicated on a schedule you set, and nothing is written back.
 #+end_card
 
 #+begin_card
-#+begin_export html
-{{< diagram "icon-failure-propagation" >}}
-#+end_export
+* Asset Extraction
 
-* [[/product/failure-propagation/][Asset Tree & Failure Propagation]]
-
-See what a single failure takes down with it. Contour models the plant as a dependency graph rather than a list of tags, so consequence can be traced to the production it costs you.
-#+end_card
-
-#+begin_card
-#+begin_export html
-{{< diagram "icon-reliability-engineering" >}}
-#+end_export
-
-* [[/product/reliability-engineering/][Reliability Engineering]]
-
-Plan against the outage you are actually scoping. Each asset's own failure history is fitted with established reliability statistics and becomes a probability of failing inside the window you set, ranked by what that failure would take with it.
-#+end_card
-
-#+begin_card
-#+begin_export html
-{{< diagram "icon-sensor-intelligence" >}}
-#+end_export
-
-* [[/product/sensor-intelligence/][Sensor Intelligence]]
-
-The layer the other two stand on. Contour ingests instrumentation continuously and resolves every tag to the equipment it measures, which is what lets a decade of time series be read against a decade of failures at all.
+Derives the asset hierarchy from functional locations, the equipment master and bills of materials, and proposes it for your engineers to confirm.
 #+end_card
 #+end_grid
+#+end_layer
 
-* What the modules have in common
+#+begin_layer
+#+attr_html: :class tag
+Describe
 
-Every module reads the same model and answers through the same interface. There is no separate integration per module and no second copy of your data: the asset tree, the reliability estimates and the sensor history are all descriptions laid over sources you already run, so a question can cross between them without leaving the model.
+* The symbolic layer: the plant written down as explicit structure.
 
-They share the same limit too. Contour answers only what the model describes, and a question falling outside it comes back as a refusal rather than an inference. That constraint is what makes the rest usable, because an answer you do receive is one the model could account for.
+#+begin_grid
+#+begin_card
+* Asset Tree
+
+Site, area, system, equipment and component, with every node linked to its failures, work orders, sensors and documents.
+#+end_card
+
+#+begin_card
+* Component Catalogue
+
+Maps each make and model of equipment to its failure modes and to the variables that reveal them. A centrifugal pump arrives knowing that seal and bearing wear show up in vibration and temperature.
+#+end_card
+
+#+begin_card
+* Model Context Layer
+
+Maps every tag and field in your data onto the asset and the model variable it represents, with units, sampling rate and a confidence for each mapping.
+#+end_card
+
+#+begin_card
+* [[/product/reliability-block-diagrams/][Reliability Block Diagrams]]
+
+Describes how assets combine to deliver a function: in series, in parallel, k-out-of-n or on standby, including the elements redundant paths share.
+#+end_card
+
+#+begin_card
+* Structure Rules
+
+Declarative rules that derive the block diagrams from the asset tree and process topology, and update them when the plant changes.
+#+end_card
+
+#+begin_card
+* Failure Propagation
+
+Traces a component failure through the block diagrams to the function and the production it takes down, and shows what keeps running.
+#+end_card
+#+end_grid
+#+end_layer
+
+#+begin_layer
+#+attr_html: :class tag
+Estimate
+
+* Established reliability statistics, recalculated as history accumulates.
+
+#+begin_grid
+#+begin_card
+* Reliability Indicators
+
+MTBF, MTTF, MTTR and availability for each asset and asset class, recalculated on a schedule rather than once per study.
+#+end_card
+
+#+begin_card
+* Life Data Analysis
+
+Weibull and related lifetime fits that count units still in service as censored observations, so every estimate uses the whole record.
+#+end_card
+
+#+begin_card
+* System Reliability
+
+Combines component estimates over the block diagrams into the reliability and availability of a system, a line or a plant.
+#+end_card
+#+end_grid
+#+end_layer
+
+#+begin_layer
+#+attr_html: :class tag
+Learn
+
+* Machine-learning models for each asset, trained and kept in service.
+
+#+begin_grid
+#+begin_card
+* Model Training
+
+Trains a model for each asset on its own sensor history and failure record, using the variables the catalogue says matter for that equipment.
+#+end_card
+
+#+begin_card
+* Model Selection
+
+Compares candidate model families automatically and keeps the one that predicts best for that asset, with the comparison kept on record.
+#+end_card
+
+#+begin_card
+* Model Operations
+
+Deploys, versions and retrains models as new readings and new failures arrive.
+#+end_card
+
+#+begin_card
+* Model Monitoring
+
+An interface showing each model's accuracy, drift in its inputs, and the anomalies and failure predictions it is raising.
+#+end_card
+#+end_grid
+#+end_layer
+
+#+begin_layer
+#+attr_html: :class tag
+Serve
+
+* Getting answers out, with their sources attached.
+
+#+begin_grid
+#+begin_card
+* Agent Interface
+
+Exposes the plant model to AI assistants over the Model Context Protocol (MCP), as typed and tested operations rather than generated queries.
+#+end_card
+
+#+begin_card
+* Lineage & Provenance
+
+Every figure carries the steps that produced it and the records it was built from, so an estimate can be checked months after it was made.
+#+end_card
+#+end_grid
+#+end_layer
+
+#+begin_layer
+#+attr_html: :class tag
+Outputs
+
+* What the components make possible
+
+A maintenance schedule is one example. Once Contour can state the probability that an asset fails inside a planning window, and what that failure takes down with it, the work can be ordered by what it protects. The same predictions support others.
+
+#+begin_export html
+<div class="steps"><span>Failure prediction per asset</span><span>Anomaly events</span><span>Predictive maintenance schedule</span><span>Criticality ranking</span><span>Spares and outage planning</span></div>
+#+end_export
+#+end_layer
+
+* Not a rule engine
+
+Structure Rules are declarative. They state what the structure of the plant is, for example that two pumps on one header with a duty and a standby designation form a one-out-of-two block, and Contour derives the block diagrams from them. Nothing fires. A rule engine holds conditions and actions and reacts when incoming facts match; Contour holds a description of the plant and answers questions asked of it.
+
+That description is also what limits it. Contour answers only what the model describes, and a question that falls outside it comes back as a refusal rather than an inference.
