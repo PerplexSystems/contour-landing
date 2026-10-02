@@ -428,6 +428,21 @@ footer a:hover{color:var(--accent)}
   gap:46px;
 }
 .band-block{padding:66px 0 72px}
+/* the home's explanation and figure, between the hero and the band */
+.story-block{padding:0 0 72px}
+
+/* /product/ groups its component cards by layer, each a tag, an h2 and a grid */
+.layer-block{margin-top:34px}
+.layer-block .grid-block{margin-top:14px}
+article > .layer-block + .outline-2{margin-top:34px}
+
+/* /use-cases/ opens its lead case straight after the lede */
+article > .lede + .tag{margin-top:34px}
+
+/* .fix as a block, for a "what we do" that runs to more than one paragraph */
+.fix-block{margin-top:20px;padding-left:13px;border-left:2px solid var(--accent)}
+.fix-block > p:first-child strong{display:block;font:500 11px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent)}
+.fix-block + .cases-block{margin-top:40px}
 .closing-block{padding:66px 0 78px;border-bottom:1px solid var(--rule)}
 .band-block{
   --paper:#E7E1D4;
@@ -497,6 +512,10 @@ article > .fig-block + .outline-2{margin-top:26px}
 .card-block:hover .outline-2 > h2::after{opacity:1;transform:translateX(3px)}
 .card-block:has(a:focus-visible){border-color:var(--accent);outline:2px solid var(--accent);outline-offset:2px}
 .card-block .outline-2 > h2 a:focus-visible{outline:0}
+/* a component without its own page yet is a card with no title link: it keeps
+   the panel but drops the arrow and the hover, which would promise a click */
+.card-block:not(:has(h2 a)):hover{border-color:var(--rule)}
+.card-block:not(:has(h2 a)) .outline-2 > h2::after{content:none}
 @media (prefers-reduced-motion:reduce){.card-block,.card-block .outline-2 > h2::after{transition:none}}
 
 .cases-block,.cases_brief-block,.cases-brief-block{
@@ -614,6 +633,7 @@ article > .fig-block + .outline-2{margin-top:26px}
   .offer-block{gap:16px}
   .offer-block svg{width:42px;height:42px}
   .band-block{padding:46px 0 50px}
+  .story-block{padding-bottom:50px}
   .closing-block{padding:46px 0 56px}
   .grid-block,.cases-block{grid-template-columns:1fr;gap:14px}
   .cases-block{gap:34px}

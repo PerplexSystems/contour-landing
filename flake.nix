@@ -49,10 +49,7 @@
             public/index.html
             public/about/index.html
             public/product/index.html
-            public/product/model-context-layer/index.html
-            public/product/failure-propagation/index.html
-            public/product/reliability-engineering/index.html
-            public/product/sensor-intelligence/index.html
+            public/product/reliability-block-diagrams/index.html
             public/use-cases/index.html
             public/blog/index.html
             public/contact/index.html

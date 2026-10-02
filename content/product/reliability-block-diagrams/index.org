@@ -1,0 +1,61 @@
+#+TITLE: Reliability Block Diagrams | Symbolic Engineering
+#+DESCRIPTION: Contour describes how your assets combine to deliver each function of the plant, in series, in parallel, k-out-of-n or on standby, derives the diagrams from the asset tree and process topology, and keeps them current as the plant changes.
+#+OG_TITLE: Reliability Block Diagrams
+#+OG_DESCRIPTION: How assets combine to deliver each function of the plant: in series, in parallel or on standby. The structure that turns one asset's failure probability into a statement about the line.
+#+CRUMB: Reliability block diagrams
+#+EYEBROW: Component · Describe
+#+HEADING: Reliability Block Diagrams
+
+#+attr_html: :class lede
+*Contour describes how your assets combine to deliver each function of the plant: in series, in parallel or on standby.* That structure is what turns one asset's failure probability into a statement about the line.
+
+* An asset tree is not enough
+
+The asset tree records what belongs to what: this pump is part of this lubrication system, which is part of this compressor train. It does not record what happens when the pump fails. Two pumps on the same header may be duty and standby, so one can fail without consequence, or both may be needed at full load, so either failure stops the train. The tree holds both arrangements identically.
+
+A reliability block diagram records the difference. It describes each function of the plant as an arrangement of blocks, and the arrangement determines how failures combine.
+
+* Series, parallel and the cases between
+
+In series, every block must work for the function to work, so the reliability of the chain is the product of its parts and always lower than its weakest block. In parallel, the function survives as long as one path does. Between the two sit k-out-of-n arrangements, such as two of three cooling fans, and standby arrangements, where a spare starts only on demand and can itself fail to start.
+
+Real plants mix all of them, and redundant paths often share something: one power supply, one instrument air header, one control system. The diagram shows that shared element as a block in its own right, because a pair of pumps is only as redundant as the supply they both depend on.
+
+#+begin_fig
+#+begin_export html
+{{< diagram "rbd-series-parallel" >}}
+#+end_export
+
+*Figure 1* The same arithmetic in two arrangements. Three blocks in series are less reliable than any one of them. Two pumps in parallel reach 0.99 until they share a supply, which puts a series element back into the path and brings the function down to 0.96. One-year reliabilities, illustrative.
+#+end_fig
+
+* Derived from the plant, kept current by rules
+
+Your engineers are not asked to draw the diagrams from scratch. Structure Rules derive them from the asset tree, the process topology and each unit's duty or standby designation, and propose every diagram for review. When a unit is decommissioned, a bypass is installed or a spare is moved, the rules update the affected diagrams, so the model describes the plant as it runs today.
+
+* What the diagrams feed
+
+System Reliability combines the life-data estimate of each block into the reliability and availability of the whole function. Failure Propagation follows a single failure through the same structure to the production it costs. Predictions from per-asset models are read against the diagram as well, so a high failure probability on a unit with a healthy standby ranks below a moderate one on a single point of failure.
+
+#+begin_faq
+* Common questions
+
+** What is a reliability block diagram?
+
+A model of how components combine to deliver a function. Each block is a component or subsystem, and the arrangement of blocks, in series, in parallel or in combinations of both, determines how their failures affect the function.
+
+** Do we need existing diagrams or FMEA studies?
+
+No. Existing studies are imported where they exist, but the diagrams are derived from the asset tree and process topology. Your engineers review them rather than draw them.
+
+** How are shared dependencies handled?
+
+A shared power supply, utility header or control system is represented as a block in series with every redundant path it serves, so redundancy that converges on one element is shown as what it is.
+
+** Can our engineers correct a diagram?
+
+Yes. A correction is recorded against the rules or the topology it came from, so it survives the next update instead of being overwritten by it.
+#+end_faq
+
+#+attr_html: :class more related
+Related: [[/product/][All components]] · [[/use-cases/][Use cases]]

@@ -1,42 +1,42 @@
-#+TITLE: Contour: take control of what your data means
-#+DESCRIPTION: Contour turns existing data infrastructure into defensible answers through AI. We build a governed model of what your business means, over the systems you already run, with every answer traced back to source.
-#+OG_TITLE: Contour: take control of what your data means
-#+OG_DESCRIPTION: You already have the data. Contour makes it answerable through a governed model your team and AI agents can query precisely.
+#+TITLE: Contour: predict failures from the plant data you already hold
+#+DESCRIPTION: Contour reads your historians, SAP and SCADA, maps every sensor to the equipment it measures, and builds reliability and failure models for each asset, so maintenance is planned on the condition of the equipment with every date traced to its records.
+#+OG_TITLE: Contour: predict failures from the plant data you already hold
+#+OG_DESCRIPTION: Reliability and failure models for each asset, built from the historians, SAP and SCADA you already run, with every date traced to the records behind it.
 #+BODY_CLASS: home
 #+FOOTER_NAV: true
 
 #+begin_hero
 #+begin_hero_text
 #+attr_html: :class eyebrow
-Contour, the platform
+Contour
 
-* We help your AI get the right answers from your databases.
+* Predict failures from the plant data you already hold.
 
 #+attr_html: :class sub
-You have a lot of data and you are under pressure for results? Contour builds the semantics your systems expect, over what you already run, so */your team/* and */your AI agents/* can go straight to the right answer.
+*Contour reads your historians, SAP and SCADA, maps every sensor to the equipment it measures, and builds reliability and failure models for each asset.* The result is maintenance planned on the condition of the equipment, with every date traced to the records behind it.
 
 #+attr_html: :class more
-[[/about/][Learn more about what we work with and how.]]
+[[/product/][See how the components fit together.]]
 #+end_hero_text
-
-#+begin_reach
-#+begin_export html
-{{< diagram "relief-open" >}}
-#+end_export
-
-#+begin_reach_arrow
-#+begin_export html
-{{< diagram "reach-arrow" >}}
-#+end_export
-#+end_reach_arrow
-
-#+begin_is_closed
-#+begin_export html
-{{< diagram "relief-closed" >}}
-#+end_export
-#+end_is_closed
-#+end_reach
 #+end_hero
+
+#+begin_story
+Most plants already record what a reliability study needs. The equipment master and failure history sit in SAP, the process signals in a historian, the alarms in SCADA. They were never joined, so the analysis is assembled by hand, one asset at a time, and the maintenance calendar comes from the manufacturer's manual instead.
+
+Contour does the joining. It extracts the asset tree, links each asset to its history and instruments, describes how assets depend on each other in series and in parallel, and fits statistical and machine-learning models over that structure. Your engineers check the method; they no longer build the dataset.
+
+#+begin_fig
+#+begin_export html
+{{< diagram "hero" >}}
+#+end_export
+
+*Figure 1* One pump, from records to plan. Contour joins your systems into a model of the plant, fits P-101 on its own history and the instruments attached to it, and states the chance it fails before the planned outage. The dashed line is provenance: the date points back to the records it was built from. Values illustrative.
+#+end_fig
+
+#+begin_export html
+<div class="steps"><span>Connect</span><span>Map</span><span>Model</span><span>Predict</span><span>Plan</span></div>
+#+end_export
+#+end_story
 
 #+begin_band
 #+attr_html: :class eyebrow
@@ -45,14 +45,14 @@ Bring us your expensive questions
 * We help you deliver the impossible.
 
 #+attr_html: :class sub
-If your current infrastructure should answer it and still can't, reach out.
+If your plant data should answer it and still can't, reach out.
 
 #+begin_offer
 #+begin_export html
 {{< diagram "query" >}}
 #+end_export
 
-You made a successful demo, and everyone loved it. But you can't get it to work in production: data is messy, your AI is getting confused, and now you are under a lot of pressure. Talk to us, we bring the expertise to make your data and AI work together.
+You have years of failure history in SAP and a historian full of sensor data, and the reliability study is still built by hand, one asset at a time. Or a pilot predicted one failure well and never made it to the rest of the plant. Talk to us: we bring the reliability engineering and the modelling to make your plant data answer.
 #+end_offer
 
 #+attr_html: :class more
@@ -61,57 +61,16 @@ You made a successful demo, and everyone loved it. But you can't get it to work 
 
 #+begin_closing
 #+attr_html: :class eyebrow
-Take control of what your data means
+Product
 
-* The same pattern of failure.
-
-#+attr_html: :class sub
-We have experience working with different segments, and over time noticed that companies don't often lack data. In fact, there is usually a lot of it; what they lack is a semantics under their control. To address that problem, we have a logic system that produces a read-model for agents and people.
+* Symbolic structure, statistical estimates.
 
 #+attr_html: :class sub
-Some domains where we can help include:
+*The plant is described explicitly: assets, components, variables, and the series and parallel dependencies between them.* Reliability statistics and per-asset models are fitted over that description, so a prediction knows which asset it is about and what fails with it.
 
-#+begin_cases_brief
-#+begin_case
-#+begin_tagline
-#+begin_export html
-{{< diagram "sector-payments" >}}
-#+end_export
-
-#+attr_html: :class tag
-Fintech & payments
-#+end_tagline
-
-How much are clients actually transacting? The answer crosses provider events, internal ledgers, bank feeds, reversals, settlements, and definitions nobody has made durable.
-#+end_case
-
-#+begin_case
-#+begin_tagline
-#+begin_export html
-{{< diagram "sector-reliability" >}}
-#+end_export
-
-#+attr_html: :class tag
-Reliability & maintenance
-#+end_tagline
-
-Which assets threaten the next outage? The plant has SAP, sensors, historians, and work orders, but engineers still assemble reliability analysis by hand.
-#+end_case
-
-#+begin_case
-#+begin_tagline
-#+begin_export html
-{{< diagram "sector-funds" >}}
-#+end_export
-
-#+attr_html: :class tag
-Funds & data platforms
-#+end_tagline
-
-Which number can the firm defend? Decades of records, or a sprawling generated warehouse, still leave positions, exposure, segments, and revenue hard to trace.
-#+end_case
-#+end_cases_brief
+#+attr_html: :class sub
+Contour is built from separate components: connectors, the asset tree, the model context layer, reliability block diagrams, life data analysis, model training and monitoring, and an interface for AI assistants. The same platform serves funds and hospitals too, wherever records exist and their meaning has never been written down.
 
 #+attr_html: :class more
-[[/use-cases/][Some concrete cases where we can help, worked through in full →]]
+[[/product/reliability-block-diagrams/][Reliability block diagrams]] · [[/product/][All components →]]
 #+end_closing
