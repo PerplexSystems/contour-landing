@@ -45,11 +45,14 @@ jobs:
 
       - name: Figures are current
         # render.sh is idempotent, so regenerating must be a no-op. If it is not,
-        # someone edited a .puml or mark.py and shipped the old SVGs.
+        # someone edited mark.py or a hand-authored SVG and shipped the old copy.
+        # PlantUML is skipped: it sizes boxes from the JVM's fonts, so the runner
+        # renders the committed .puml figures differently from the machine that
+        # made them (see the --skip-puml note in diagrams/render.sh).
         run: |
-          nix run .#diagrams
+          nix run .#diagrams -- --skip-puml
           if [ -n "$(git status --porcelain)" ]; then
-            echo "::error::Generated figures are stale. Run 'nix run .#diagrams' and commit the result."
+            echo "::error::Generated figures are stale. Run 'nix run .#diagrams -- --skip-puml' and commit the result."
             git status --porcelain
             git --no-pager diff --stat
             exit 1
