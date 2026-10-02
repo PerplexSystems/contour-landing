@@ -196,7 +196,6 @@ def cat_records():
 
 CATS = [("cat-warehouse", cat_warehouse), ("cat-stream", cat_stream),
         ("cat-historian", cat_historian), ("cat-records", cat_records)]
-CAT_LABELS = ["Warehouse", "Event stream", "Historian", "Maintenance records"]
 
 
 # ------------------------------------------------------------- sector glyphs
@@ -473,60 +472,6 @@ def linear_tablet():
     return "\n  ".join(out)
 
 
-# ---------------------------------------------------------------- home figure
-
-def hero():
-    """Sources feed one relief; the filled core is the governed model. Accent
-    leaves it exactly twice — once as the answer, once dashed on the way back
-    through the operations that produced the figure (lineage) to the records
-    those operations read (provenance). Two different guarantees, both named."""
-    # 860 wide so the figure fills the 860px measure at its natural size. It used
-    # to be 720, which left it short of the text and header; widening beats
-    # scaling up, because scaling magnifies the figure's own labels too.
-    W, H, cx, cy = 860, 350, 584, 176
-    # n scales with the drawing so the deliberate gap where a drawn line fails
-    # to meet itself stays a hairline instead of opening into a visible break
-    # innermost level is tighter than the mark's proportion: filled ink at this
-    # scale reads as a heavy blob otherwise
-    out = [relief(cx, cy, [132, 106, 81, 56, 28], 3, drift=(-9, -10),
-                  sw=2.2, n=29)]
-
-    # Each source is named. Two typographic registers keep that from becoming
-    # noise: the categories are sentence-case sans, because they are content;
-    # the annotation layer below is mono uppercase. "What you already run" is
-    # gone — with the four named, a label saying so was restating them.
-    ENDS = [(477, 120), (462, 157), (462, 195), (477, 232)]
-    for i, (name, fn) in enumerate(CATS):
-        gy = 26 + i * 78
-        out.append(f'<g transform="translate(16,{gy}) scale(0.86)">{fn()}</g>')
-        y, (ex, ey) = gy + 26, ENDS[i]
-        out.append(f'<text x="68" y="{y + 4}" font-size="11" '
-                   f'fill="var(--muted)">{CAT_LABELS[i]}</text>')
-        out.append(f'<path d="M176,{y:.0f} C280,{y:.0f} 380,{ey} {ex},{ey}" '
-                   f'fill="none" stroke="var(--rule)" stroke-width="1.4"/>')
-
-    out.append(f'<path d="M{cx + 12},{cy - 30} L790,74" stroke="var(--accent)" '
-               f'stroke-width="2.2" stroke-linecap="round"/>')
-    out.append('<circle cx="796" cy="70" r="5.4" fill="var(--accent)"/>')
-    out.append(f'<path d="M{cx - 26},{cy + 14} C480,255 250,310 62,304" '
-               f'fill="none" stroke="var(--accent)" stroke-width="2" '
-               f'stroke-dasharray="5 5" stroke-linecap="round"/>')
-    # the trace lands on a record rather than trailing off
-    out.append('<circle cx="62" cy="304" r="4.4" fill="var(--accent)"/>')
-
-    # Both annotations sit below the line they annotate, clear of the feeders.
-    lbl = ('font:500 10px ui-monospace,SFMono-Regular,Menlo,monospace;'
-           'letter-spacing:.1em;text-transform:uppercase')
-    for x, y, fill, txt in [
-            (516, 332, "var(--muted)", "One governed model"),
-            (700, 46, "var(--accent)", "Answer"),
-            (420, 272, "var(--accent)", "Lineage"),
-            (118, 326, "var(--accent)", "Provenance")]:
-        out.append(f'<text x="{x}" y="{y}" style="{lbl}" fill="{fill}">'
-                   f'{txt}</text>')
-    return "\n  ".join(out), W, H
-
-
 # ---------------------------------------------------------------- emit
 
 def write(name, body, w, h, attrs="", title=None):
@@ -593,13 +538,9 @@ def main():
     n += write("linear-tablet", linear_tablet(), 360, 260, ' role="img"',
                "A clay tablet whose signs become legible when connected to "
                "ordinary places and records")
-    body, w, h = hero()
-    n += write("hero", body, w, h, ' style="max-width:860px" role="img"',
-               "Your source systems resolved into one governed model, with an "
-               "answer traced back through its lineage to the records it came "
-               "from")
-    print(f"  marks + icons + hero      "
-          f"{2 + len(ICONS) + len(CATS) + len(SECTORS) + 6} files,"
+    # the home figure is hand-authored now (diagrams/hero.svg), not generated
+    print(f"  marks + icons             "
+          f"{2 + len(ICONS) + len(CATS) + len(SECTORS) + 5} files,"
           f" {n} bytes")
 
 
